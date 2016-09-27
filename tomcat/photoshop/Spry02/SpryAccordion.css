@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+.Accordion {
+	border-left: solid 1px gray;
+	border-right: solid 1px gray;
+	border-bottom: solid 1px gray;
+	overflow: hidden;
+}
+
+
+.AccordionPanel {
+	margin: 0px;
+	padding: 0px;
+}
+
+
+.AccordionPanelTab {
+	border-top: solid 1px gray;
+	border-bottom: solid 1px gray;
+	margin: 0px;
+	cursor: pointer;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	background-image: url(../images/bar_bg1.jpg);
+	line-height: 35px;
+	padding-top: 2px;
+	padding-right: 2px;
+	padding-bottom: 2px;
+	padding-left: 15px;
+}
+
+
+
+
+.AccordionPanelContent {
+	overflow: auto;
+	margin: 0px;
+	padding: 0px;
+	height: auto;
+}
+
+
+.AccordionPanelOpen .AccordionPanelTab {
+	background-color: #EEEEEE;
+}
+
+
+.AccordionPanelTabHover {
+	color: #555555;
+}
+.AccordionPanelOpen .AccordionPanelTabHover {
+	color: #555555;
+}
+
+
+.AccordionFocused .AccordionPanelTab {
+
+}
+
+
+.AccordionFocused .AccordionPanelOpen .AccordionPanelTab {
+}
+
+@media print {
+
+  .Accordion {
+  overflow: visible !important;
+  }
+  
+  .AccordionPanelContent {
+  display: block !important;
+  overflow: visible !important;
+  height: auto !important;
+  }
+}

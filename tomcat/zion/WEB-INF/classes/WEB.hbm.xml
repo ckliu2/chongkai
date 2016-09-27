@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	
+   <!-- 
+    ************************ 
+    * 主選單管理
+    ************************
+    -->   
+  <class name="com.web.value.Menu" table="WEB_Menu">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+            <generator class="identity"/>
+     </id>
+    <property name="name" type="string" length="20" not-null="true"/>
+    <property name="seqNo"  type="integer" not-null="true" />
+    <property name="status" type="boolean" column="status"/>
+    <property name="content" type="string" length="5000" />
+    <property name="url" type="string" length="100" />
+    <property name="lastModifiedDate"  type="timestamp" not-null="true" />	 
+    <property name="createdDate"  type="timestamp" insert="true" update="false"  not-null="true" />	     
+   <!--   <many-to-one name="subMenu"	class="com.web.value.SubMenu" cascade="none"  />-->
+    <many-to-one name="lastModifiedUser" class="com.common.value.Member" cascade="none" not-null="true" />
+    <many-to-one name="createdUser" class="com.common.value.Member" cascade="none" not-null="true" />   
+  </class>
+  
+  
+ <!-- 
+    ************************ 
+    * 子選單管理
+    ************************
+    -->   
+  <class name="com.web.value.SubMenu" table="WEB_SubMenu">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+            <generator class="identity"/>
+     </id>
+    <property name="name" type="string" length="20" not-null="true"/>
+    <property name="seqNo" type="integer" not-null="true" />
+    <property name="status" type="boolean" column="status"/>
+    <property name="content" type="string" length="5000" />
+    <property name="url" type="string" length="1000" />
+    <property name="lastModifiedDate"  type="timestamp" not-null="true" />	 
+    <property name="createdDate"  type="timestamp" insert="true" update="false"  not-null="true" />	     
+    <many-to-one name="menu"	class="com.web.value.Menu"	cascade="none"  />
+    <many-to-one name="lastModifiedUser" class="com.common.value.Member" cascade="none" not-null="true" />
+    <many-to-one name="createdUser" class="com.common.value.Member" cascade="none" not-null="true" />   
+    <many-to-one name="linkType" class="com.base.value.AppProperty" cascade="none"  />
+  </class>
+  
+  
+   <!-- 
+    ************************ 
+    * 子選項管理
+    ************************
+    -->   
+  <class name="com.web.value.SubItem" table="WEB_SubItem">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+            <generator class="identity"/>
+     </id>
+    <property name="name" type="string" length="50" not-null="true"/>
+    <property name="seqNo"  type="integer" not-null="true" />
+    <property name="status"  type="boolean" column="status"/>
+    <property name="content" type="string" length="5000" />
+    <property name="url" type="string" length="100" />
+    <property name="lastModifiedDate"  type="timestamp" not-null="true" />	 
+    <property name="createdDate"  type="timestamp" insert="true" update="false"  not-null="true" />	     
+    <many-to-one name="lastModifiedUser" class="com.common.value.Member" cascade="none" not-null="true" />
+    <many-to-one name="createdUser" class="com.common.value.Member" cascade="none" not-null="true" />
+    <many-to-one name="subMenu" class="com.web.value.SubMenu" cascade="none" not-null="true" />
+    <many-to-one name="linkType" class="com.base.value.AppProperty" cascade="none"  />   
+  </class>
+  
+  
+     <!-- 
+    ************************ 
+    * 部落格類別管理
+    ************************
+    -->   
+  <class name="com.web.value.BolgClass" table="WEB_BolgClass">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+            <generator class="identity"/>
+     </id>
+    <property name="name" type="string" length="20" not-null="true"/>
+    <property name="seqNo"  type="integer" not-null="true" />
+    <property name="status"  type="boolean" column="status"/>   
+    <property name="lastModifiedDate"  type="timestamp" not-null="true" />	 
+    <property name="createdDate"  type="timestamp" insert="true" update="false"  not-null="true" />	     
+    <many-to-one name="lastModifiedUser" class="com.common.value.Member" cascade="none" not-null="true" />
+    <many-to-one name="createdUser" class="com.common.value.Member" cascade="none" not-null="true" /> 
+        
+  </class>
+  
+  
+   <!-- 
+    ************************ 
+    * 部落格管理
+    ************************
+    -->   
+  <class name="com.web.value.Bolg" table="WEB_Bolg">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+            <generator class="identity"/>
+     </id>
+    <property name="name" type="string"  not-null="true"/>
+    <property name="link" type="string" length="200" />   
+    <property name="content" type="string"  />
+    <property name="memo" type="string" length="50" />
+    <property name="seqNo"  type="integer" not-null="true" />
+    <property name="status"  type="boolean" column="status"/>
+    <property name="beginDate" 			type="date" 		column="beginDate"/>
+    <property name="endDate" 			type="date" 		column="endDate"/>
+    <property name="lastModifiedDate"  type="timestamp" not-null="true" />	 
+    <property name="createdDate"  type="timestamp" insert="true" update="false"  not-null="true" />	     
+    <many-to-one name="lastModifiedUser" class="com.common.value.Member" cascade="none" not-null="true" />
+    <many-to-one name="createdUser" class="com.common.value.Member" cascade="none" not-null="true" /> 
+    <many-to-one name="file" class="com.base.value.UploadedFile" cascade="all" />   
+    <many-to-one name="photo"  class="com.base.value.UploadedFile" cascade="all" />  
+    <many-to-one name="bolgClass" class="com.web.value.BolgClass" cascade="none" />
+    <many-to-one name="linkType" class="com.base.value.AppProperty" cascade="none"  />
+  </class>
+  
+  
+     <!-- 
+    ************************ 
+    * 好站連結管理
+    ************************
+    -->   
+  <class name="com.web.value.Links" table="WEB_Links">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+            <generator class="identity"/>
+     </id>
+    <property name="name" type="string" length="20" not-null="true"/>
+    <property name="link" type="string" length="50" />    
+    <property name="seqNo"  type="integer" not-null="true" />
+    <property name="status"  type="boolean" column="status"/>    
+    <property name="lastModifiedDate"  type="timestamp" not-null="true" />	 
+    <property name="createdDate"  type="timestamp" insert="true" update="false"  not-null="true" />	     
+    <many-to-one name="lastModifiedUser" class="com.common.value.Member" cascade="none" not-null="true" />
+    <many-to-one name="createdUser" class="com.common.value.Member" cascade="none" not-null="true" />   
+    <many-to-one name="photo"  class="com.base.value.UploadedFile" cascade="all" /> 
+  </class>
+  
+  
+   <!-- 
+    ************************ 
+    * 公告管理
+    ************************
+    -->   
+  <class name="com.web.value.Bulletin" table="WEB_Bulletin">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+            <generator class="identity"/>
+     </id>
+    <property name="bulletinDate" type="date" not-null="true"/> 
+    <property name="subject" type="string" length="50" not-null="true"/>     
+    <property name="title" type="string" length="50" />  
+    <property name="description" type="java.lang.String"  length="65535" />
+    <property name="placeDesc" type="string" length="100" />  
+    <property name="timeDesc" type="string" length="100" />
+    <property name="speaker" type="string" length="20" />
+    <property name="flv" type="string" length="50" />
+    <property name="worshipFlv" type="string" length="50" />
+    <property name="status"  type="boolean" column="status"/>    
+    <property name="lastModifiedDate"  type="timestamp" not-null="true" />	 
+    <property name="createdDate"  type="timestamp" insert="true" update="false"  not-null="true" />	     
+    <many-to-one name="lastModifiedUser" class="com.common.value.Member" cascade="none" not-null="true" />
+    <many-to-one name="createdUser" class="com.common.value.Member" cascade="none" not-null="true" update="false"  /> 
+    <many-to-one name="bulletinType" class="com.base.value.AppProperty" cascade="none" not-null="true" />  
+    <many-to-one name="file"  class="com.base.value.UploadedFile" cascade="all" /> 
+    <many-to-one name="voice"  class="com.base.value.UploadedFile" cascade="all" />
+    <many-to-one name="vedio"  class="com.base.value.UploadedFile" cascade="all" />
+    <many-to-one name="frontcover"  class="com.base.value.UploadedFile" cascade="all" />   
+  </class>
+  
+  
+    <!-- 
+    ************************ 
+    * 會議室管理
+    ************************
+    -->
+     
+  <class name="com.web.value.Room" table="WEB_Room">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+            <generator class="identity"/>
+     </id>
+    <property name="no"   type="string" length="10" />
+    <property name="name" type="string" length="20" not-null="true"/>    
+    <property name="floor"  type="integer" not-null="true" />
+    <property name="seqNo"  type="integer" not-null="true" />  
+    <property name="meno" type="string" length="200" />  
+
+    <property name="lastModifiedDate"  type="timestamp" not-null="true" />	 
+    <property name="createdDate"  type="timestamp" insert="true" update="false"  not-null="true" />	     
+    <many-to-one name="lastModifiedUser" class="com.common.value.Member" cascade="none" not-null="true" />
+    <many-to-one name="createdUser" class="com.common.value.Member" cascade="none"  />   
+  </class>
+
+  
+    <!-- 
+    ************************ 
+    * 時段管理
+    ************************
+   -->
+     
+  <class name="com.web.value.Clock" table="WEB_Clock">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+            <generator class="identity"/>
+     </id>
+    <property name="name" type="string" length="20" not-null="true"/>  
+    <property name="seqNo"  type="integer" not-null="true" />  
+    <property name="meno" type="string" length="200" />   
+    <property name="lastModifiedDate"  type="timestamp" not-null="true" />	 
+    <property name="createdDate"  type="timestamp" insert="true" update="false"  not-null="true" />	     
+    <many-to-one name="lastModifiedUser" class="com.common.value.Member" cascade="none" not-null="true" />
+    <many-to-one name="createdUser" class="com.common.value.Member" cascade="none"  />   
+  </class>
+   
+  
+   <!-- 
+    ************************ 
+    * 設備管理
+    ************************
+     -->
+     
+  <class name="com.web.value.Equipment" table="WEB_Equipment">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+            <generator class="identity"/>
+     </id>
+    <property name="name" type="string" length="20" not-null="true"/>  
+    <property name="quantity"  type="integer" not-null="true" />  
+    <property name="meno" type="string" length="200" />    
+        
+    <many-to-one name="department" class="com.common.value.Department" cascade="none" not-null="true" />
+    <property name="lastModifiedDate"  type="timestamp" not-null="true" />	 
+    <property name="createdDate"  type="timestamp" insert="true" update="false"  not-null="true" />	     
+    <many-to-one name="lastModifiedUser" class="com.common.value.Member" cascade="none" not-null="true" />
+    <many-to-one name="createdUser" class="com.common.value.Member" cascade="none"  />   
+  </class>
+ 
+  
+    <!-- 
+    ************************ 
+    * 審查管理
+    ************************
+     -->
+     
+  <class name="com.web.value.CheckingState" table="WEB_CheckingState">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+            <generator class="identity"/>
+    </id>
+    <property name="formName" type="string" length="20" not-null="true"/>  
+    <property name="formId"    type="long" not-null="true"  />		
+    <property name="comment" type="string" length="200" />
+    <many-to-one name="state" class="com.base.value.AppProperty" cascade="none" not-null="true" />
+    <property name="createdDate"  type="timestamp" insert="true" update="false"  not-null="true" />	 
+    <many-to-one name="createdUser" class="com.common.value.Member" cascade="none"  />   
+  </class>
+ 
+  
+
+
+    <!-- 
+    ************************ 
+    * 場地單管理
+    ************************
+    -->
+     
+  <class name="com.web.value.EquipmentAppForm" table="WEB_EquipmentAppForm">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+            <generator class="identity"/>
+     </id>
+    <property name="date"  type="timestamp"    not-null="true" />     
+    <property name="otherMeeting" type="string" length="20"/>  
+    <property name="meno" type="string" length="200" />
+    <property name="borrowDate"  type="timestamp"  />
+    <property name="returnDate"  type="timestamp"  />
+    <property name="state" type="string" length="10" />    
+    <property name="lastModifiedDate"  type="timestamp" not-null="true" />	 
+    <property name="createdDate"  type="timestamp" insert="true" update="false"  not-null="true" /> 
+    
+   
+    <many-to-one name="room" class="com.web.value.Room" cascade="none" not-null="true" />
+    <many-to-one name="meeting" class="com.base.value.AppProperty" cascade="none" not-null="true" />
+    <many-to-one name="applyBeginClock" class="com.web.value.Clock" cascade="none" not-null="true" />
+    <many-to-one name="applyEndClock" class="com.web.value.Clock" cascade="none" not-null="true" />    
+    <many-to-one name="lastModifiedUser" class="com.common.value.Member" cascade="none" not-null="true" />
+    <many-to-one name="createdUser" class="com.common.value.Member" cascade="none"  insert="true" update="false"/>   
+  
+   <list name="borrowQuantity" cascade="none" lazy="false" table="WEB_EquipmentAppFormDetail">
+		<meta attribute="widget">two-list</meta>
+		<key column="equipmentAppFormId" /> 
+		<index column="idx" /> 
+        <composite-element class="com.web.value.EquipmentBorQuantity">
+   			<property name="quantity" 	   type="integer" 	   column="quantity" 	not-null="true"	  />
+      		<many-to-one name="equipment"   column="equipment"   class="com.web.value.Equipment" not-null="true"/>
+        </composite-element>
+	</list>
+  
+  </class>
+  
+  
+    <!-- 
+    ************************ 
+    * 場地單管理
+    ************************
+    -->
+     
+  <class name="com.web.value.RoomAppForm" table="WEB_RoomAppForm">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+            <generator class="identity"/>
+     </id>
+    <property name="date"  type="timestamp"    not-null="true" />     
+    <property name="otherMeeting" type="string" length="20"/>  
+    <property name="meno" type="string" length="200" />
+    <property name="borrowDate"  type="timestamp"  />
+    <property name="state" type="string" length="10" />    
+    <property name="lastModifiedDate"  type="timestamp" not-null="true" />	 
+    <property name="createdDate"  type="timestamp" insert="true" update="false"  not-null="true" /> 
+    
+    <!--  
+    <one-to-one name="equipmentAppForm"  class="com.web.value.EquipmentAppForm"  property-ref="equipmentAppForm"/>
+    -->    
+    <many-to-one name="meeting" class="com.base.value.AppProperty" cascade="none" not-null="true" />
+    <many-to-one name="applyBeginClock" class="com.web.value.Clock" cascade="none" not-null="true" />
+    <many-to-one name="applyEndClock" class="com.web.value.Clock" cascade="none" not-null="true" />    
+    <many-to-one name="lastModifiedUser" class="com.common.value.Member" cascade="none" not-null="true" />
+    <many-to-one name="createdUser" class="com.common.value.Member" cascade="none"  insert="true" update="false"/>   
+  
+    <list name="room" cascade="none" lazy="false" table="WEB_UseRoom">
+      <meta attribute="widget">two-list</meta>
+      <key column="roomAppFormId"/>
+      <index column="idx"/>
+      <many-to-many class="com.web.value.Room" column="roomId"/>
+    </list> 
+  
+  </class>
+
+  	     
+</hibernate-mapping>

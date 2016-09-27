@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="loginAction" class="com.common.web.action.LoginAction" singleton="false">
+        <property name="genericManager" ref="commonManager"/>
+    </bean>
+
+    <bean id="appPropertyAction" class="com.common.web.action.AppPropertyAction" singleton="false">
+        <property name="genericManager" ref="appPropertyManager"/>
+    </bean>
+
+<!-- ********************************************* -->
+
+    <bean id="prayTWGlobalAction" class="org.zion.web.action.PrayTWGlobalAction" singleton="false">
+        <property name="genericManager" ref="prayTWGlobalManager"/>
+    </bean>
+
+    <bean id="everyBibleAction" class="org.zion.web.action.EveryBibleAction" singleton="false">
+        <property name="genericManager" ref="everyBibleManager"/>
+    </bean>
+
+    <bean id="bibleAction" class="org.zion.web.action.BibleAction" singleton="false">
+        <property name="genericManager" ref="bibleManager"/>
+    </bean>
+
+    <bean id="bibleLectionAction" class="org.zion.web.action.BibleLectionAction" singleton="false">
+        <property name="genericManager" ref="bibleLectionManager"/>
+    </bean>
+
+    <bean id="prayYouAction" class="org.zion.web.action.PrayYouAction" singleton="false">
+        <property name="genericManager" ref="prayYouManager"/>
+    </bean>
+
+    <bean id="livelyBibleAction" class="org.zion.web.action.LivelyBibleAction" singleton="false">
+        <property name="genericManager" ref="livelyBibleManager"/>
+    </bean>
+
+    <bean id="prayMeAction" class="org.zion.web.action.PrayMeAction" singleton="false">
+        <property name="genericManager" ref="prayMeManager"/>
+    </bean>
+
+    <bean id="prayTWClaimAction" class="org.zion.web.action.PrayTWClaimAction" singleton="false">
+        <property name="genericManager" ref="prayTWClaimManager"/>
+    </bean>
+
+    <bean id="prayAction" class="org.zion.web.action.PrayAction" singleton="false">
+        <property name="genericManager" ref="prayManager"/>
+    </bean>
+
+    <bean id="sundayInforAction" class="org.zion.web.action.SundayInforAction" singleton="false">
+        <property name="genericManager" ref="sundayInforManager"/>
+    </bean>
+
+    <bean id="prayTWAction" class="org.zion.web.action.PrayTWAction" singleton="false">
+        <property name="genericManager" ref="prayTWManager"/>
+    </bean>
+
+    <bean id="prayStreetAction" class="org.zion.web.action.PrayStreetAction" singleton="false">
+        <property name="genericManager" ref="prayStreetManager"/>
+    </bean>
+

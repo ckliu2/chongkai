@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mappingResources">
+            <list>
+                <value>Common.hbm.xml</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <!-- prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop -->
+                <prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.connection.charSet">UTF-8</prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="commonDAO" class="com.common.dao.hibernate.CommonDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="appPropertyDAO" class="com.common.dao.hibernate.AppPropertyDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+<!-- ********************************************* -->
+
+    <bean id="courseDAO" class="com.city.dao.hibernate.CourseDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="courseMemberDAO" class="com.city.dao.hibernate.CourseMemberDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="subMenuDAO" class="com.web.dao.hibernate.SubMenuDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="clockDAO" class="com.web.dao.hibernate.ClockDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="subItemDAO" class="com.web.dao.hibernate.SubItemDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="linksDAO" class="com.web.dao.hibernate.LinksDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="bulletinDAO" class="com.web.dao.hibernate.BulletinDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="consultantDAO" class="com.web.dao.hibernate.ConsultantDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="checkingStateDAO" class="com.web.dao.hibernate.CheckingStateDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="bolgClassDAO" class="com.web.dao.hibernate.BolgClassDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="perReferDAO" class="com.web.dao.hibernate.PerReferDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="bolgDAO" class="com.web.dao.hibernate.BolgDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="roomDAO" class="com.web.dao.hibernate.RoomDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="menuDAO" class="com.web.dao.hibernate.MenuDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="agreeTermsDAO" class="com.web.dao.hibernate.AgreeTermsDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+

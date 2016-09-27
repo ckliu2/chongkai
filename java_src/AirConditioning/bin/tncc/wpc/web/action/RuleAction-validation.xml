@@ -1,0 +1,35 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+    <field name="rule.name">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    
+    
+    <field name="rule.devicePropertyId">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    
+    
+    <field name="rule.decisionId">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    
+
+    
+    <field name="rule.during">
+        <field-validator type="int">
+            <message key="errors.numericRequired"></message>
+        </field-validator>
+    </field>
+    
+
+    
+</validators>

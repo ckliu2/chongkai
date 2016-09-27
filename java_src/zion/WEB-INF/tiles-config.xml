@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+    <definition name="default" path="/layout/template.jsp">
+        <put name="title" value="Information System"/>
+        <put name="menu" value="/layout/menu.jsp"/>
+        <put name="rightColumn" value="/layout/right.jsp"/>
+    </definition>    
+
+    <definition name="noMenuTemplate" path="/layout/noMenuTemplate.jsp">
+        <put name="title" value="Information System"/>
+    </definition>  
+    
+
+    <definition name="WebSiteTemplate" path="/layout/WebSiteTemplate.jsp">
+        <put name="header" value="/layout/header.jsp"/>       
+    </definition>    
+    
+
+    <definition name="searchResultTemplate" path="/layout/searchResultTemplate.jsp">
+        <put name="title" value="Information System"/>
+    </definition>
+
+    <definition name="dataAccessFailure" extends="default">
+        <put name="title" value="Data Access Error"/>
+        <put name="content" value="/common/dataAccessFailure.jsp"/>
+    </definition>
+
+    <definition name="blank" extends="default">
+        <put name="title" value=""/>
+        <put name="content" value="/common/blank.jsp"/>
+    </definition>
+
+    <definition name="editTimeExceed" extends="default">
+        <put name="title" value=""/>
+        <put name="content" value="/common/editTimeExceed.jsp"/>
+    </definition>
+  
+
+    <!-- 
+    ************************ 
+    * AppProperty 
+    ************************
+    -->
+    <definition name="appPropertyList" extends="default">
+        <put name="content" value="/adm/appPropertyList.jsp"/>
+    </definition>
+    <definition name="appPropertyForm" extends="default">
+        <put name="content" value="/adm/appPropertyForm.jsp"/>
+    </definition>
+ 
+     <!-- 
+    ************************ 
+    * MiscCode 
+    ************************
+    -->
+    <definition name="miscCodeList" extends="default">
+        <put name="content" value="/adm/miscCodeList.jsp"/>
+    </definition>
+    <definition name="miscCodeForm" extends="default">
+        <put name="content" value="/adm/miscCodeForm.jsp"/>
+    </definition>
+ 
+     <!-- 
+    ************************ 
+    * Function 
+    ************************
+    -->
+    <definition name="functionList" extends="default">
+        <put name="content" value="/adm/functionList.jsp"/>
+    </definition>
+
+    <definition name="functionForm" extends="default">
+        <put name="content" value="/adm/functionForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * FunctionCategory 
+    ************************
+    -->
+    <definition name="functionCategoryList" extends="default">
+        <put name="content" value="/adm/functionCategoryList.jsp"/>
+    </definition>
+
+    <definition name="functionCategoryForm" extends="default">
+        <put name="content" value="/adm/functionCategoryForm.jsp"/>
+    </definition>
+    
+    
+     <!-- 
+    ************************ 
+    * Unit 
+    ************************
+    -->
+    <definition name="unitList" extends="default">
+        <put name="content" value="/adm/unitList.jsp"/>
+    </definition>
+
+    <definition name="unitForm" extends="default">
+        <put name="content" value="/adm/unitForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Group 
+    ************************
+    -->
+    <definition name="groupList" extends="default">
+        <put name="content" value="/adm/groupList.jsp"/>
+    </definition>
+
+    <definition name="groupForm" extends="default">
+        <put name="content" value="/adm/groupForm.jsp"/>
+    </definition>
+    
+    
+    <!-- 
+    ************************ 
+    * Department 
+    ************************
+    -->
+    <definition name="departmentList" extends="default">
+        <put name="content" value="/adm/departmentList.jsp"/>
+    </definition>
+
+    <definition name="departmentForm" extends="default">
+        <put name="content" value="/adm/departmentForm.jsp"/>
+    </definition>
+    
+    <!-- 
+    ************************ 
+    * Grade 
+    ************************
+    -->
+    <definition name="gradeList" extends="default">
+        <put name="content" value="/adm/gradeList.jsp"/>
+    </definition>
+
+    <definition name="gradeForm" extends="default">
+        <put name="content" value="/adm/gradeForm.jsp"/>
+    </definition>
+    
+    <!-- 
+    ************************ 
+    * Team 
+    ************************
+    -->
+    <definition name="teamList" extends="default">
+        <put name="content" value="/adm/teamList.jsp"/>
+    </definition>
+
+    <definition name="teamForm" extends="default">
+        <put name="content" value="/adm/teamForm.jsp"/>
+    </definition>
+    
+    
+    <!-- 
+    ************************ 
+    * Industry 
+    ************************
+    -->
+    <definition name="industryList" extends="default">
+        <put name="content" value="/adm/industryList.jsp"/>
+    </definition>
+
+    <definition name="industryForm" extends="default">
+        <put name="content" value="/adm/industryForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * WebSite 
+    ************************
+    -->
+    <definition name="webSiteList" extends="default">
+        <put name="content" value="/adm/webSiteList.jsp"/>
+    </definition>
+
+    <definition name="webSiteForm" extends="default">
+        <put name="content" value="/adm/webSiteForm.jsp"/>
+    </definition>
+    
+    <!-- 
+    ************************ 
+    * WebLog 
+    ************************
+    -->
+    <definition name="webLogList" extends="default">
+        <put name="content" value="/adm/webLogList.jsp"/>
+    </definition>
+
+    <definition name="webLogForm" extends="default">
+        <put name="content" value="/adm/webLogForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Member 
+    ************************
+    -->
+    <definition name="memberList" extends="default">
+        <put name="content" value="/adm/memberList.jsp"/>
+    </definition>
+
+    <definition name="memberForm" extends="default">
+        <put name="content" value="/adm/memberForm.jsp"/>
+    </definition>
+    
+    <definition name="queryMember" extends="default">
+        <put name="content" value="/adm/queryMember.jsp"/>
+    </definition>
+    
+     <definition name="onlineMember" extends="noMenuTemplate">
+        <put name="content" value="/online/onlineMember.jsp"/>
+     </definition>
+     
+    <definition name="memberIndex" extends="noMenuTemplate">
+        <put name="content" value="/online/memberIndex.jsp"/>
+     </definition>
+     
+    <definition name="memberRegister" extends="noMenuTemplate">
+        <put name="content" value="/online/memberRegister.jsp"/>
+    </definition>
+    
+    <definition name="queryMemberListTop" extends="noMenuTemplate">
+        <put name="content" value="/adm/queryMemberListTop.jsp"/>
+    </definition>    
+
+
+    <definition name="memberFormInfo" extends="noMenuTemplate">
+        <put name="content" value="/adm/memberFormInfo.jsp"/>
+    </definition>
+    
+    
+    <!-- 
+    ************************ 
+    * sms 
+    ************************
+    -->
+    <definition name="mail" extends="default">
+        <put name="content" value="/adm/mail.jsp"/>
+    </definition>
+    
+    <!-- 
+    ************************ 
+    * SmsMailRec 
+    ************************
+    -->
+    <definition name="smsMailRecList" extends="noMenuTemplate">
+        <put name="content" value="/adm/smsMailRecList.jsp"/>
+    </definition>
+    
+   
+
+<!-- *********************** ZION ************************** -->
+
+    <!-- 
+    ************************ 
+    * PrayTWGlobal 
+    ************************
+    -->
+    <definition name="prayTWGlobalList" extends="default">
+        <put name="content" value="/pray/prayTWGlobalList.jsp"/>
+    </definition>
+
+    <definition name="prayTWGlobalForm" extends="default">
+        <put name="content" value="/pray/prayTWGlobalForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * PrayYou 
+    ************************
+    -->
+    <definition name="prayYouList" extends="default">
+        <put name="content" value="/pray/prayYouList.jsp"/>
+    </definition>
+
+    <definition name="prayYouForm" extends="default">
+        <put name="content" value="/pray/prayYouForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * PrayMe 
+    ************************
+    -->
+    <definition name="prayMeList" extends="default">
+        <put name="content" value="/pray/prayMeList.jsp"/>
+    </definition>
+
+    <definition name="prayMeForm" extends="default">
+        <put name="content" value="/pray/prayMeForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * PrayTWClaim 
+    ************************
+    -->
+    <definition name="prayTWClaimList" extends="default">
+        <put name="content" value="/pray/prayTWClaimList.jsp"/>
+    </definition>
+
+    <definition name="prayTWClaimForm" extends="default">
+        <put name="content" value="/pray/prayTWClaimForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Pray 
+    ************************
+    -->
+    <definition name="prayList" extends="default">
+        <put name="content" value="/pray/prayList.jsp"/>
+    </definition>
+
+    <definition name="prayForm" extends="default">
+        <put name="content" value="/pray/prayForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * PrayTW 
+    ************************
+    -->
+    <definition name="prayTWList" extends="default">
+        <put name="content" value="/pray/prayTWList.jsp"/>
+    </definition>
+
+    <definition name="prayTWForm" extends="default">
+        <put name="content" value="/pray/prayTWForm.jsp"/>
+    </definition>
+    
+    <!-- 
+    ************************ 
+    * SundayInfor 
+    ************************
+    -->
+    <definition name="sundayInforList" extends="default">
+        <put name="content" value="/pray/sundayInforList.jsp"/>
+    </definition>
+
+    <definition name="sundayInforForm" extends="default">
+        <put name="content" value="/pray/sundayInforForm.jsp"/>
+    </definition>
+    
+    
+</tiles-definitions>

@@ -1,0 +1,209 @@
+<!DOCTYPE xwork PUBLIC
+    "-//OpenSymphony Group//XWork 1.1.1//EN"
+    "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+    <include file="webwork-default.xml" />
+
+    <package name="default" extends="webwork-default">
+        <interceptors>
+            <interceptor-stack name="defaultStack">
+                <interceptor-ref name="exception" />
+                <interceptor-ref name="alias" />
+                <interceptor-ref name="servlet-config" />
+                <interceptor-ref name="prepare" />
+                <interceptor-ref name="i18n" />
+                <interceptor-ref name="chain" />
+                <interceptor-ref name="model-driven" />
+                <interceptor-ref name="fileUpload" />
+                <interceptor-ref name="static-params" />
+                <interceptor-ref name="params" />
+                <interceptor-ref name="conversionError" />
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">execute,delete,edit,list,copy</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back</param>
+                </interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <global-results>
+            <result name="dataAccessFailure" type="tiles">dataAccessFailure</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="org.springframework.dao.DataAccessException"
+                result="dataAccessFailure"/>
+        </global-exception-mappings>
+
+        <!-- Login -->
+        <action name="login" class="loginAction">
+            <result name="input">index.jsp</result>
+            <result name="success" type="tiles">blank</result>
+        </action>
+
+        <action name="logout" class="loginAction" method="logout">
+            <result name="success">index.jsp</result>
+            <result name="input">index.jsp</result>
+        </action>
+
+    <!-- AppProperty -->
+        <action name="appPropertyList" class="appPropertyAction" method="list">
+            <result name="success" type="tiles">appPropertyList</result>
+            <result name="input" type="tiles">appPropertyList</result>
+        </action>
+
+        <action name="editAppProperty" class="appPropertyAction" method="edit">
+            <result name="success" type="tiles">appPropertyForm</result>
+            <result name="input" type="tiles">appPropertyList</result>
+        </action>
+
+        <action name="saveAppProperty" class="appPropertyAction">
+            <result name="delete" type="redirect">appPropertyList.html</result>
+            <result name="input" type="tiles">appPropertyForm</result>
+            <result name="success" type="chain">saveAppPropertyWithValidation</result>
+        </action>
+
+        <action name="saveAppPropertyWithValidation" class="appPropertyAction" method="save">
+            <result name="input" type="tiles">appPropertyForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+<!-- ********************************************* -->
+
+    <!-- ProfitDetail -->
+        <action name="profitDetailList" class="profitDetailAction" method="list">
+            <result name="success" type="tiles">profitDetailList</result>
+            <result name="input" type="tiles">profitDetailList</result>
+        </action>
+
+        <action name="editProfitDetail" class="profitDetailAction" method="edit">
+            <result name="success" type="tiles">profitDetailForm</result>
+            <result name="input" type="tiles">profitDetailList</result>
+        </action>
+
+        <action name="copyProfitDetail" class="profitDetailAction" method="copy">
+            <result name="success" type="tiles">profitDetailForm</result>
+            <result name="input" type="tiles">profitDetailList</result>
+        </action>
+
+        <action name="saveProfitDetail" class="profitDetailAction">
+            <result name="delete" type="redirect">profitDetailList.html</result>
+            <result name="input" type="tiles">profitDetailForm</result>
+            <result name="success" type="chain">saveProfitDetailWithValidation</result>
+        </action>
+
+        <action name="saveProfitDetailWithValidation" class="profitDetailAction" method="save">
+            <result name="input" type="tiles">profitDetailForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- CustomerStandardCost -->
+        <action name="customerStandardCostList" class="customerStandardCostAction" method="list">
+            <result name="success" type="tiles">customerStandardCostList</result>
+            <result name="input" type="tiles">customerStandardCostList</result>
+        </action>
+
+        <action name="editCustomerStandardCost" class="customerStandardCostAction" method="edit">
+            <result name="success" type="tiles">customerStandardCostForm</result>
+            <result name="input" type="tiles">customerStandardCostList</result>
+        </action>
+
+        <action name="copyCustomerStandardCost" class="customerStandardCostAction" method="copy">
+            <result name="success" type="tiles">customerStandardCostForm</result>
+            <result name="input" type="tiles">customerStandardCostList</result>
+        </action>
+
+        <action name="saveCustomerStandardCost" class="customerStandardCostAction">
+            <result name="delete" type="redirect">customerStandardCostList.html</result>
+            <result name="input" type="tiles">customerStandardCostForm</result>
+            <result name="success" type="chain">saveCustomerStandardCostWithValidation</result>
+        </action>
+
+        <action name="saveCustomerStandardCostWithValidation" class="customerStandardCostAction" method="save">
+            <result name="input" type="tiles">customerStandardCostForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- ProfitFee -->
+        <action name="profitFeeList" class="profitFeeAction" method="list">
+            <result name="success" type="tiles">profitFeeList</result>
+            <result name="input" type="tiles">profitFeeList</result>
+        </action>
+
+        <action name="editProfitFee" class="profitFeeAction" method="edit">
+            <result name="success" type="tiles">profitFeeForm</result>
+            <result name="input" type="tiles">profitFeeList</result>
+        </action>
+
+        <action name="copyProfitFee" class="profitFeeAction" method="copy">
+            <result name="success" type="tiles">profitFeeForm</result>
+            <result name="input" type="tiles">profitFeeList</result>
+        </action>
+
+        <action name="saveProfitFee" class="profitFeeAction">
+            <result name="delete" type="redirect">profitFeeList.html</result>
+            <result name="input" type="tiles">profitFeeForm</result>
+            <result name="success" type="chain">saveProfitFeeWithValidation</result>
+        </action>
+
+        <action name="saveProfitFeeWithValidation" class="profitFeeAction" method="save">
+            <result name="input" type="tiles">profitFeeForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- StandardCost -->
+        <action name="standardCostList" class="standardCostAction" method="list">
+            <result name="success" type="tiles">standardCostList</result>
+            <result name="input" type="tiles">standardCostList</result>
+        </action>
+
+        <action name="editStandardCost" class="standardCostAction" method="edit">
+            <result name="success" type="tiles">standardCostForm</result>
+            <result name="input" type="tiles">standardCostList</result>
+        </action>
+
+        <action name="copyStandardCost" class="standardCostAction" method="copy">
+            <result name="success" type="tiles">standardCostForm</result>
+            <result name="input" type="tiles">standardCostList</result>
+        </action>
+
+        <action name="saveStandardCost" class="standardCostAction">
+            <result name="delete" type="redirect">standardCostList.html</result>
+            <result name="input" type="tiles">standardCostForm</result>
+            <result name="success" type="chain">saveStandardCostWithValidation</result>
+        </action>
+
+        <action name="saveStandardCostWithValidation" class="standardCostAction" method="save">
+            <result name="input" type="tiles">standardCostForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- Profit -->
+        <action name="profitList" class="profitAction" method="list">
+            <result name="success" type="tiles">profitList</result>
+            <result name="input" type="tiles">profitList</result>
+        </action>
+
+        <action name="editProfit" class="profitAction" method="edit">
+            <result name="success" type="tiles">profitForm</result>
+            <result name="input" type="tiles">profitList</result>
+        </action>
+
+        <action name="copyProfit" class="profitAction" method="copy">
+            <result name="success" type="tiles">profitForm</result>
+            <result name="input" type="tiles">profitList</result>
+        </action>
+
+        <action name="saveProfit" class="profitAction">
+            <result name="delete" type="redirect">profitList.html</result>
+            <result name="input" type="tiles">profitForm</result>
+            <result name="success" type="chain">saveProfitWithValidation</result>
+        </action>
+
+        <action name="saveProfitWithValidation" class="profitAction" method="save">
+            <result name="input" type="tiles">profitForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+

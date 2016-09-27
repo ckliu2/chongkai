@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:jdbc.properties"/>
+    </bean>
+
+    <bean id="txProxyTemplate" abstract="true"
+        class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="transactionManager"/></property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="remove*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="commonManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.common.service.impl.CommonManagerImpl">
+                <property name="genericDAO" ref="commonDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="appPropertyManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.common.service.impl.AppPropertyManagerImpl">
+                <property name="genericDAO" ref="appPropertyDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+<!-- ********************************************* -->
+
+    <bean id="courseManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.city.service.impl.CourseManagerImpl">
+                <property name="genericDAO" ref="courseDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="courseMemberManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.city.service.impl.CourseMemberManagerImpl">
+                <property name="genericDAO" ref="courseMemberDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="subMenuManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.web.service.impl.SubMenuManagerImpl">
+                <property name="genericDAO" ref="subMenuDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="clockManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.web.service.impl.ClockManagerImpl">
+                <property name="genericDAO" ref="clockDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="subItemManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.web.service.impl.SubItemManagerImpl">
+                <property name="genericDAO" ref="subItemDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="linksManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.web.service.impl.LinksManagerImpl">
+                <property name="genericDAO" ref="linksDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="bulletinManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.web.service.impl.BulletinManagerImpl">
+                <property name="genericDAO" ref="bulletinDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="consultantManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.web.service.impl.ConsultantManagerImpl">
+                <property name="genericDAO" ref="consultantDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="checkingStateManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.web.service.impl.CheckingStateManagerImpl">
+                <property name="genericDAO" ref="checkingStateDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="bolgClassManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.web.service.impl.BolgClassManagerImpl">
+                <property name="genericDAO" ref="bolgClassDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="perReferManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.web.service.impl.PerReferManagerImpl">
+                <property name="genericDAO" ref="perReferDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="bolgManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.web.service.impl.BolgManagerImpl">
+                <property name="genericDAO" ref="bolgDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="roomManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.web.service.impl.RoomManagerImpl">
+                <property name="genericDAO" ref="roomDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="menuManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.web.service.impl.MenuManagerImpl">
+                <property name="genericDAO" ref="menuDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="agreeTermsManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.web.service.impl.AgreeTermsManagerImpl">
+                <property name="genericDAO" ref="agreeTermsDAO"/>
+            </bean>
+        </property>
+    </bean>
+

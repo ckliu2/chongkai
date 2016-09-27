@@ -1,0 +1,56 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+    <field name="scheduleDaily.temp">
+        <field-validator type="int">
+            <message key="errors.numericRequired"></message>
+        </field-validator>
+    </field>
+    <field name="scheduledDate">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="scheduleDaily.courseNum">
+        <field-validator type="int">
+            <message key="errors.numericRequired"></message>
+        </field-validator>
+    </field>
+    <field name="scheduleDaily.flag">
+        <field-validator type="int">
+            <message key="errors.numericRequired"></message>
+        </field-validator>
+    </field>
+    <field name="scheduleDaily.driveId">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="scheduleDaily.modeId">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="scheduleDaily.driveItemId">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="scheduleDaily.modeItemId">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="scheduleDaily.tempItemId">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="scheduleDaily.filterItemId">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+</validators>

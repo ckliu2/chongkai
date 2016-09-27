@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <!-- 
+    ************************ 
+    * Bible
+    ************************
+    -->   
+  <class name="org.zion.value.Bible" table="Church_Bible">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+      <generator class="identity"/>
+    </id> 
+    <property name="sn"  type="integer" not-null="true" />  
+    <property name="chapterNumber" type="integer" not-null="true"/>
+    <property name="shortName" type="string" not-null="true"/>
+    <property name="fullName" type="string"  not-null="true" />	  	
+  </class>
+  
+  
+  <!-- 
+    ************************ 
+    * BibleLection
+    ************************
+    -->   
+  <class name="org.zion.value.BibleLection" table="Church_BibleLection">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+      <generator class="identity"/>
+    </id> 
+    <property name="volume"  type="integer" not-null="true" />  
+    <property name="chapter" type="integer" not-null="true"/>
+    <property name="verse" type="integer" not-null="true"/>
+    <property name="lection" type="string"  not-null="true" />	  	
+  </class>
+  
+  
+   <!-- 
+    ************************ 
+    * 活潑生命
+    ************************
+    -->   
+  <class name="org.zion.value.LivelyBible" table="Church_LivelyBible">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+      <generator class="identity"/>
+    </id> 
+    <property name="date" type="string"  not-null="true" />     
+    <property name="volume" type="integer" not-null="true"/>
+    <property name="chapter" type="integer" not-null="true"/>     
+    <property name="excep" type="boolean" /> 
+    <property name="content" type="text"/>     
+    <property name="classify" type="integer" not-null="true"/>  
+  </class>
+  
+  
+  <!-- 
+    ************************ 
+    * BibleLection
+    ************************
+    -->   
+  <class name="org.zion.value.EveryBible" table="Church_EveryBible">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+      <generator class="identity"/>
+    </id> 
+    <property name="name"  type="string" not-null="true" /> 
+    <property name="startDate" type="date"  not-null="true" /> 
+    <property name="volume" type="integer" not-null="true"/>
+    <property name="chapter" type="integer" not-null="true"/>  
+    <many-to-one name="member" class="com.common.value.Member"  cascade="none" not-null="true" />  
+  
+  </class>
+  
+    
+    <!-- 
+    ************************ 
+    * 主日信息
+    ************************
+    -->   
+  <class name="org.zion.value.SundayInfor" table="Church_SundayInfor">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+      <generator class="identity"/>
+    </id>   
+    <property name="subject" type="text" not-null="true"/>
+    <property name="youtube" type="text" not-null="true"/>
+    <property name="messageDate" type="date"  not-null="true" />	  	
+  </class>
+	
+   <!-- 
+    ************************ 
+    * 教會主要代禱事項
+    ************************
+    -->   
+  <class name="org.zion.value.Pray" table="Church_Pray">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+      <generator class="identity"/>
+    </id>
+   
+    <property name="content" type="text" not-null="true"/>
+    <many-to-one name="classify" class="com.base.value.AppProperty" column="classify" not-null="true"/> 
+    <property name="lastModifiedDate"  type="timestamp" not-null="true" />	 
+    <many-to-one name="lastModifiedUser" class="com.common.value.Member" cascade="none" not-null="true" />
+    <property name="createdDate"  type="timestamp" insert="true" update="false"  not-null="true" />	     
+    <many-to-one name="createdUser" class="com.common.value.Member" insert="true" update="false" cascade="none" not-null="true" />   
+  </class>
+  
+  
+  <!-- 
+    ************************ 
+    * 街道
+    ************************
+    -->   
+  <class name="org.zion.value.PrayStreet" table="Church_PrayStreet">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+      <generator class="identity"/>
+    </id>
+    <property name="name" type="string" length="300" not-null="true"/>
+    <many-to-one name="map"		class="com.base.value.UploadedFile"	column="map" cascade="all" />
+    
+    <property name="latitude" type="string"/>
+    <property name="longitude" type="string"/>
+    <property name="zoom" type="integer"/>
+    
+    <many-to-one name="photo1"		class="com.base.value.UploadedFile"	column="photo1" cascade="all" />
+    <many-to-one name="photo2"		class="com.base.value.UploadedFile"	column="photo2" cascade="all" />
+    <many-to-one name="photo3"		class="com.base.value.UploadedFile"	column="photo3" cascade="all" />
+    <many-to-one name="praytw" class="org.zion.value.PrayTW" column="praytw" not-null="true"/> 
+  </class>
+  
+  
+   <!-- 
+    ************************ 
+    * 368區域明細
+    ************************
+    -->   
+  <class name="org.zion.value.PrayTW" table="Church_PrayTW">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+      <generator class="identity"/>
+    </id>
+    <property name="descriptionUrl" type="string" length="300" not-null="true"/>
+    <many-to-one name="map"		class="com.base.value.UploadedFile"	column="map" cascade="all" />
+    <many-to-one name="photo1"		class="com.base.value.UploadedFile"	column="photo1" cascade="all" />
+    <many-to-one name="photo2"		class="com.base.value.UploadedFile"	column="photo2" cascade="all" />
+    <many-to-one name="photo3"		class="com.base.value.UploadedFile"	column="photo3" cascade="all" />
+    <many-to-one name="area" class="com.base.value.MiscCode" column="area" not-null="true"/> 
+    <property name="latitude" type="string"/>
+    <property name="longitude" type="string"/>
+     <property name="zoom" type="integer"/>
+  </class>
+  
+  
+   <!-- 
+    ************************ 
+    * 368 Global Pray
+    ************************
+    -->   
+  <class name="org.zion.value.PrayTWGlobal" table="Church_PrayTWGlobal">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+      <generator class="identity"/>
+    </id>
+    <property name="content" type="text" not-null="true"/>    
+  </class>
+  
+   <!-- 
+    ************************ 
+    * 區域認領
+    ************************
+    -->   
+  <class name="org.zion.value.PrayTWClaim" table="Church_PrayTWClaim" >
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+      <generator class="identity"/>
+    </id>
+    <many-to-one name="praytw"		class="org.zion.value.PrayTW"	column="praytw"  not-null="true"/>
+    <many-to-one name="member"		class="com.common.value.Member"	column="member" not-null="true"/>
+    <property name="createdDate"  type="timestamp" insert="true" update="false"  not-null="true" />	     
+  </class>
+  
+  
+   <!-- 
+    ************************ 
+    * 為我代禱
+    ************************
+    -->   
+  <class name="org.zion.value.PrayMe" table="Church_PrayMe">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+      <generator class="identity"/>
+    </id>
+    <many-to-one name="member"		class="com.common.value.Member"	column="member"  not-null="true"/>
+    <property name="content" type="text" not-null="true"/>    
+    <property name="createdDate"  type="timestamp" insert="true" update="false"  not-null="true" />	     
+    <property name="active" type="boolean"  column="active"/>
+  </class>
+  
+  
+   <!-- 
+    ************************ 
+    * 為你禱告
+    ************************
+    -->   
+  <class name="org.zion.value.PrayYou" table="Church_PrayYou">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+      <generator class="identity"/>
+    </id>    
+    <many-to-one name="prayme"		class="org.zion.value.PrayMe"	column="prayme" cascade="all" not-null="true"/>
+    <many-to-one name="member"		class="com.common.value.Member"	column="member" cascade="all" not-null="true"/>
+    <property name="content" type="text" />    
+    <property name="createdDate"  type="timestamp" insert="true" update="false"  not-null="true" />	     
+    <property name="apply" type="boolean"  column="apply"/>
+  </class>
+  
+ 
+
+  	     
+</hibernate-mapping>

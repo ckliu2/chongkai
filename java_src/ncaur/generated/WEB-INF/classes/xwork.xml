@@ -1,0 +1,479 @@
+<!DOCTYPE xwork PUBLIC
+    "-//OpenSymphony Group//XWork 1.1.1//EN"
+    "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+    <include file="webwork-default.xml" />
+
+    <package name="default" extends="webwork-default">
+        <interceptors>
+            <interceptor-stack name="defaultStack">
+                <interceptor-ref name="exception" />
+                <interceptor-ref name="alias" />
+                <interceptor-ref name="servlet-config" />
+                <interceptor-ref name="prepare" />
+                <interceptor-ref name="i18n" />
+                <interceptor-ref name="chain" />
+                <interceptor-ref name="model-driven" />
+                <interceptor-ref name="fileUpload" />
+                <interceptor-ref name="static-params" />
+                <interceptor-ref name="params" />
+                <interceptor-ref name="conversionError" />
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">execute,delete,edit,list,copy</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back</param>
+                </interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <global-results>
+            <result name="dataAccessFailure" type="tiles">dataAccessFailure</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="org.springframework.dao.DataAccessException"
+                result="dataAccessFailure"/>
+        </global-exception-mappings>
+
+        <!-- Login -->
+        <action name="login" class="loginAction">
+            <result name="input">index.jsp</result>
+            <result name="success" type="tiles">blank</result>
+        </action>
+
+        <action name="logout" class="loginAction" method="logout">
+            <result name="success">index.jsp</result>
+            <result name="input">index.jsp</result>
+        </action>
+
+    <!-- AppProperty -->
+        <action name="appPropertyList" class="appPropertyAction" method="list">
+            <result name="success" type="tiles">appPropertyList</result>
+            <result name="input" type="tiles">appPropertyList</result>
+        </action>
+
+        <action name="editAppProperty" class="appPropertyAction" method="edit">
+            <result name="success" type="tiles">appPropertyForm</result>
+            <result name="input" type="tiles">appPropertyList</result>
+        </action>
+
+        <action name="saveAppProperty" class="appPropertyAction">
+            <result name="delete" type="redirect">appPropertyList.html</result>
+            <result name="input" type="tiles">appPropertyForm</result>
+            <result name="success" type="chain">saveAppPropertyWithValidation</result>
+        </action>
+
+        <action name="saveAppPropertyWithValidation" class="appPropertyAction" method="save">
+            <result name="input" type="tiles">appPropertyForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+<!-- ********************************************* -->
+
+    <!-- Course -->
+        <action name="courseList" class="courseAction" method="list">
+            <result name="success" type="tiles">courseList</result>
+            <result name="input" type="tiles">courseList</result>
+        </action>
+
+        <action name="editCourse" class="courseAction" method="edit">
+            <result name="success" type="tiles">courseForm</result>
+            <result name="input" type="tiles">courseList</result>
+        </action>
+
+        <action name="copyCourse" class="courseAction" method="copy">
+            <result name="success" type="tiles">courseForm</result>
+            <result name="input" type="tiles">courseList</result>
+        </action>
+
+        <action name="saveCourse" class="courseAction">
+            <result name="delete" type="redirect">courseList.html</result>
+            <result name="input" type="tiles">courseForm</result>
+            <result name="success" type="chain">saveCourseWithValidation</result>
+        </action>
+
+        <action name="saveCourseWithValidation" class="courseAction" method="save">
+            <result name="input" type="tiles">courseForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- CourseMember -->
+        <action name="courseMemberList" class="courseMemberAction" method="list">
+            <result name="success" type="tiles">courseMemberList</result>
+            <result name="input" type="tiles">courseMemberList</result>
+        </action>
+
+        <action name="editCourseMember" class="courseMemberAction" method="edit">
+            <result name="success" type="tiles">courseMemberForm</result>
+            <result name="input" type="tiles">courseMemberList</result>
+        </action>
+
+        <action name="copyCourseMember" class="courseMemberAction" method="copy">
+            <result name="success" type="tiles">courseMemberForm</result>
+            <result name="input" type="tiles">courseMemberList</result>
+        </action>
+
+        <action name="saveCourseMember" class="courseMemberAction">
+            <result name="delete" type="redirect">courseMemberList.html</result>
+            <result name="input" type="tiles">courseMemberForm</result>
+            <result name="success" type="chain">saveCourseMemberWithValidation</result>
+        </action>
+
+        <action name="saveCourseMemberWithValidation" class="courseMemberAction" method="save">
+            <result name="input" type="tiles">courseMemberForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- SubMenu -->
+        <action name="subMenuList" class="subMenuAction" method="list">
+            <result name="success" type="tiles">subMenuList</result>
+            <result name="input" type="tiles">subMenuList</result>
+        </action>
+
+        <action name="editSubMenu" class="subMenuAction" method="edit">
+            <result name="success" type="tiles">subMenuForm</result>
+            <result name="input" type="tiles">subMenuList</result>
+        </action>
+
+        <action name="copySubMenu" class="subMenuAction" method="copy">
+            <result name="success" type="tiles">subMenuForm</result>
+            <result name="input" type="tiles">subMenuList</result>
+        </action>
+
+        <action name="saveSubMenu" class="subMenuAction">
+            <result name="delete" type="redirect">subMenuList.html</result>
+            <result name="input" type="tiles">subMenuForm</result>
+            <result name="success" type="chain">saveSubMenuWithValidation</result>
+        </action>
+
+        <action name="saveSubMenuWithValidation" class="subMenuAction" method="save">
+            <result name="input" type="tiles">subMenuForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- Clock -->
+        <action name="clockList" class="clockAction" method="list">
+            <result name="success" type="tiles">clockList</result>
+            <result name="input" type="tiles">clockList</result>
+        </action>
+
+        <action name="editClock" class="clockAction" method="edit">
+            <result name="success" type="tiles">clockForm</result>
+            <result name="input" type="tiles">clockList</result>
+        </action>
+
+        <action name="copyClock" class="clockAction" method="copy">
+            <result name="success" type="tiles">clockForm</result>
+            <result name="input" type="tiles">clockList</result>
+        </action>
+
+        <action name="saveClock" class="clockAction">
+            <result name="delete" type="redirect">clockList.html</result>
+            <result name="input" type="tiles">clockForm</result>
+            <result name="success" type="chain">saveClockWithValidation</result>
+        </action>
+
+        <action name="saveClockWithValidation" class="clockAction" method="save">
+            <result name="input" type="tiles">clockForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- SubItem -->
+        <action name="subItemList" class="subItemAction" method="list">
+            <result name="success" type="tiles">subItemList</result>
+            <result name="input" type="tiles">subItemList</result>
+        </action>
+
+        <action name="editSubItem" class="subItemAction" method="edit">
+            <result name="success" type="tiles">subItemForm</result>
+            <result name="input" type="tiles">subItemList</result>
+        </action>
+
+        <action name="copySubItem" class="subItemAction" method="copy">
+            <result name="success" type="tiles">subItemForm</result>
+            <result name="input" type="tiles">subItemList</result>
+        </action>
+
+        <action name="saveSubItem" class="subItemAction">
+            <result name="delete" type="redirect">subItemList.html</result>
+            <result name="input" type="tiles">subItemForm</result>
+            <result name="success" type="chain">saveSubItemWithValidation</result>
+        </action>
+
+        <action name="saveSubItemWithValidation" class="subItemAction" method="save">
+            <result name="input" type="tiles">subItemForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- Links -->
+        <action name="linksList" class="linksAction" method="list">
+            <result name="success" type="tiles">linksList</result>
+            <result name="input" type="tiles">linksList</result>
+        </action>
+
+        <action name="editLinks" class="linksAction" method="edit">
+            <result name="success" type="tiles">linksForm</result>
+            <result name="input" type="tiles">linksList</result>
+        </action>
+
+        <action name="copyLinks" class="linksAction" method="copy">
+            <result name="success" type="tiles">linksForm</result>
+            <result name="input" type="tiles">linksList</result>
+        </action>
+
+        <action name="saveLinks" class="linksAction">
+            <result name="delete" type="redirect">linksList.html</result>
+            <result name="input" type="tiles">linksForm</result>
+            <result name="success" type="chain">saveLinksWithValidation</result>
+        </action>
+
+        <action name="saveLinksWithValidation" class="linksAction" method="save">
+            <result name="input" type="tiles">linksForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- Bulletin -->
+        <action name="bulletinList" class="bulletinAction" method="list">
+            <result name="success" type="tiles">bulletinList</result>
+            <result name="input" type="tiles">bulletinList</result>
+        </action>
+
+        <action name="editBulletin" class="bulletinAction" method="edit">
+            <result name="success" type="tiles">bulletinForm</result>
+            <result name="input" type="tiles">bulletinList</result>
+        </action>
+
+        <action name="copyBulletin" class="bulletinAction" method="copy">
+            <result name="success" type="tiles">bulletinForm</result>
+            <result name="input" type="tiles">bulletinList</result>
+        </action>
+
+        <action name="saveBulletin" class="bulletinAction">
+            <result name="delete" type="redirect">bulletinList.html</result>
+            <result name="input" type="tiles">bulletinForm</result>
+            <result name="success" type="chain">saveBulletinWithValidation</result>
+        </action>
+
+        <action name="saveBulletinWithValidation" class="bulletinAction" method="save">
+            <result name="input" type="tiles">bulletinForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- Consultant -->
+        <action name="consultantList" class="consultantAction" method="list">
+            <result name="success" type="tiles">consultantList</result>
+            <result name="input" type="tiles">consultantList</result>
+        </action>
+
+        <action name="editConsultant" class="consultantAction" method="edit">
+            <result name="success" type="tiles">consultantForm</result>
+            <result name="input" type="tiles">consultantList</result>
+        </action>
+
+        <action name="copyConsultant" class="consultantAction" method="copy">
+            <result name="success" type="tiles">consultantForm</result>
+            <result name="input" type="tiles">consultantList</result>
+        </action>
+
+        <action name="saveConsultant" class="consultantAction">
+            <result name="delete" type="redirect">consultantList.html</result>
+            <result name="input" type="tiles">consultantForm</result>
+            <result name="success" type="chain">saveConsultantWithValidation</result>
+        </action>
+
+        <action name="saveConsultantWithValidation" class="consultantAction" method="save">
+            <result name="input" type="tiles">consultantForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- CheckingState -->
+        <action name="checkingStateList" class="checkingStateAction" method="list">
+            <result name="success" type="tiles">checkingStateList</result>
+            <result name="input" type="tiles">checkingStateList</result>
+        </action>
+
+        <action name="editCheckingState" class="checkingStateAction" method="edit">
+            <result name="success" type="tiles">checkingStateForm</result>
+            <result name="input" type="tiles">checkingStateList</result>
+        </action>
+
+        <action name="copyCheckingState" class="checkingStateAction" method="copy">
+            <result name="success" type="tiles">checkingStateForm</result>
+            <result name="input" type="tiles">checkingStateList</result>
+        </action>
+
+        <action name="saveCheckingState" class="checkingStateAction">
+            <result name="delete" type="redirect">checkingStateList.html</result>
+            <result name="input" type="tiles">checkingStateForm</result>
+            <result name="success" type="chain">saveCheckingStateWithValidation</result>
+        </action>
+
+        <action name="saveCheckingStateWithValidation" class="checkingStateAction" method="save">
+            <result name="input" type="tiles">checkingStateForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- BolgClass -->
+        <action name="bolgClassList" class="bolgClassAction" method="list">
+            <result name="success" type="tiles">bolgClassList</result>
+            <result name="input" type="tiles">bolgClassList</result>
+        </action>
+
+        <action name="editBolgClass" class="bolgClassAction" method="edit">
+            <result name="success" type="tiles">bolgClassForm</result>
+            <result name="input" type="tiles">bolgClassList</result>
+        </action>
+
+        <action name="copyBolgClass" class="bolgClassAction" method="copy">
+            <result name="success" type="tiles">bolgClassForm</result>
+            <result name="input" type="tiles">bolgClassList</result>
+        </action>
+
+        <action name="saveBolgClass" class="bolgClassAction">
+            <result name="delete" type="redirect">bolgClassList.html</result>
+            <result name="input" type="tiles">bolgClassForm</result>
+            <result name="success" type="chain">saveBolgClassWithValidation</result>
+        </action>
+
+        <action name="saveBolgClassWithValidation" class="bolgClassAction" method="save">
+            <result name="input" type="tiles">bolgClassForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- PerRefer -->
+        <action name="perReferList" class="perReferAction" method="list">
+            <result name="success" type="tiles">perReferList</result>
+            <result name="input" type="tiles">perReferList</result>
+        </action>
+
+        <action name="editPerRefer" class="perReferAction" method="edit">
+            <result name="success" type="tiles">perReferForm</result>
+            <result name="input" type="tiles">perReferList</result>
+        </action>
+
+        <action name="copyPerRefer" class="perReferAction" method="copy">
+            <result name="success" type="tiles">perReferForm</result>
+            <result name="input" type="tiles">perReferList</result>
+        </action>
+
+        <action name="savePerRefer" class="perReferAction">
+            <result name="delete" type="redirect">perReferList.html</result>
+            <result name="input" type="tiles">perReferForm</result>
+            <result name="success" type="chain">savePerReferWithValidation</result>
+        </action>
+
+        <action name="savePerReferWithValidation" class="perReferAction" method="save">
+            <result name="input" type="tiles">perReferForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- Bolg -->
+        <action name="bolgList" class="bolgAction" method="list">
+            <result name="success" type="tiles">bolgList</result>
+            <result name="input" type="tiles">bolgList</result>
+        </action>
+
+        <action name="editBolg" class="bolgAction" method="edit">
+            <result name="success" type="tiles">bolgForm</result>
+            <result name="input" type="tiles">bolgList</result>
+        </action>
+
+        <action name="copyBolg" class="bolgAction" method="copy">
+            <result name="success" type="tiles">bolgForm</result>
+            <result name="input" type="tiles">bolgList</result>
+        </action>
+
+        <action name="saveBolg" class="bolgAction">
+            <result name="delete" type="redirect">bolgList.html</result>
+            <result name="input" type="tiles">bolgForm</result>
+            <result name="success" type="chain">saveBolgWithValidation</result>
+        </action>
+
+        <action name="saveBolgWithValidation" class="bolgAction" method="save">
+            <result name="input" type="tiles">bolgForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- Room -->
+        <action name="roomList" class="roomAction" method="list">
+            <result name="success" type="tiles">roomList</result>
+            <result name="input" type="tiles">roomList</result>
+        </action>
+
+        <action name="editRoom" class="roomAction" method="edit">
+            <result name="success" type="tiles">roomForm</result>
+            <result name="input" type="tiles">roomList</result>
+        </action>
+
+        <action name="copyRoom" class="roomAction" method="copy">
+            <result name="success" type="tiles">roomForm</result>
+            <result name="input" type="tiles">roomList</result>
+        </action>
+
+        <action name="saveRoom" class="roomAction">
+            <result name="delete" type="redirect">roomList.html</result>
+            <result name="input" type="tiles">roomForm</result>
+            <result name="success" type="chain">saveRoomWithValidation</result>
+        </action>
+
+        <action name="saveRoomWithValidation" class="roomAction" method="save">
+            <result name="input" type="tiles">roomForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- Menu -->
+        <action name="menuList" class="menuAction" method="list">
+            <result name="success" type="tiles">menuList</result>
+            <result name="input" type="tiles">menuList</result>
+        </action>
+
+        <action name="editMenu" class="menuAction" method="edit">
+            <result name="success" type="tiles">menuForm</result>
+            <result name="input" type="tiles">menuList</result>
+        </action>
+
+        <action name="copyMenu" class="menuAction" method="copy">
+            <result name="success" type="tiles">menuForm</result>
+            <result name="input" type="tiles">menuList</result>
+        </action>
+
+        <action name="saveMenu" class="menuAction">
+            <result name="delete" type="redirect">menuList.html</result>
+            <result name="input" type="tiles">menuForm</result>
+            <result name="success" type="chain">saveMenuWithValidation</result>
+        </action>
+
+        <action name="saveMenuWithValidation" class="menuAction" method="save">
+            <result name="input" type="tiles">menuForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- AgreeTerms -->
+        <action name="agreeTermsList" class="agreeTermsAction" method="list">
+            <result name="success" type="tiles">agreeTermsList</result>
+            <result name="input" type="tiles">agreeTermsList</result>
+        </action>
+
+        <action name="editAgreeTerms" class="agreeTermsAction" method="edit">
+            <result name="success" type="tiles">agreeTermsForm</result>
+            <result name="input" type="tiles">agreeTermsList</result>
+        </action>
+
+        <action name="copyAgreeTerms" class="agreeTermsAction" method="copy">
+            <result name="success" type="tiles">agreeTermsForm</result>
+            <result name="input" type="tiles">agreeTermsList</result>
+        </action>
+
+        <action name="saveAgreeTerms" class="agreeTermsAction">
+            <result name="delete" type="redirect">agreeTermsList.html</result>
+            <result name="input" type="tiles">agreeTermsForm</result>
+            <result name="success" type="chain">saveAgreeTermsWithValidation</result>
+        </action>
+
+        <action name="saveAgreeTermsWithValidation" class="agreeTermsAction" method="save">
+            <result name="input" type="tiles">agreeTermsForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+

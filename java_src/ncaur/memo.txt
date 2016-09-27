@@ -1,0 +1,3 @@
+﻿http://127.0.0.1/alumnidb/graduate.html?member.id=49000001
+
+http://127.0.0.1/alumnidb/graduateCheck.html?member.id=110011001

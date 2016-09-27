@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mappingResources">
+            <list>
+                <value>Common.hbm.xml</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <!-- prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop -->
+                <prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.connection.charSet">UTF-8</prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="commonDAO" class="com.common.dao.hibernate.CommonDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="appPropertyDAO" class="com.common.dao.hibernate.AppPropertyDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+<!-- ********************************************* -->
+
+    <bean id="logDAO" class="tncc.power.dao.hibernate.LogDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="scheduleReaderDailyDAO" class="tncc.power.dao.hibernate.ScheduleReaderDailyDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="powerControllerDAO" class="tncc.power.dao.hibernate.PowerControllerDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="spaceReaderDAO" class="tncc.power.dao.hibernate.SpaceReaderDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="basicInfoDAO" class="tncc.power.dao.hibernate.BasicInfoDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="scheduleDailyDAO" class="tncc.power.dao.hibernate.ScheduleDailyDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="shutdownDAO" class="tncc.power.dao.hibernate.ShutdownDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="powerControllerReaderDAO" class="tncc.power.dao.hibernate.PowerControllerReaderDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="spaceDAO" class="tncc.power.dao.hibernate.SpaceDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="readerDAO" class="tncc.power.dao.hibernate.ReaderDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="clearDailyDAO" class="tncc.power.dao.hibernate.ClearDailyDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="evenLogDAO" class="tncc.power.dao.hibernate.EvenLogDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="commandLogDAO" class="tncc.power.dao.hibernate.CommandLogDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="courseDAO" class="tncc.reserve.dao.hibernate.CourseDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="classRoomDAO" class="tncc.reserve.dao.hibernate.ClassRoomDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="courseOpenDAO" class="tncc.reserve.dao.hibernate.CourseOpenDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+

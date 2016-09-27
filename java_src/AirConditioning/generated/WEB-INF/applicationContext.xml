@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:jdbc.properties"/>
+    </bean>
+
+    <bean id="txProxyTemplate" abstract="true"
+        class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="transactionManager"/></property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="remove*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="commonManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.common.service.impl.CommonManagerImpl">
+                <property name="genericDAO" ref="commonDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="appPropertyManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.common.service.impl.AppPropertyManagerImpl">
+                <property name="genericDAO" ref="appPropertyDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+<!-- ********************************************* -->
+
+    <bean id="logManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tncc.power.service.impl.LogManagerImpl">
+                <property name="genericDAO" ref="logDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="scheduleReaderDailyManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tncc.power.service.impl.ScheduleReaderDailyManagerImpl">
+                <property name="genericDAO" ref="scheduleReaderDailyDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="powerControllerManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tncc.power.service.impl.PowerControllerManagerImpl">
+                <property name="genericDAO" ref="powerControllerDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="spaceReaderManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tncc.power.service.impl.SpaceReaderManagerImpl">
+                <property name="genericDAO" ref="spaceReaderDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="basicInfoManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tncc.power.service.impl.BasicInfoManagerImpl">
+                <property name="genericDAO" ref="basicInfoDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="scheduleDailyManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tncc.power.service.impl.ScheduleDailyManagerImpl">
+                <property name="genericDAO" ref="scheduleDailyDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="shutdownManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tncc.power.service.impl.ShutdownManagerImpl">
+                <property name="genericDAO" ref="shutdownDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="powerControllerReaderManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tncc.power.service.impl.PowerControllerReaderManagerImpl">
+                <property name="genericDAO" ref="powerControllerReaderDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="spaceManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tncc.power.service.impl.SpaceManagerImpl">
+                <property name="genericDAO" ref="spaceDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="readerManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tncc.power.service.impl.ReaderManagerImpl">
+                <property name="genericDAO" ref="readerDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="clearDailyManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tncc.power.service.impl.ClearDailyManagerImpl">
+                <property name="genericDAO" ref="clearDailyDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="evenLogManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tncc.power.service.impl.EvenLogManagerImpl">
+                <property name="genericDAO" ref="evenLogDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="commandLogManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tncc.power.service.impl.CommandLogManagerImpl">
+                <property name="genericDAO" ref="commandLogDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="courseManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tncc.reserve.service.impl.CourseManagerImpl">
+                <property name="genericDAO" ref="courseDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="classRoomManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tncc.reserve.service.impl.ClassRoomManagerImpl">
+                <property name="genericDAO" ref="classRoomDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="courseOpenManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tncc.reserve.service.impl.CourseOpenManagerImpl">
+                <property name="genericDAO" ref="courseOpenDAO"/>
+            </bean>
+        </property>
+    </bean>
+

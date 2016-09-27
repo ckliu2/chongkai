@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="loginAction" class="com.common.web.action.LoginAction" singleton="false">
+        <property name="genericManager" ref="commonManager"/>
+    </bean>
+
+    <bean id="appPropertyAction" class="com.common.web.action.AppPropertyAction" singleton="false">
+        <property name="genericManager" ref="appPropertyManager"/>
+    </bean>
+
+<!-- ********************************************* -->
+
+    <bean id="logAction" class="tncc.power.web.action.LogAction" singleton="false">
+        <property name="genericManager" ref="logManager"/>
+    </bean>
+
+    <bean id="scheduleReaderDailyAction" class="tncc.power.web.action.ScheduleReaderDailyAction" singleton="false">
+        <property name="genericManager" ref="scheduleReaderDailyManager"/>
+    </bean>
+
+    <bean id="powerControllerAction" class="tncc.power.web.action.PowerControllerAction" singleton="false">
+        <property name="genericManager" ref="powerControllerManager"/>
+    </bean>
+
+    <bean id="spaceReaderAction" class="tncc.power.web.action.SpaceReaderAction" singleton="false">
+        <property name="genericManager" ref="spaceReaderManager"/>
+    </bean>
+
+    <bean id="basicInfoAction" class="tncc.power.web.action.BasicInfoAction" singleton="false">
+        <property name="genericManager" ref="basicInfoManager"/>
+    </bean>
+
+    <bean id="scheduleDailyAction" class="tncc.power.web.action.ScheduleDailyAction" singleton="false">
+        <property name="genericManager" ref="scheduleDailyManager"/>
+    </bean>
+
+    <bean id="shutdownAction" class="tncc.power.web.action.ShutdownAction" singleton="false">
+        <property name="genericManager" ref="shutdownManager"/>
+    </bean>
+
+    <bean id="powerControllerReaderAction" class="tncc.power.web.action.PowerControllerReaderAction" singleton="false">
+        <property name="genericManager" ref="powerControllerReaderManager"/>
+    </bean>
+
+    <bean id="spaceAction" class="tncc.power.web.action.SpaceAction" singleton="false">
+        <property name="genericManager" ref="spaceManager"/>
+    </bean>
+
+    <bean id="readerAction" class="tncc.power.web.action.ReaderAction" singleton="false">
+        <property name="genericManager" ref="readerManager"/>
+    </bean>
+
+    <bean id="clearDailyAction" class="tncc.power.web.action.ClearDailyAction" singleton="false">
+        <property name="genericManager" ref="clearDailyManager"/>
+    </bean>
+
+    <bean id="evenLogAction" class="tncc.power.web.action.EvenLogAction" singleton="false">
+        <property name="genericManager" ref="evenLogManager"/>
+    </bean>
+
+    <bean id="commandLogAction" class="tncc.power.web.action.CommandLogAction" singleton="false">
+        <property name="genericManager" ref="commandLogManager"/>
+    </bean>
+
+    <bean id="courseAction" class="tncc.reserve.web.action.CourseAction" singleton="false">
+        <property name="genericManager" ref="courseManager"/>
+    </bean>
+
+    <bean id="classRoomAction" class="tncc.reserve.web.action.ClassRoomAction" singleton="false">
+        <property name="genericManager" ref="classRoomManager"/>
+    </bean>
+
+    <bean id="courseOpenAction" class="tncc.reserve.web.action.CourseOpenAction" singleton="false">
+        <property name="genericManager" ref="courseOpenManager"/>
+    </bean>
+

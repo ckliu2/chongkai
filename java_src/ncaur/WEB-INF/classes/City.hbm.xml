@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+   <!-- 
+    ************************ 
+    * 課程管理
+    ************************
+   -->   
+  <class name="com.city.value.Course" table="WEB_Course">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+            <generator class="identity"/>
+    </id>
+    <property name="stime" type="string" length="50" not-null="true"/>
+    <property name="no" type="string" length="50" not-null="true"/>   
+    <property name="courseName" type="string" length="100" not-null="true"/> 
+    <property name="teacher" type="string" length="100" not-null="true"/> 
+    <property name="description" type="text"   />
+    <property name="registerBegin" type="date" not-null="true"/>
+	<property name="registerEnd" type="date" not-null="true"/>	
+	<property name="fee" type="string" length="50" /> 
+	<property name="note1" type="boolean"/>
+	<property name="note2" type="boolean"/>
+	<property name="note3" type="boolean"/>
+	<property name="note4" type="boolean"/>
+	<property name="noteDate1" type="date"/>
+	<property name="noteDate2" type="date"/>
+	<property name="noteDate3" type="date"/>
+	<property name="noteDate4" type="date"/>
+	<property name="times" type="string"  length="1000" />	  
+    <many-to-one name="coursefile"  class="com.base.value.UploadedFile" cascade="all" />    
+    <property name="emailDescript" type="text"   />
+    <many-to-one name="emailfile"  class="com.base.value.UploadedFile" cascade="all" />    
+    <list name="filegroups" cascade="none" lazy="false" table="WEB_CourseDownload">
+      <meta attribute="widget">two-list</meta>
+      <key column="courseId"/>
+      <index column="idx"/>
+      <many-to-many class="com.base.value.Group" column="groupId"/>
+    </list> 
+    
+    <!-- 照片 --> 	
+ 	<set name="photos"    table="WEB_CoursePhotos" cascade="save-update" lazy="false">              
+       <key column="courseId"/> 
+       <many-to-many class="com.base.value.UploadedFile"  column="uploadedFileId"/>            
+    </set>   
+          
+    <property name="lastModifiedDate" type="timestamp" />
+	<property name="createdDate" type="timestamp" insert="true"	update="false" />
+	<many-to-one name="type" class="com.base.value.AppProperty" cascade="none" not-null="true" />
+  		
+  </class>
+  
+   <!-- 
+    ************************ 
+    * 會員課程記錄
+    ************************
+   -->   
+  <class name="com.city.value.CourseMember" table="WEB_CourseMember">
+    <meta attribute="extends">BaseObject</meta>
+    <id name="id" column="id" unsaved-value="null">
+       <generator class="identity"/>
+    </id>
+    <many-to-one name="course"  class="com.city.value.Course" cascade="all" not-null="true"/>  
+    <property name="complete"  type="boolean"/>
+    <many-to-one name="member"  class="com.common.value.Member" cascade="all" not-null="true"/> 
+    <property name="attendlog" type="string"  length="1000" />
+    <property name="lastModifiedDate" type="timestamp" />
+    <property name="createdDate" type="timestamp" insert="true"	update="false" />    
+  </class>	
+  
+  
+  
+</hibernate-mapping>

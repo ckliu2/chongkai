@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<tiles-definitions>
+    <definition name="default" path="/layout/template.jsp">
+        <put name="title" value="Information System"/>
+        <put name="menu" value="/layout/menu.jsp"/>
+    </definition>
+
+    <definition name="dataAccessFailure" extends="default">
+        <put name="title" value="Data Access Error"/>
+        <put name="content" value="/common/dataAccessFailure.jsp"/>
+    </definition>
+
+    <definition name="blank" extends="default">
+        <put name="title" value=""/>
+        <put name="content" value="/common/blank.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * AppProperty 
+    ************************
+    -->
+    <definition name="appPropertyList" extends="default">
+        <put name="content" value="/common/appPropertyList.jsp"/>
+    </definition>
+
+    <definition name="appPropertyForm" extends="default">
+        <put name="content" value="/common/appPropertyForm.jsp"/>
+    </definition>
+
+<!-- ********************************************* -->
+
+    <!-- 
+    ************************ 
+    * Log 
+    ************************
+    -->
+    <definition name="logList" extends="default">
+        <put name="content" value="/logList.jsp"/>
+    </definition>
+
+    <definition name="logForm" extends="default">
+        <put name="content" value="/logForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * ScheduleReaderDaily 
+    ************************
+    -->
+    <definition name="scheduleReaderDailyList" extends="default">
+        <put name="content" value="/scheduleReaderDailyList.jsp"/>
+    </definition>
+
+    <definition name="scheduleReaderDailyForm" extends="default">
+        <put name="content" value="/scheduleReaderDailyForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * PowerController 
+    ************************
+    -->
+    <definition name="powerControllerList" extends="default">
+        <put name="content" value="/powerControllerList.jsp"/>
+    </definition>
+
+    <definition name="powerControllerForm" extends="default">
+        <put name="content" value="/powerControllerForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * SpaceReader 
+    ************************
+    -->
+    <definition name="spaceReaderList" extends="default">
+        <put name="content" value="/spaceReaderList.jsp"/>
+    </definition>
+
+    <definition name="spaceReaderForm" extends="default">
+        <put name="content" value="/spaceReaderForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * BasicInfo 
+    ************************
+    -->
+    <definition name="basicInfoList" extends="default">
+        <put name="content" value="/basicInfoList.jsp"/>
+    </definition>
+
+    <definition name="basicInfoForm" extends="default">
+        <put name="content" value="/basicInfoForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * ScheduleDaily 
+    ************************
+    -->
+    <definition name="scheduleDailyList" extends="default">
+        <put name="content" value="/scheduleDailyList.jsp"/>
+    </definition>
+
+    <definition name="scheduleDailyForm" extends="default">
+        <put name="content" value="/scheduleDailyForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Shutdown 
+    ************************
+    -->
+    <definition name="shutdownList" extends="default">
+        <put name="content" value="/shutdownList.jsp"/>
+    </definition>
+
+    <definition name="shutdownForm" extends="default">
+        <put name="content" value="/shutdownForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * PowerControllerReader 
+    ************************
+    -->
+    <definition name="powerControllerReaderList" extends="default">
+        <put name="content" value="/powerControllerReaderList.jsp"/>
+    </definition>
+
+    <definition name="powerControllerReaderForm" extends="default">
+        <put name="content" value="/powerControllerReaderForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Space 
+    ************************
+    -->
+    <definition name="spaceList" extends="default">
+        <put name="content" value="/spaceList.jsp"/>
+    </definition>
+
+    <definition name="spaceForm" extends="default">
+        <put name="content" value="/spaceForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Reader 
+    ************************
+    -->
+    <definition name="readerList" extends="default">
+        <put name="content" value="/readerList.jsp"/>
+    </definition>
+
+    <definition name="readerForm" extends="default">
+        <put name="content" value="/readerForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * ClearDaily 
+    ************************
+    -->
+    <definition name="clearDailyList" extends="default">
+        <put name="content" value="/clearDailyList.jsp"/>
+    </definition>
+
+    <definition name="clearDailyForm" extends="default">
+        <put name="content" value="/clearDailyForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * EvenLog 
+    ************************
+    -->
+    <definition name="evenLogList" extends="default">
+        <put name="content" value="/evenLogList.jsp"/>
+    </definition>
+
+    <definition name="evenLogForm" extends="default">
+        <put name="content" value="/evenLogForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * CommandLog 
+    ************************
+    -->
+    <definition name="commandLogList" extends="default">
+        <put name="content" value="/commandLogList.jsp"/>
+    </definition>
+
+    <definition name="commandLogForm" extends="default">
+        <put name="content" value="/commandLogForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Course 
+    ************************
+    -->
+    <definition name="courseList" extends="default">
+        <put name="content" value="/courseList.jsp"/>
+    </definition>
+
+    <definition name="courseForm" extends="default">
+        <put name="content" value="/courseForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * ClassRoom 
+    ************************
+    -->
+    <definition name="classRoomList" extends="default">
+        <put name="content" value="/classRoomList.jsp"/>
+    </definition>
+
+    <definition name="classRoomForm" extends="default">
+        <put name="content" value="/classRoomForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * CourseOpen 
+    ************************
+    -->
+    <definition name="courseOpenList" extends="default">
+        <put name="content" value="/courseOpenList.jsp"/>
+    </definition>
+
+    <definition name="courseOpenForm" extends="default">
+        <put name="content" value="/courseOpenForm.jsp"/>
+    </definition>
+

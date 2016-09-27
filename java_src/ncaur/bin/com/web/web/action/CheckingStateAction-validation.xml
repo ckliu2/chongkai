@@ -1,0 +1,26 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+    <field name="checkingState.formName">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="checkingState.formIdId">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="checkingState.formIdId">
+        <field-validator type="int">
+            <message key="errors.numericRequired"></message>
+        </field-validator>
+    </field>
+    <field name="checkingState.stateId">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+</validators>

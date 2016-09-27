@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:jdbc.properties"/>
+    </bean>
+
+    <bean id="txProxyTemplate" abstract="true"
+        class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="transactionManager"/></property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="remove*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    
+    
+    <bean id="myProperties" class="com.base.util.MyProperties">   
+      <property name="filePath">   
+        <value>D:\\Tomcat\\webapps\\photoshop\\upload\\tempdir\\</value>   
+      </property> 
+      <property name="thumbnailPath">   
+        <value>D:\\Tomcat\\webapps\\photoshop\\upload\\thumbnail\\</value>   
+      </property>         
+      <property name="photoPath">   
+        <value>D:\\IIS\\bill\\takephoto\\</value>   
+      </property>  
+      
+      <property name="limitWidth">   
+        <value>500</value>   
+      </property> 
+      <property name="limitHeight">   
+        <value>333</value>   
+      </property> 
+      
+      <property name="dbuser">   
+        <value>chongkai</value>   
+      </property>
+      <property name="dbuserpsd">   
+        <value>2aixujxu</value>   
+      </property>
+      <property name="dbdriver">   
+        <value>com.microsoft.sqlserver.jdbc.SQLServerDriver</value>   
+      </property>
+      <property name="dburl">   
+        <value>jdbc:sqlserver://203.71.172.251;DatabaseName=photoshop</value>   
+      </property>
+      
+       
+    </bean> 
+    
+    
+    
+     
+     <bean id="commonManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.common.service.impl.CommonManagerImpl">
+                <property name="genericDAO" ref="commonDAO"/>
+            </bean>
+        </property>
+    </bean> 
+    
+   <bean id="photoManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.photo.service.impl.PhotoManagerImpl">
+                <property name="genericDAO" ref="photoDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+
+</beans>

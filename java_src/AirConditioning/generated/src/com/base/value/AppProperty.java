@@ -1,0 +1,113 @@
+package com.base.value;
+
+import java.io.Serializable;
+import org.apache.commons.lang.builder.ToStringBuilder;
+
+import com.base.value.BaseObject;
+
+/** @author Hibernate CodeGenerator */
+public class AppProperty extends BaseObject implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+    /** persistent field */
+    private Integer seqNo;
+
+    /** persistent field */
+    private String kind;
+
+    /** nullable persistent field */
+    private String subKind;
+
+    /** nullable persistent field */
+    private String valueTw;
+
+    /** nullable persistent field */
+    private String valueUs;
+
+    /** nullable persistent field */
+    private String value1;
+
+    /** full constructor */
+    public AppProperty(Integer seqNo, String kind, String subKind, String valueTw, String valueUs, String value1) {
+        this.seqNo = seqNo;
+        this.kind = kind;
+        this.subKind = subKind;
+        this.valueTw = valueTw;
+        this.valueUs = valueUs;
+        this.value1 = value1;
+    }
+
+    /** Labor constructor */
+    public AppProperty() {
+    }
+
+    /** minimal constructor */
+    public AppProperty(Integer seqNo, String kind) {
+        this.seqNo = seqNo;
+        this.kind = kind;
+    }
+
+    public Integer getSeqNo() {
+        return this.seqNo;
+    }
+
+    public void setSeqNo(Integer seqNo) {
+        this.seqNo = seqNo;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getSubKind() {
+        return this.subKind;
+    }
+
+    public void setSubKind(String subKind) {
+        this.subKind = subKind;
+    }
+
+    public String getValueTw() {
+        return this.valueTw;
+    }
+
+    public void setValueTw(String valueTw) {
+        this.valueTw = valueTw;
+    }
+
+    public String getValueUs() {
+        return this.valueUs;
+    }
+
+    public void setValueUs(String valueUs) {
+        this.valueUs = valueUs;
+    }
+
+    public String getValue1() {
+        return this.value1;
+    }
+
+    public void setValue1(String value1) {
+        this.value1 = value1;
+    }
+
+    public String toString() {
+        return new ToStringBuilder(this)
+            .append("seqNo", getSeqNo())
+            .append("kind", getKind())
+            .append("subKind", getSubKind())
+            .append("valueTw", getValueTw())
+            .append("valueUs", getValueUs())
+            .append("value1", getValue1())
+            .toString();
+    }
+
+    public String getCaption_() {
+        return toString();
+    }
+
+}

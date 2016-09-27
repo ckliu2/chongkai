@@ -1,0 +1,611 @@
+
+<html>
+
+
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+<style>
+
+<!--{ font-family: Arial; font-size: 12pt }
+
+-->
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+{  }
+
+</style>
+
+<title>Demo5</title>
+
+<base target="main">
+
+</head>
+
+
+
+<body LANGUAGE="javascript" onload="return window_onload()" style="font-family: Arial; font-size: 11 pt" background="backgnd.jpg">
+
+
+
+  <form method="POST" action="http://140.129.140.17/dio/cgidio?u+set">
+
+    <ol>
+
+      <li>
+
+    <p align="left" style="margin-top: 0; margin-bottom: 0">DIO 1 - 3 should be set to output mode in System 
+
+    Configuration.</p>
+
+      </li>
+
+      <li>
+
+    <p align="left" style="margin-top: 0; margin-bottom: 0">The configuration is then used by &quot;/flash/bin/diod&quot; to 
+
+    initialize DIO modes while system starting.</p>
+
+      </li>
+
+      <li>
+
+    <p align="left" style="margin-top: 0; margin-bottom: 0">This page is controlled by the cgi program &quot;/flash/www/dio/cgidio&quot;</p>
+
+      </li>
+
+    </ol>
+
+    <div align="center">
+
+      <center>
+
+      <table id="xTable" border="1" style="border-collapse: collapse; font-family:Arial; font-size:11 pt" bordercolor="#111111" cellspacing="0" width="253" height="244">
+
+        <tr>
+
+          <td width="29" align="center" height="17">DIO</td>
+
+          <td width="67" align="center" height="17">State</td>
+
+          <td width="17" align="center" height="17">Set</td>
+
+        </tr>
+
+        <tr>
+
+          <td width="29" align="center" height="26">1</td>
+
+          <td width="67" align="center" height="30">&nbsp;</td>
+
+          <td width="17" align="center" height="26">
+
+          <input type="button" onClick="DoToggle(1)" value="Toggle" name="ctToggle1"></td>
+
+        </tr>
+
+        <tr>
+
+          <td width="29" align="center" height="26">2</td>
+
+          <td width="67" align="center" height="30">&nbsp;</td>
+
+          <td width="17" align="center" height="26">
+
+          <input type="button" onClick="DoToggle(2)" value="Toggle" name="ctToggle2"></td>
+
+        </tr>
+
+        <tr>
+
+          <td width="29" align="center" height="26">3</td>
+
+          <td width="67" align="center" height="30">&nbsp;</td>
+
+          <td width="17" align="center" height="26">
+
+          <input type="button" onClick="DoToggle(3)" value="Toggle" name="ctToggle3"></td>
+
+        </tr>
+
+        <tr>
+
+          <td width="29" align="center" height="26">4</td>
+
+          <td width="67" align="center" height="30">&nbsp;</td>
+
+          <td width="17" align="center" height="26">
+
+          &nbsp;</td>
+
+        </tr>
+
+        <tr>
+
+          <td width="29" align="center" height="28">5</td>
+
+          <td width="67" align="center" height="30">&nbsp;</td>
+
+          <td width="17" align="center" height="28">&nbsp;</td>
+
+        </tr>
+
+        <tr>
+
+          <td width="29" align="center" height="17">6</td>
+
+          <td width="67" align="center" height="30">&nbsp;</td>
+
+          <td width="17" align="center" height="17"></td>
+
+        </tr>
+
+        <tr>
+
+          <td width="29" align="center" height="15">7</td>
+
+          <td width="67" align="center" height="30">&nbsp;</td>
+
+          <td width="17" align="center" height="15"></td>
+
+        </tr>
+
+        <tr>
+
+          <td width="29" align="center" height="17">8</td>
+
+          <td width="67" align="center" height="30">&nbsp;</td>
+
+          <td width="17" align="center" height="17"></td>
+
+        </tr>
+
+        <tr>
+
+          <td width="29" align="center" height="17">9</td>
+
+          <td width="67" align="center" height="30">&nbsp;</td>
+
+          <td width="17" align="center" height="17">
+
+          <input type="button" onClick="DoToggle(9)" value="Toggle" name="ctToggle9"></td>
+
+        </tr>
+
+        <tr>
+
+          <td width="29" align="center" height="17">LED</td>
+
+          <td width="67" align="center" height="30">&nbsp;</td>
+
+          <td width="17" align="center" height="17">
+
+          <input type="button" onClick="DoToggle('Led')" value="Toggle" name="ctToggleLed"></td>
+
+        </tr>
+
+      </table>
+
+      </center>
+
+    </div>
+
+    <p>&nbsp;</p>
+
+  </form>
+
+
+
+  <p>&nbsp;</p>
+
+
+
+  <div align="center"><center><p>
+
+    &nbsp;</p>
+
+  </center></div>
+
+
+
+</body>
+
+</html>
+
+<script ID="clientEventHandlersJS" LANGUAGE="javascript">
+
+<!--
+
+
+
+// Public Variables
+
+var m_HndGet= null;
+
+
+
+// Create new http XML request object
+
+function NewRequest() 
+
+{   var Hnd;
+
+
+
+    Hnd=null;
+
+    // For Microsoft IE
+
+    if (window.ActiveXObject) 
+
+    {  try {  Hnd= new ActiveXObject("Msxml2.XMLHTTP");  }
+
+       catch (e) 
+
+       {  try { Hnd= new ActiveXObject("Microsoft.XMLHTTP");   } 
+
+          catch (e) 
+
+          {  alert('Error: IE ActiveXObject');
+
+          }
+
+       }
+
+    }
+
+    // For Mozilla, Safari,...
+
+    else if (window.XMLHttpRequest) 
+
+    {    Hnd= new XMLHttpRequest();
+
+         if (Hnd.overrideMimeType) 
+
+         {   Hnd.overrideMimeType('text/xml');
+
+         }
+
+    } 
+
+    // Browser not supported
+
+    if (!Hnd) 
+
+    {   alert('Error: Cannot create an XMLHTTP instance');
+
+    }
+
+    return Hnd;
+
+}
+
+
+
+// Update table contents
+
+function UpdateTbl() 
+
+{   var xDoc,Hnd;
+
+    var i,v,color;
+
+	
+
+	Hnd=m_HndGet;
+
+	// check http status
+
+    if (Hnd.readyState != 4) return;
+
+    if (Hnd.status != 200) return;
+
+    // set table contents with XML data
+
+    xDoc = Hnd.responseXML;
+
+    for(i=0;i<10;i++)
+
+    {  v=xDoc.getElementsByTagName("state").item(i).firstChild.data;
+
+       if(v=="1") color="#FF0000"; else color="#00FF00";
+
+       document.getElementById('xTable').rows[i+1].cells[1].style.backgroundColor=color;
+
+    }
+
+}
+
+
+
+// Get latest IO status with GET method
+
+function XmlGet()
+
+{  var Hnd;
+
+
+
+   Hnd=NewRequest();
+
+   if(Hnd)
+
+   {  m_HndGet=Hnd;
+
+      Hnd.onreadystatechange = UpdateTbl;
+
+      Hnd.open('GET', 'http://140.129.140.17/dio/cgidio?s+status', true);
+
+      Hnd.send(null);
+
+   }
+
+}
+
+
+
+// Toggle digital output with POST method
+
+function DoToggle(Id)
+
+{  var Hnd;
+
+
+
+   Hnd=NewRequest();
+
+   if(!Hnd) return;
+
+   // Post the button
+
+   Hnd.open('POST', 'http://140.129.140.17/dio/cgidio?u+set');
+
+   Hnd.setRequestHeader('Content-Type','application/form-x-www-urlencoded');
+
+   Hnd.send('ctToggle' + Id + '=1');
+
+   // Refresh the status
+
+   XmlGet();
+
+}
+
+
+
+// Startup 
+
+function window_onload() 
+
+{
+
+   // first update
+
+   XmlGet();
+
+   // auto update every 2 seconds
+
+   window.setInterval("XmlGet()",2000);
+
+}
+
+
+
+--></script>

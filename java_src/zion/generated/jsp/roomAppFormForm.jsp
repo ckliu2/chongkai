@@ -1,0 +1,172 @@
+<%@ include file="/common/taglibs.jsp"%>
+
+<ww:form name="roomAppFormForm" action="saveRoomAppForm" method="POST" onsubmit="onSubmit()">
+  <ww:hidden name="roomAppForm.id" value="${roomAppForm.id}"/>
+  <table border="0" cellspacing="1" class="cContentTable">
+    <tr><td class="cContentTitle" colspan="2" ><fmt:message key="roomAppForm.form"/></td></tr>
+    <tr class="cActionButtonLine">
+      <td colspan="2">
+        <input type=button onclick="javascript:history.back()" class="cButton" value="<fmt:message key="common.back"/>" >
+        <ww:if test="recordEditable == true">
+            <input type="submit" value="<fmt:message key="common.save"/>" class="cButton">&nbsp;
+            <input type="reset" value="<fmt:message key="common.reset"/>" class="cButton">&nbsp;
+            <ww:if test="roomAppForm.id != null">
+              <input type="submit" name="delete" onClick="javascript:return confirm('<fmt:message key="common.confirmDelete"/>')" value="<fmt:message key="common.delete"/>" class="cButton">
+            </ww:if>
+        </ww:if>
+        <ww:else>
+            <input type="submit" value="<fmt:message key="common.save"/>" class="cButton" DISABLED>&nbsp;
+            <input type="reset" value="<fmt:message key="common.reset"/>" class="cButton" DISABLED>&nbsp;
+            <ww:if test="roomAppForm.id != null">
+              <input type="submit" name="delete" onClick="javascript:return confirm('<fmt:message key="common.confirmDelete"/>')" value="<fmt:message key="common.delete"/>"  class="cButton" DISABLED>
+            </ww:if>
+        </ww:else>
+      </td>
+    </tr>
+    <tr><td class="cInputCaption"><fmt:message key="roomAppForm.date"/><span class="cRequired">*</span></td>
+        <td class="cInputColumn">
+            <ww:datepicker cssClass="cInputTextFieldShort" name="date" id="date" value="%{date}" language="zh" format="%Y/%m/%d"/><span class="cInputValidationError"><ww:property value="showHtmlErrorMessage('date')"/></span>
+        </td>
+    </tr>
+
+    <tr><td class="cInputCaption"><fmt:message key="roomAppForm.otherMeeting"/></td>
+        <td class="cInputColumn">
+            <ww:textfield name="roomAppForm.otherMeeting" value="%{roomAppForm.otherMeeting}" maxlength="20" cssClass="cInputTextFieldShort" />
+        </td>
+    </tr>
+
+    <tr><td class="cInputCaption"><fmt:message key="roomAppForm.meno"/></td>
+        <td class="cInputColumn">
+            <ww:textarea name="roomAppForm.meno" value="%{roomAppForm.meno}" cssClass="cInputTextArea" cols="45" rows="4" />
+        </td>
+    </tr>
+
+    <tr><td class="cInputCaption"><fmt:message key="roomAppForm.borrowDate"/></td>
+        <td class="cInputColumn">
+            <ww:datepicker cssClass="cInputTextFieldShort" name="borrowDate" id="borrowDate" value="%{borrowDate}" language="zh" format="%Y/%m/%d"/>
+        </td>
+    </tr>
+
+    <tr><td class="cInputCaption"><fmt:message key="roomAppForm.state"/></td>
+        <td class="cInputColumn">
+            <ww:textfield name="roomAppForm.state" value="%{roomAppForm.state}" maxlength="10" cssClass="cInputTextFieldShort" />
+        </td>
+    </tr>
+
+    <tr><td class="cInputCaption"><fmt:message key="common.lastModifiedDate"/></td>
+        <td class="cInputColumn">
+            <span class="cLabel"><ww:property value="roomAppForm.lastModifiedDate" /></span>
+        </td>
+    </tr>
+
+    <tr><td class="cInputCaption"><fmt:message key="common.createdDate"/></td>
+        <td class="cInputColumn">
+            <span class="cLabel"><ww:property value="roomAppForm.createdDate" /></span>
+        </td>
+    </tr>
+
+    <tr><td class="cInputCaption"><fmt:message key="roomAppForm.meeting"/><span class="cRequired">*</span></td>
+        <td class="cInputColumn">
+            <ww:select name="roomAppForm.meetingId" 
+               headerKey=""
+               headerValue="%{getText('common.pleaseSelect')}..."
+               list="meetingList"
+               listKey="id"
+               listValue="caption_"
+               cssClass="cInputListField"
+            /><span class="cInputValidationError"><ww:property value="showHtmlErrorMessage('roomAppForm.meetingId')"/></span>
+        </td>
+    </tr>
+
+    <tr><td class="cInputCaption"><fmt:message key="roomAppForm.applyBeginClock"/><span class="cRequired">*</span></td>
+        <td class="cInputColumn">
+            <ww:select name="roomAppForm.applyBeginClockId" 
+               headerKey=""
+               headerValue="%{getText('common.pleaseSelect')}..."
+               list="applyBeginClockList"
+               listKey="id"
+               listValue="caption_"
+               cssClass="cInputListField"
+            /><span class="cInputValidationError"><ww:property value="showHtmlErrorMessage('roomAppForm.applyBeginClockId')"/></span>
+        </td>
+    </tr>
+
+    <tr><td class="cInputCaption"><fmt:message key="roomAppForm.applyEndClock"/><span class="cRequired">*</span></td>
+        <td class="cInputColumn">
+            <ww:select name="roomAppForm.applyEndClockId" 
+               headerKey=""
+               headerValue="%{getText('common.pleaseSelect')}..."
+               list="applyEndClockList"
+               listKey="id"
+               listValue="caption_"
+               cssClass="cInputListField"
+            /><span class="cInputValidationError"><ww:property value="showHtmlErrorMessage('roomAppForm.applyEndClockId')"/></span>
+        </td>
+    </tr>
+
+
+
+    <tr><td class="cInputCaption"><fmt:message key="roomAppForm.room"/></td>
+        <td class="cInputColumn">
+            <table>
+            <tr>
+                <th align="center"><span style="font-size:10pt"><fmt:message key="common.available"/><fmt:message key="roomAppForm.room"/></style></th>
+                <th>&nbsp;</th>
+                <th align="center"><span style="font-size:10pt"><fmt:message key="common.selected"/><fmt:message key="roomAppForm.room"/></style></th>
+            </tr><tr>
+            <td >
+                <ww:select id="allRoom"
+                list="roomList"
+                listKey="id"
+                listValue="caption_"
+                multiple="true"
+                size="8"
+                cssClass="cQueryFieldList"
+                /></td><td>
+                <input type="button" value=">>" class="cSelectButton" onclick="moveAll(allRoom, selectedRoom);"><br>
+                <input type="button" value=">"  class="cSelectButton" onclick="moveOne(allRoom, selectedRoom);"><br>
+                <input type="button" value="<"  class="cSelectButton" onclick="moveOne(selectedRoom, allRoom);"><br>
+                <input type="button" value="<<" class="cSelectButton" onclick="moveAll(selectedRoom, allRoom);"><br>
+            </td><td align="center">
+                <ww:select name="roomIds" id="selectedRoom"
+                list="object_roomList"
+                listKey="id"
+                listValue="caption_"
+                multiple="true"
+                size="8"
+                cssClass="cQueryFieldList"
+                />
+            </td>
+            </tr>
+            </table>
+        </td>
+    </tr>
+
+    <tr class="cActionButtonLine">
+      <td colspan="2">
+        <input type=button onclick="javascript:history.back()" class="cButton" value="<fmt:message key="common.back"/>" >
+        <ww:if test="recordEditable == true">
+            <input type="submit" value="<fmt:message key="common.save"/>" class="cButton">&nbsp;
+            <input type="reset" value="<fmt:message key="common.reset"/>" class="cButton">&nbsp;
+            <ww:if test="roomAppForm.id != null">
+              <input type="submit" name="delete" onClick="javascript:return confirm('<fmt:message key="common.confirmDelete"/>')" value="<fmt:message key="common.delete"/>" class="cButton">
+            </ww:if>
+        </ww:if>
+        <ww:else>
+            <input type="submit" value="<fmt:message key="common.save"/>" class="cButton" DISABLED>&nbsp;
+            <input type="reset" value="<fmt:message key="common.reset"/>" class="cButton" DISABLED>&nbsp;
+            <ww:if test="roomAppForm.id != null">
+              <input type="submit" name="delete" onClick="javascript:return confirm('<fmt:message key="common.confirmDelete"/>')" value="<fmt:message key="common.delete"/>"  class="cButton" DISABLED>
+            </ww:if>
+        </ww:else>
+      </td>
+    </tr>
+  </table>
+</ww:form>
+<script>
+function onSubmit() {
+    mySelectAll(document.roomAppFormForm.roomIds);
+
+    return true;
+}
+</script>

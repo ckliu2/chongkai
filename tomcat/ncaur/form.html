@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+
+
+<style type="text/css">
+.form_table {
+	border: 1px solid #CCC; font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	margin:15px 30px 15px 30px;
+} 
+
+.form_table span {
+	color:#FD0408;
+	font-size: 13px;
+	
+} 
+
+input[type="text"] {
+  display: block;
+  margin: 0;
+  width: 80%;
+  font-family: sans-serif;
+ 
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+}
+
+
+#main{
+position: relative;
+left: -300px; /* 760 除以 -2 */
+margin-left: 50%;
+width: 600px;
+	
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+<div id="main">
+<table width="600" border="0" class="form_table">
+  <tbody>
+    <tr>
+      <td height="337" align="center" valign="middle" bgcolor="#D9D9D9"><table width="365" height="302" border="0" cellpadding="3" cellspacing="3">
+        <tbody>
+          <tr>
+            <td width="72"><span>*</span>姓名：</td>
+            <td width="258"><input type="text" name="textfield" id="textfield"></td>
+          </tr>
+          <tr>
+            <td><span>*</span>聯絡電話：</td>
+            <td><input type="text" name="textfield2" id="textfield2"></td>
+          </tr>
+          <tr>
+            <td>行動電話：</td>
+            <td><input type="text" name="textfield3" id="textfield3"></td>
+          </tr>
+          <tr>
+            <td><span>*</span>Email:</td>
+            <td><input type="text" name="textfield4" id="textfield4"></td>
+          </tr>
+          <tr>
+            <td valign="top"><br>
+              備註：</td>
+            <td><textarea name="textarea" id="textarea" rows="5" cols="35"></textarea></td>
+          </tr>
+          <tr>
+            <td valign="top">&nbsp;</td>
+            <td><img src="image/submit.png" width="136" height="46" alt=""/></td>
+          </tr>
+        </tbody>
+      </table></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</body>
+</html>
+<script>
+    $( "#buttom" ).load( "footer.html" );
+</script>

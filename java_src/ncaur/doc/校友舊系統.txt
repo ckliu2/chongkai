@@ -1,0 +1,4 @@
+http://203.71.172.216:8080/portal/dept_login.htm
+
+C060//deptc060
+

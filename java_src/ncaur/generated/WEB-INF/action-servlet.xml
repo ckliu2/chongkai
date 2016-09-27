@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="loginAction" class="com.common.web.action.LoginAction" singleton="false">
+        <property name="genericManager" ref="commonManager"/>
+    </bean>
+
+    <bean id="appPropertyAction" class="com.common.web.action.AppPropertyAction" singleton="false">
+        <property name="genericManager" ref="appPropertyManager"/>
+    </bean>
+
+<!-- ********************************************* -->
+
+    <bean id="courseAction" class="com.city.web.action.CourseAction" singleton="false">
+        <property name="genericManager" ref="courseManager"/>
+    </bean>
+
+    <bean id="courseMemberAction" class="com.city.web.action.CourseMemberAction" singleton="false">
+        <property name="genericManager" ref="courseMemberManager"/>
+    </bean>
+
+    <bean id="subMenuAction" class="com.web.web.action.SubMenuAction" singleton="false">
+        <property name="genericManager" ref="subMenuManager"/>
+    </bean>
+
+    <bean id="clockAction" class="com.web.web.action.ClockAction" singleton="false">
+        <property name="genericManager" ref="clockManager"/>
+    </bean>
+
+    <bean id="subItemAction" class="com.web.web.action.SubItemAction" singleton="false">
+        <property name="genericManager" ref="subItemManager"/>
+    </bean>
+
+    <bean id="linksAction" class="com.web.web.action.LinksAction" singleton="false">
+        <property name="genericManager" ref="linksManager"/>
+    </bean>
+
+    <bean id="bulletinAction" class="com.web.web.action.BulletinAction" singleton="false">
+        <property name="genericManager" ref="bulletinManager"/>
+    </bean>
+
+    <bean id="consultantAction" class="com.web.web.action.ConsultantAction" singleton="false">
+        <property name="genericManager" ref="consultantManager"/>
+    </bean>
+
+    <bean id="checkingStateAction" class="com.web.web.action.CheckingStateAction" singleton="false">
+        <property name="genericManager" ref="checkingStateManager"/>
+    </bean>
+
+    <bean id="bolgClassAction" class="com.web.web.action.BolgClassAction" singleton="false">
+        <property name="genericManager" ref="bolgClassManager"/>
+    </bean>
+
+    <bean id="perReferAction" class="com.web.web.action.PerReferAction" singleton="false">
+        <property name="genericManager" ref="perReferManager"/>
+    </bean>
+
+    <bean id="bolgAction" class="com.web.web.action.BolgAction" singleton="false">
+        <property name="genericManager" ref="bolgManager"/>
+    </bean>
+
+    <bean id="roomAction" class="com.web.web.action.RoomAction" singleton="false">
+        <property name="genericManager" ref="roomManager"/>
+    </bean>
+
+    <bean id="menuAction" class="com.web.web.action.MenuAction" singleton="false">
+        <property name="genericManager" ref="menuManager"/>
+    </bean>
+
+    <bean id="agreeTermsAction" class="com.web.web.action.AgreeTermsAction" singleton="false">
+        <property name="genericManager" ref="agreeTermsManager"/>
+    </bean>
+

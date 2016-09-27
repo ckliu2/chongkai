@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="loginAction" class="com.common.web.action.LoginAction" singleton="false">
+        <property name="genericManager" ref="commonManager"/>
+    </bean>
+    
+    <bean id="appPropertyAction" class="com.common.web.action.AppPropertyAction" singleton="false">
+        <property name="genericManager" ref="commonManager"/>
+    </bean>
+
+    <bean id="miscCodeAction" class="com.common.web.action.MiscCodeAction" singleton="false">
+        <property name="genericManager" ref="commonManager"/>
+    </bean>
+
+    
+    <bean id="functionAction" class="com.common.web.action.FunctionAction" singleton="false">
+        <property name="genericManager" ref="commonManager"/>
+    </bean>
+
+    <bean id="functionCategoryAction" class="com.common.web.action.FunctionCategoryAction" singleton="false">
+        <property name="genericManager" ref="commonManager"/>
+    </bean>
+
+    <bean id="groupAction" class="com.common.web.action.GroupAction" singleton="false">
+        <property name="genericManager" ref="commonManager"/>
+    </bean>
+
+    
+    <bean id="memberAction" class="com.common.web.action.MemberAction" singleton="false">
+        <property name="genericManager" ref="commonManager"/>
+        <property name="cityManager" ref="cityManager"/>
+    </bean>
+    
+    <bean id="courseAction" class="com.city.web.action.CourseAction" singleton="false">
+        <property name="genericManager" ref="cityManager"/>
+    </bean>
+
+    <bean id="courseMemberAction" class="com.city.web.action.CourseMemberAction" singleton="false">
+        <property name="genericManager" ref="cityManager"/>
+    </bean>
+    
+    
+    <bean id="webAction" class="com.city.web.action.WebAction" singleton="false">
+        <property name="genericManager" ref="cityManager"/>
+    </bean>
+    
+    
+    <bean id="websiteAction" class="com.web.web.action.WebSiteAction" singleton="false">
+        <property name="genericManager" ref="websiteManager"/>       
+    </bean>
+    
+    <bean id="bulletinAction" class="com.web.web.action.BulletinAction" singleton="false">
+        <property name="genericManager" ref="websiteManager"/>
+    </bean>  
+    
+    
+    <bean id="bolgClassAction" class="com.web.web.action.BolgClassAction" singleton="false">
+        <property name="genericManager" ref="websiteManager"/>
+    </bean>
+
+    <bean id="bolgAction" class="com.web.web.action.BolgAction" singleton="false">
+        <property name="genericManager" ref="websiteManager"/>
+    </bean>
+    
+    <bean id="agreeTermsAction" class="com.web.web.action.AgreeTermsAction" singleton="false">
+        <property name="genericManager" ref="websiteManager"/>
+    </bean>
+    
+    <bean id="consultantAction" class="com.web.web.action.ConsultantAction" singleton="false">
+        <property name="genericManager" ref="websiteManager"/>
+    </bean>
+    
+    <bean id="perReferAction" class="com.web.web.action.PerReferAction" singleton="false">
+        <property name="genericManager" ref="websiteManager"/>
+    </bean>
+    
+  
+</beans>

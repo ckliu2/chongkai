@@ -1,0 +1,33 @@
+# Project: Meter
+# Makefile created by Dev-C++ 5.0.0.4
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = Meter_private.res
+OBJ      = client.o $(RES)
+LINKOBJ  = client.o $(RES)
+LIBS     = -pg -L"D:/softs/Dev-Cpp Portable/lib" -L"D:/softs/Dev-Cpp Portable/lib/gcc" -static-libstdc++ -static-libgcc "../../../../../softs/Dev-Cpp Portable/lib/libws2_32.a"  
+INCS     = -I"D:/softs/Dev-Cpp Portable/include" 
+CXXINCS  = -I"D:/softs/Dev-Cpp Portable/include" 
+BIN      = Meter.exe
+CXXFLAGS = $(CXXINCS)   -pg
+CFLAGS   = $(INCS)   -pg
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Meter.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Meter.exe" $(LIBS)
+
+client.o: client.cpp
+	$(CPP) -c client.cpp -o client.o $(CXXFLAGS)
+
+Meter_private.res: Meter_private.rc 
+	$(WINDRES) -i Meter_private.rc --input-format=rc -o Meter_private.res -O coff 

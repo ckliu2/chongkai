@@ -1,0 +1,718 @@
+<!DOCTYPE xwork PUBLIC
+    "-//OpenSymphony Group//XWork 1.1.1//EN"
+    "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+    <include file="webwork-default.xml" />
+
+    <package name="default" extends="webwork-default" >
+        <interceptors>
+            <interceptor-stack name="defaultStack">
+                <interceptor-ref name="exception" />
+                <interceptor-ref name="alias" />
+                <interceptor-ref name="servlet-config" />
+                <interceptor-ref name="prepare" />
+                <interceptor-ref name="i18n" />
+                <interceptor-ref name="chain" />
+                <interceptor-ref name="model-driven" />
+                <interceptor-ref name="fileUpload" />
+                <interceptor-ref name="static-params" />
+                <interceptor-ref name="params" />
+                <interceptor-ref name="conversionError" />
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">execute,delete,edit,list,copy,map</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back</param>
+                </interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        
+        <global-results>
+            <result name="dataAccessFailure" type="tiles">dataAccessFailure</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="org.springframework.dao.DataAccessException"
+                result="dataAccessFailure"/>
+        </global-exception-mappings>
+
+        <!-- Login -->
+
+        <action name="login" class="loginAction" >
+            <result name="input" type="redirect">/adm/admin.jsp${xworkParam}</result>
+            <result name="success" type="tiles">blank</result>
+         </action>
+
+        <action name="logout" class="loginAction" method="logout">
+            <result name="success" type="redirect">/adm/admin.jsp</result>
+            <result name="input" type="redirect">/adm/admin.jsp</result>
+        </action>
+ 
+        
+    <!-- AppProperty -->
+        <action name="appPropertyList" class="appPropertyAction" method="list">
+            <result name="success" type="tiles">appPropertyList</result>
+            <result name="input" type="tiles">appPropertyList</result>
+        </action>
+
+        <action name="editAppProperty" class="appPropertyAction" method="edit">
+            <result name="success" type="tiles">appPropertyForm</result>
+            <result name="input" type="tiles">appPropertyList</result>
+        </action>
+
+        <action name="saveAppProperty" class="appPropertyAction">
+            <result name="delete" type="redirect">appPropertyList.do</result>
+            <result name="input" type="tiles">appPropertyForm</result>
+            <result name="success" type="chain">saveAppPropertyWithValidation</result>
+        </action>
+
+        <action name="saveAppPropertyWithValidation" class="appPropertyAction" method="save">
+            <result name="input" type="tiles">appPropertyForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- MiscCode -->
+        <action name="miscCodeList" class="miscCodeAction" method="list">
+            <result name="success" type="tiles">miscCodeList</result>
+            <result name="input" type="tiles">miscCodeList</result>
+        </action>
+
+        <action name="editMiscCode" class="miscCodeAction" method="edit">
+            <result name="success" type="tiles">miscCodeForm</result>
+            <result name="input" type="tiles">miscCodeList</result>
+        </action>
+
+        <action name="saveMiscCode" class="miscCodeAction">
+            <result name="delete" type="redirect">miscCodeList.do</result>
+            <result name="input" type="tiles">miscCodeForm</result>
+            <result name="success" type="chain">saveMiscCodeWithValidation</result>
+        </action>
+
+        <action name="saveMiscCodeWithValidation" class="miscCodeAction" method="save">
+            <result name="input" type="tiles">miscCodeForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- Function -->
+        <action name="functionList" class="functionAction" method="list">
+            <result name="success" type="tiles">functionList</result>
+            <result name="input" type="tiles">functionList</result>
+        </action>
+
+        <action name="editFunction" class="functionAction" method="edit">
+            <result name="success" type="tiles">functionForm</result>
+            <result name="input" type="tiles">functionList</result>
+        </action>
+
+        <action name="saveFunction" class="functionAction">
+            <result name="delete" type="redirect">functionList.do</result>
+            <result name="input" type="tiles">functionForm</result>
+            <result name="success" type="chain">saveFunctionWithValidation</result>
+        </action>
+
+        <action name="saveFunctionWithValidation" class="functionAction" method="save">
+            <result name="input" type="tiles">functionForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- FunctionCategory -->
+        <action name="functionCategoryList" class="functionCategoryAction" method="list">
+            <result name="success" type="tiles">functionCategoryList</result>
+            <result name="input" type="tiles">functionCategoryList</result>
+        </action>
+
+        <action name="editFunctionCategory" class="functionCategoryAction" method="edit">
+            <result name="success" type="tiles">functionCategoryForm</result>
+            <result name="input" type="tiles">functionCategoryList</result>
+        </action>
+
+        <action name="saveFunctionCategory" class="functionCategoryAction">
+            <result name="delete" type="redirect">functionCategoryList.do</result>
+            <result name="input" type="tiles">functionCategoryForm</result>
+            <result name="success" type="chain">saveFunctionCategoryWithValidation</result>
+        </action>
+
+        <action name="saveFunctionCategoryWithValidation" class="functionCategoryAction" method="save">
+            <result name="input" type="tiles">functionCategoryForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- Group -->
+        <action name="groupList" class="groupAction" method="list">
+            <result name="success" type="tiles">groupList</result>
+            <result name="input" type="tiles">groupList</result>
+        </action>
+
+        <action name="editGroup" class="groupAction" method="edit">
+            <result name="success" type="tiles">groupForm</result>
+            <result name="input" type="tiles">groupList</result>
+        </action>
+
+        <action name="saveGroup" class="groupAction">
+            <result name="delete" type="redirect">groupList.do</result>
+            <result name="input" type="tiles">groupForm</result>
+            <result name="success" type="chain">saveGroupWithValidation</result>
+        </action>
+
+        <action name="saveGroupWithValidation" class="groupAction" method="save">
+            <result name="input" type="tiles">groupForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+
+    <!-- WebSite -->
+        <action name="webSiteList" class="webSiteAction" method="list">
+            <result name="success" type="tiles">webSiteList</result>
+            <result name="input" type="tiles">webSiteList</result>
+        </action>
+
+        <action name="editWebSite" class="webSiteAction" method="edit">
+            <result name="success" type="tiles">webSiteForm</result>
+            <result name="input" type="tiles">webSiteList</result>
+        </action>
+
+        <action name="saveWebSite" class="webSiteAction">
+            <result name="delete" type="redirect">webSiteList.do</result>
+            <result name="input" type="tiles">webSiteForm</result>
+            <result name="success" type="chain">saveWebSiteWithValidation</result>
+        </action>
+
+        <action name="saveWebSiteWithValidation" class="webSiteAction" method="save">
+            <result name="input" type="tiles">webSiteForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+        
+        
+     <!-- WebLog -->
+        <action name="webLogList" class="webLogAction" method="list">
+            <result name="success" type="tiles">webLogList</result>
+            <result name="input" type="tiles">webLogList</result>
+        </action>
+
+        <action name="editWebLog" class="webLogAction" method="edit">
+            <result name="success" type="tiles">webLogForm</result>
+            <result name="input" type="tiles">webLogList</result>
+        </action>
+
+        <action name="copyWebLog" class="webLogAction" method="copy">
+            <result name="success" type="tiles">webLogForm</result>
+            <result name="input" type="tiles">webLogList</result>
+        </action>
+
+        <action name="saveWebLog" class="webLogAction">
+            <result name="delete" type="redirect">webLogList.do</result>
+            <result name="input" type="tiles">webLogForm</result>
+            <result name="success" type="chain">saveWebLogWithValidation</result>
+        </action>
+
+        <action name="saveWebLogWithValidation" class="webLogAction" method="save">
+            <result name="input" type="tiles">webLogForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+ <!-- Member -->
+        <action name="memberList" class="memberAction" method="list">
+            <result name="success" type="tiles">memberList</result>
+            <result name="input" type="tiles">memberList</result>
+        </action>
+
+        <action name="editMember" class="memberAction" method="edit">
+            <result name="success" type="tiles">memberForm</result>
+            <result name="input" type="tiles">memberList</result>
+        </action>
+
+        <action name="copyMember" class="memberAction" method="copy">
+            <result name="success" type="tiles">memberForm</result>
+            <result name="input" type="tiles">memberList</result>
+        </action>
+
+        <action name="saveMember" class="memberAction">
+            <result name="delete" type="redirect">memberList.do</result>
+            <result name="input" type="tiles">memberForm</result>
+            <result name="success" type="chain">saveMemberWithValidation</result>
+        </action>
+
+        <action name="saveMemberWithValidation" class="memberAction" method="save">
+            <result name="input" type="tiles">memberForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+        
+        <action name="queryMemberListTop" class="memberAction" method="list">
+            <result name="success" type="tiles">queryMemberListTop</result>
+        </action>
+        
+        <action name="searchMember" class="memberAction" method="list">
+            <result name="success" type="tiles">queryMemberListTop</result>           
+        </action>
+        
+  
+        
+     <!-- Unit -->
+        <action name="unitList" class="unitAction" method="list">
+            <result name="success" type="tiles">unitList</result>
+            <result name="input" type="tiles">unitList</result>
+        </action>
+
+        <action name="editUnit" class="unitAction" method="edit">
+            <result name="success" type="tiles">unitForm</result>
+            <result name="input" type="tiles">unitList</result>
+        </action>
+
+        <action name="saveUnit" class="unitAction">
+            <result name="delete" type="redirect">unitList.do</result>
+            <result name="input" type="tiles">unitForm</result>
+            <result name="success" type="chain">saveUnitWithValidation</result>
+        </action>
+
+        <action name="saveUnitWithValidation" class="unitAction" method="save">
+            <result name="input" type="tiles">unitForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+     <!-- Unit -->
+     
+     
+     <!-- Department -->
+        <action name="departmentList" class="departmentAction" method="list">
+            <result name="success" type="tiles">departmentList</result>
+            <result name="input" type="tiles">departmentList</result>
+        </action>
+
+        <action name="editDepartment" class="departmentAction" method="edit">
+            <result name="success" type="tiles">departmentForm</result>
+            <result name="input" type="tiles">departmentList</result>
+        </action>
+
+        <action name="copyDepartment" class="departmentAction" method="copy">
+            <result name="success" type="tiles">departmentForm</result>
+            <result name="input" type="tiles">departmentList</result>
+        </action>
+
+        <action name="saveDepartment" class="departmentAction">
+            <result name="delete" type="redirect">departmentList.do</result>
+            <result name="input" type="tiles">departmentForm</result>
+            <result name="success" type="chain">saveDepartmentWithValidation</result>
+        </action>
+
+        <action name="saveDepartmentWithValidation" class="departmentAction" method="save">
+            <result name="input" type="tiles">departmentForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+ 
+     <!-- Grade -->
+        <action name="gradeList" class="gradeAction" method="list">
+            <result name="success" type="tiles">gradeList</result>
+            <result name="input" type="tiles">gradeList</result>
+        </action>
+
+        <action name="editGrade" class="gradeAction" method="edit">
+            <result name="success" type="tiles">gradeForm</result>
+            <result name="input" type="tiles">gradeList</result>
+        </action>
+
+        <action name="copyGrade" class="gradeAction" method="copy">
+            <result name="success" type="tiles">gradeForm</result>
+            <result name="input" type="tiles">gradeList</result>
+        </action>
+
+        <action name="saveGrade" class="gradeAction">
+            <result name="delete" type="redirect">gradeList.do</result>
+            <result name="input" type="tiles">gradeForm</result>
+            <result name="success" type="chain">saveGradeWithValidation</result>
+        </action>
+
+        <action name="saveGradeWithValidation" class="gradeAction" method="save">
+            <result name="input" type="tiles">gradeForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>   
+        
+    <!-- Team -->
+        <action name="teamList" class="teamAction" method="list">
+            <result name="success" type="tiles">teamList</result>
+            <result name="input" type="tiles">teamList</result>
+        </action>
+
+        <action name="editTeam" class="teamAction" method="edit">
+            <result name="success" type="tiles">teamForm</result>
+            <result name="input" type="tiles">teamList</result>
+        </action>
+
+        <action name="copyTeam" class="teamAction" method="copy">
+            <result name="success" type="tiles">teamForm</result>
+            <result name="input" type="tiles">teamList</result>
+        </action>
+
+        <action name="saveTeam" class="teamAction">
+            <result name="delete" type="redirect">teamList.do</result>
+            <result name="input" type="tiles">teamForm</result>
+            <result name="success" type="chain">saveTeamWithValidation</result>
+        </action>
+
+        <action name="saveTeamWithValidation" class="teamAction" method="save">
+            <result name="input" type="tiles">teamForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+        
+        
+   <!-- Industry -->
+        <action name="industryList" class="industryAction" method="list">
+            <result name="success" type="tiles">industryList</result>
+            <result name="input" type="tiles">industryList</result>
+        </action>
+
+        <action name="editIndustry" class="industryAction" method="edit">
+            <result name="success" type="tiles">industryForm</result>
+            <result name="input" type="tiles">industryList</result>
+        </action>
+
+        <action name="copyIndustry" class="industryAction" method="copy">
+            <result name="success" type="tiles">industryForm</result>
+            <result name="input" type="tiles">industryList</result>
+        </action>
+
+        <action name="saveIndustry" class="industryAction">
+            <result name="delete" type="redirect">industryList.do</result>
+            <result name="input" type="tiles">industryForm</result>
+            <result name="success" type="chain">saveIndustryWithValidation</result>
+        </action>
+
+        <action name="saveIndustryWithValidation" class="industryAction" method="save">
+            <result name="input" type="tiles">industryForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+        
+   <!-- smsMailRec --> 
+        <action name="smsMailRecList" class="smsMailRecAction" method="list">
+            <result name="success" type="tiles">smsMailRecList</result>
+            <result name="input" type="tiles">smsMailRecList</result>
+        </action>
+        
+     <!-- mail -->
+        <action name="mail" class="smsmailAction" >
+            <result name="success" type="tiles">mail</result>
+            <result name="input" type="tiles">mail</result>
+        </action>   
+        
+        <action name="saveMail" class="smsmailAction" method="sendMail">
+            <result name="input" type="redirect">mail.do${xworkParam}</result>
+            <result name="success" type="redirect">mail.do${xworkParam}</result>
+        </action>   
+        
+<!-- ****************************************************************** -->
+    
+      <!-- PrayTWGlobal -->
+        <action name="prayTWGlobalList" class="prayTWGlobalAction" method="list">
+            <result name="success" type="tiles">prayTWGlobalList</result>
+            <result name="input" type="tiles">prayTWGlobalList</result>
+        </action>
+
+        <action name="editPrayTWGlobal" class="prayTWGlobalAction" method="edit">
+            <result name="success" type="tiles">prayTWGlobalForm</result>
+            <result name="input" type="tiles">prayTWGlobalList</result>
+        </action>
+
+        <action name="copyPrayTWGlobal" class="prayTWGlobalAction" method="copy">
+            <result name="success" type="tiles">prayTWGlobalForm</result>
+            <result name="input" type="tiles">prayTWGlobalList</result>
+        </action>
+
+        <action name="savePrayTWGlobal" class="prayTWGlobalAction">
+            <result name="delete" type="redirect">prayTWGlobalList.html</result>
+            <result name="input" type="tiles">prayTWGlobalForm</result>
+            <result name="success" type="chain">savePrayTWGlobalWithValidation</result>
+        </action>
+
+        <action name="savePrayTWGlobalWithValidation" class="prayTWGlobalAction" method="save">
+            <result name="input" type="tiles">prayTWGlobalForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- PrayYou -->
+        <action name="prayYouList" class="prayYouAction" method="list">
+            <result name="success" type="tiles">prayYouList</result>
+            <result name="input" type="tiles">prayYouList</result>
+        </action>
+
+        <action name="editPrayYou" class="prayYouAction" method="edit">
+            <result name="success" type="tiles">prayYouForm</result>
+            <result name="input" type="tiles">prayYouList</result>
+        </action>
+
+        <action name="copyPrayYou" class="prayYouAction" method="copy">
+            <result name="success" type="tiles">prayYouForm</result>
+            <result name="input" type="tiles">prayYouList</result>
+        </action>
+
+        <action name="savePrayYou" class="prayYouAction">
+            <result name="delete" type="redirect">prayYouList.html</result>
+            <result name="input" type="tiles">prayYouForm</result>
+            <result name="success" type="chain">savePrayYouWithValidation</result>
+        </action>
+
+        <action name="savePrayYouWithValidation" class="prayYouAction" method="save">
+            <result name="input" type="tiles">prayYouForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- PrayMe -->
+        <action name="prayMeList" class="prayMeAction" method="list">
+            <result name="success" type="tiles">prayMeList</result>
+            <result name="input" type="tiles">prayMeList</result>
+        </action>
+
+        <action name="editPrayMe" class="prayMeAction" method="edit">
+            <result name="success" type="tiles">prayMeForm</result>
+            <result name="input" type="tiles">prayMeList</result>
+        </action>
+
+        <action name="copyPrayMe" class="prayMeAction" method="copy">
+            <result name="success" type="tiles">prayMeForm</result>
+            <result name="input" type="tiles">prayMeList</result>
+        </action>
+
+        <action name="savePrayMe" class="prayMeAction">
+            <result name="delete" type="redirect">prayMeList.html</result>
+            <result name="input" type="tiles">prayMeForm</result>
+            <result name="success" type="chain">savePrayMeWithValidation</result>
+        </action>
+
+        <action name="savePrayMeWithValidation" class="prayMeAction" method="save">
+            <result name="input" type="tiles">prayMeForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+        
+        <action name="delPrayMe" class="prayMeAction" method="list">
+            <result name="success">/pray/delPrayMe.jsp</result>        
+        </action>
+        
+        <action name="displaypray" class="prayMeAction" method="list">
+            <result name="success">/pray/displaypray.jsp</result>        
+        </action>
+
+    <!-- PrayTWClaim -->
+        <action name="prayTWClaimList" class="prayTWClaimAction" method="list">
+            <result name="success" type="tiles">prayTWClaimList</result>
+            <result name="input" type="tiles">prayTWClaimList</result>
+        </action>
+        
+        <action name="prayTWClaimByJSON" class="prayTWClaimAction" method="list">
+            <result name="success" >/pray/prayTWClaimByJSON.jsp</result>           
+        </action>
+        
+        <action name="prayTWClaimDialog" class="prayTWClaimAction" method="list">
+            <result name="success" >/pray/prayTWClaimDialog.jsp</result>           
+        </action>
+        
+        
+
+    <!-- Pray -->
+        <action name="prayList" class="prayAction" method="list">
+            <result name="success" type="tiles">prayList</result>
+            <result name="input" type="tiles">prayList</result>
+        </action>
+
+        <action name="editPray" class="prayAction" method="edit">
+            <result name="success" type="tiles">prayForm</result>
+            <result name="input" type="tiles">prayList</result>
+        </action>
+
+        <action name="savePray" class="prayAction">
+            <result name="delete" type="redirect">prayList.do</result>
+            <result name="input" type="tiles">prayForm</result>
+            <result name="success" type="chain">savePrayWithValidation</result>
+        </action>
+
+        <action name="savePrayWithValidation" class="prayAction" method="save">
+            <result name="input" type="tiles">prayForm</result>
+            <result name="success" type="tiles">prayList</result>
+        </action>
+
+    <!-- PrayTW -->
+        <action name="prayTWList" class="prayTWAction" method="list">
+            <result name="success" type="tiles">prayTWList</result>
+            <result name="input" type="tiles">prayTWList</result>
+        </action>
+
+        <action name="editPrayTW" class="prayTWAction" method="edit">
+            <result name="success" type="tiles">prayTWForm</result>
+            <result name="input" type="tiles">prayTWList</result>
+        </action>
+
+        <action name="copyPrayTW" class="prayTWAction" method="copy">
+            <result name="success" type="tiles">prayTWForm</result>
+            <result name="input" type="tiles">prayTWList</result>
+        </action>
+
+        <action name="savePrayTW" class="prayTWAction">
+            <result name="delete" type="redirect">prayTWList.html</result>
+            <result name="input" type="tiles">prayTWForm</result>
+            <result name="success" type="chain">savePrayTWWithValidation</result>
+        </action>
+
+        <action name="savePrayTWWithValidation" class="prayTWAction" method="save">
+            <result name="input" type="tiles">prayTWForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+        
+    
+    <!-- PrayStreet -->
+        <action name="editPrayStreet" class="prayStreetAction" method="edit">
+            <result name="success">/pray/prayStreetForm.jsp</result>        
+        </action>
+       
+
+        <action name="savePrayStreet" class="prayStreetAction">
+            <result name="delete" type="redirect">/pray/prayStreetForm.jsp${xworkParam}</result>
+            <result name="input" >/pray/prayStreetForm.jsp</result>
+            <result name="success" type="chain">savePrayStreetWithValidation</result>
+        </action>
+
+        <action name="savePrayStreetWithValidation" class="prayStreetAction" method="save">
+            <result name="input" >editPrayStreet</result>
+            <result name="success" type="redirect">editPrayStreet.do${xworkParam}</result>
+        </action>    
+        
+        
+   <!-- ****************************prayweb************************************** -->
+       
+        <action name="prayall" class="prayWebAction" method="list">
+            <result name="success">/pray/prayall.jsp</result>          
+        </action>
+        
+        <action name="map" class="prayWebAction" method="map">
+            <result name="success">/pray/map.jsp</result>          
+        </action>
+        
+        
+        <action name="areaprayers" class="prayWebAction" method="list">
+            <result name="success">/pray/areaprayers.jsp</result>          
+        </action>
+        
+        
+        <action name="areasignup" class="prayWebAction" method="map">
+            <result name="success">/pray/areasignup.jsp</result>          
+        </action>
+        
+        <action name="prayTWClaim" class="prayWebAction" method="list">
+            <result name="success">/pray/prayTWClaim.jsp</result>          
+        </action>
+        
+        
+        <action name="userTWClaim" class="prayWebAction" method="list">
+            <result name="success">/pray/userTWClaim.jsp</result>          
+        </action>
+        
+        
+        <action name="index" class="prayWebAction" method="list">
+            <result name="success">index.jsp</result>          
+        </action>
+        
+        
+        <action name="register" class="prayWebAction" method="list">
+            <result name="success">/pray/register.jsp</result>          
+        </action>
+        
+        <action name="userlogin" class="loginAction" method="list">
+            <result name="success">/pray/userlogin.jsp</result>
+        </action>
+        
+        <action name="prayme" class="prayWebAction" method="list">
+            <result name="success">/pray/prayme.jsp</result>
+        </action>
+        
+        <action name="savePrayItem" class="prayWebAction" method="list">
+            <result name="success">/pray/savePrayItem.jsp</result>
+        </action>
+        
+        <action name="savePrayYou" class="prayWebAction" method="list">
+            <result name="success">/pray/savePrayYou.jsp</result>
+        </action>
+        
+        <action name="myprayme" class="prayWebAction" method="list">
+            <result name="success">/pray/myprayme.jsp</result>
+        </action>
+        
+        <action name="body" class="prayWebAction" method="list">
+            <result name="success">/pray/body.jsp</result>
+        </action>
+        
+        <action name="sunday" class="prayWebAction" method="list">
+            <result name="success">/pray/sunday.jsp</result>
+        </action>
+        
+        
+        <action name="registerSave" class="prayWebAction" method="list">
+            <result name="success">/pray/registerSave.jsp</result>
+        </action>
+        
+        
+ <!-- SundayInfor -->
+        <action name="sundayInforList" class="sundayInforAction" method="list">
+            <result name="success" type="tiles">sundayInforList</result>
+            <result name="input" type="tiles">sundayInforList</result>
+        </action>
+
+        <action name="editSundayInfor" class="sundayInforAction" method="edit">
+            <result name="success" type="tiles">sundayInforForm</result>
+            <result name="input" type="tiles">sundayInforList</result>
+        </action>
+
+        <action name="copySundayInfor" class="sundayInforAction" method="copy">
+            <result name="success" type="tiles">sundayInforForm</result>
+            <result name="input" type="tiles">sundayInforList</result>
+        </action>
+
+        <action name="saveSundayInfor" class="sundayInforAction">
+            <result name="delete" type="redirect">sundayInforList.do</result>
+            <result name="input" type="tiles">sundayInforForm</result>
+            <result name="success" type="chain">saveSundayInforWithValidation</result>
+        </action>
+
+        <action name="saveSundayInforWithValidation" class="sundayInforAction" method="save">
+            <result name="input" type="tiles">sundayInforForm</result>
+            <result name="success" type="tiles">sundayInforList</result>
+        </action> 
+        
+        
+        <action name="bible" class="prayWebAction" method="list">
+            <result name="success">/pray/bible.jsp</result>
+        </action> 
+        
+        <action name="mybible" class="prayWebAction" method="list">
+            <result name="success">/pray/mybible.jsp</result>
+        </action>
+        
+        <action name="todayBibleByMemberByJSON" class="prayWebAction" method="list">
+            <result name="success">/pray/todayBibleByMemberByJSON.jsp</result>
+        </action>
+        
+        <action name="todayBibleJSON" class="prayWebAction" method="list">
+            <result name="success">/pray/todayBibleJSON.jsp</result>
+        </action>
+        
+        
+        <action name="chapterNumber" class="prayWebAction" method="list">
+            <result name="success">/pray/chapterNumber.jsp</result>
+        </action>
+        
+      
+        <action name="everyBible" class="prayWebAction" method="list">
+            <result name="success">/pray/everyBible.jsp</result>
+        </action>  
+        
+        <action name="livelyBible" class="prayWebAction" method="list">
+            <result name="success">/pray/livelyBible.jsp</result>
+        </action>
+        
+        <action name="lection" class="prayWebAction" method="list">
+            <result name="success">/pray/lection.jsp</result>
+        </action>
+        
+        <action name="volume" class="prayWebAction" method="list">
+            <result name="success">/pray/volume.jsp</result>
+        </action>
+        
+           
+    </package>   
+</xwork>
+

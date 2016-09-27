@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+    <definition name="default" path="/layout/template.jsp">
+        <put name="title" value="Information System"/>
+        <put name="menu" value="/layout/menu.jsp"/>
+        <put name="rightColumn" value="/layout/right.jsp"/>
+    </definition>    
+
+    <definition name="surveyOnlineTemplate" path="/layout/templateOnline.jsp">
+        <put name="title" value="Information System"/>
+        <put name="foot" value="/layout/foot.jsp"/>
+    </definition>
+
+    <definition name="noMenuTemplate" path="/layout/noMenuTemplate.jsp">
+        <put name="title" value="Information System"/>
+    </definition>    
+    
+
+    <definition name="searchResultTemplate" path="/layout/searchResultTemplate.jsp">
+        <put name="title" value="Information System"/>
+    </definition>
+
+    <definition name="dataAccessFailure" extends="default">
+        <put name="title" value="Data Access Error"/>
+        <put name="content" value="/common/dataAccessFailure.jsp"/>
+    </definition>
+
+    <definition name="blank" extends="default">
+        <put name="title" value=""/>
+        <put name="content" value="/common/blank.jsp"/>    
+    </definition>
+
+    <definition name="editTimeExceed" extends="default">
+        <put name="title" value=""/>
+        <put name="content" value="/common/editTimeExceed.jsp"/>
+    </definition>
+  
+
+    <!-- 
+    ************************ 
+    * AppProperty 
+    ************************
+    -->
+    <definition name="appPropertyList" extends="default">
+        <put name="content" value="/adm/appPropertyList.jsp"/>
+    </definition>
+    <definition name="appPropertyForm" extends="default">
+        <put name="content" value="/adm/appPropertyForm.jsp"/>
+    </definition>
+ 
+     <!-- 
+    ************************ 
+    * MiscCode 
+    ************************
+    -->
+    <definition name="miscCodeList" extends="default">
+        <put name="content" value="/adm/miscCodeList.jsp"/>
+    </definition>
+    <definition name="miscCodeForm" extends="default">
+        <put name="content" value="/adm/miscCodeForm.jsp"/>
+    </definition>
+ 
+     <!-- 
+    ************************ 
+    * Function 
+    ************************
+    -->
+    <definition name="functionList" extends="default">
+        <put name="content" value="/adm/functionList.jsp"/>
+    </definition>
+
+    <definition name="functionForm" extends="default">
+        <put name="content" value="/adm/functionForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * FunctionCategory 
+    ************************
+    -->
+    <definition name="functionCategoryList" extends="default">
+        <put name="content" value="/adm/functionCategoryList.jsp"/>
+    </definition>
+
+    <definition name="functionCategoryForm" extends="default">
+        <put name="content" value="/adm/functionCategoryForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Group 
+    ************************
+    -->
+    <definition name="groupList" extends="default">
+        <put name="content" value="/adm/groupList.jsp"/>
+    </definition>
+
+    <definition name="groupForm" extends="default">
+        <put name="content" value="/adm/groupForm.jsp"/>
+    </definition>
+
+
+    <!-- 
+    ************************ 
+    * Member 
+    ************************
+    -->
+    <definition name="memberList" extends="default">
+        <put name="content" value="/adm/memberList.jsp"/>
+    </definition>
+
+    <definition name="memberForm" extends="default">
+        <put name="content" value="/adm/memberForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Course 
+    ************************
+    -->
+    <definition name="courseList" extends="default">
+        <put name="content" value="/city/courseList.jsp"/>
+    </definition>
+
+    <definition name="courseForm" extends="default">
+        <put name="content" value="/city/courseForm.jsp"/>
+    </definition>
+    
+    <definition name="courseRegister" extends="default">
+        <put name="content" value="/city/courseRegister.jsp"/>
+    </definition>
+    
+    <definition name="courseRegisterForm" extends="default">
+        <put name="content" value="/city/courseRegisterForm.jsp"/>
+    </definition>
+    
+    <definition name="courseRegisterList" extends="noMenuTemplate">
+        <put name="content" value="/city/courseRegisterList.jsp"/>
+    </definition>
+    
+    
+    
+
+    <!-- 
+    ************************ 
+    * CourseMember 
+    ************************
+    -->
+    <definition name="courseMemberList" extends="default">
+        <put name="content" value="/city/courseMemberList.jsp"/>
+    </definition>
+
+    <definition name="courseMemberForm" extends="default">
+        <put name="content" value="/city/courseMemberForm.jsp"/>
+    </definition>
+    
+    
+    
+    <!-- 
+    ************************ 
+    * Bulletin 
+    ************************
+    -->
+    <definition name="bulletinList" extends="default">
+        <put name="content" value="/web/bulletinList.jsp"/>
+    </definition>
+
+    <definition name="bulletinForm" extends="default">
+        <put name="content" value="/web/bulletinForm.jsp"/>
+    </definition>
+    
+    
+    <!-- 
+    ************************ 
+    * BolgClass 
+    ************************
+    -->
+    <definition name="bolgClassList" extends="default">
+        <put name="content" value="/web/bolgClassList.jsp"/>
+    </definition>
+
+    <definition name="bolgClassForm" extends="default">
+        <put name="content" value="/web/bolgClassForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Bolg 
+    ************************
+    -->
+    <definition name="bolgList" extends="default">
+        <put name="content" value="/web/bolgList.jsp"/>
+    </definition>
+
+    <definition name="bolgForm" extends="default">
+        <put name="content" value="/web/bolgForm.jsp"/>
+    </definition>
+    
+    
+    <!-- 
+    ************************ 
+    * Banner 
+    ************************
+    -->
+    <definition name="bannerList" extends="default">
+        <put name="content" value="/web/bannerList.jsp"/>
+    </definition>
+
+    <definition name="bannerForm" extends="default">
+        <put name="content" value="/web/bannerForm.jsp"/>
+    </definition>
+    
+    
+    <!-- 
+    ************************ 
+    * Slider 
+    ************************
+    -->
+    <definition name="sliderList" extends="default">
+        <put name="content" value="/web/sliderList.jsp"/>
+    </definition>
+
+    <definition name="sliderForm" extends="default">
+        <put name="content" value="/web/sliderForm.jsp"/>
+    </definition>
+    
+    
+    <!-- 
+    ************************ 
+    * PerRefer 
+    ************************
+    -->
+    <definition name="perReferList" extends="default">
+        <put name="content" value="/web/perReferList.jsp"/>
+    </definition>
+
+    <definition name="perReferForm" extends="default">
+        <put name="content" value="/web/perReferForm.jsp"/>
+    </definition>
+    
+    <!-- 
+    ************************ 
+    * Consultant 
+    ************************
+    -->
+    <definition name="consultantList" extends="default">
+        <put name="content" value="/web/consultantList.jsp"/>
+    </definition>
+
+    <definition name="consultantForm" extends="default">
+        <put name="content" value="/web/consultantForm.jsp"/>
+    </definition>
+    
+    
+    
+    
+    
+</tiles-definitions>

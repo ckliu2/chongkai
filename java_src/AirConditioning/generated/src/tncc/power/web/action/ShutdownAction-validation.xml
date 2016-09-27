@@ -1,0 +1,36 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+    <field name="shutdown.name">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="shutdown.perc">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="shutdown.perc">
+        <field-validator type="int">
+            <message key="errors.numericRequired"></message>
+        </field-validator>
+    </field>
+    <field name="shutdown.gap">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="shutdown.gap">
+        <field-validator type="int">
+            <message key="errors.numericRequired"></message>
+        </field-validator>
+    </field>
+    <field name="shutdown.evenlevelId">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+</validators>

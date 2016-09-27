@@ -1,0 +1,44 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+    <field name="myDVR.name">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="myDVR.ip">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="myDVR.userId">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="myDVR.password">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="myDVR.port">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+    <field name="myDVR.port">
+        <field-validator type="int">
+            <message key="errors.numericRequired"></message>
+        </field-validator>
+    </field>
+    <field name="myDVR.memberId">
+        <field-validator type="required">
+            <message key="errors.required"></message>
+        </field-validator>
+    </field>
+</validators>

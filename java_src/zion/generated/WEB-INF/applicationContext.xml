@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:jdbc.properties"/>
+    </bean>
+
+    <bean id="txProxyTemplate" abstract="true"
+        class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="transactionManager"/></property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="remove*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="commonManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.common.service.impl.CommonManagerImpl">
+                <property name="genericDAO" ref="commonDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="appPropertyManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.common.service.impl.AppPropertyManagerImpl">
+                <property name="genericDAO" ref="appPropertyDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+<!-- ********************************************* -->
+
+    <bean id="prayTWGlobalManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="org.zion.service.impl.PrayTWGlobalManagerImpl">
+                <property name="genericDAO" ref="prayTWGlobalDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="everyBibleManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="org.zion.service.impl.EveryBibleManagerImpl">
+                <property name="genericDAO" ref="everyBibleDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="bibleManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="org.zion.service.impl.BibleManagerImpl">
+                <property name="genericDAO" ref="bibleDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="bibleLectionManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="org.zion.service.impl.BibleLectionManagerImpl">
+                <property name="genericDAO" ref="bibleLectionDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="prayYouManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="org.zion.service.impl.PrayYouManagerImpl">
+                <property name="genericDAO" ref="prayYouDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="livelyBibleManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="org.zion.service.impl.LivelyBibleManagerImpl">
+                <property name="genericDAO" ref="livelyBibleDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="prayMeManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="org.zion.service.impl.PrayMeManagerImpl">
+                <property name="genericDAO" ref="prayMeDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="prayTWClaimManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="org.zion.service.impl.PrayTWClaimManagerImpl">
+                <property name="genericDAO" ref="prayTWClaimDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="prayManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="org.zion.service.impl.PrayManagerImpl">
+                <property name="genericDAO" ref="prayDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="sundayInforManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="org.zion.service.impl.SundayInforManagerImpl">
+                <property name="genericDAO" ref="sundayInforDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="prayTWManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="org.zion.service.impl.PrayTWManagerImpl">
+                <property name="genericDAO" ref="prayTWDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="prayStreetManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="org.zion.service.impl.PrayStreetManagerImpl">
+                <property name="genericDAO" ref="prayStreetDAO"/>
+            </bean>
+        </property>
+    </bean>
+

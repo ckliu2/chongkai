@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<tiles-definitions>
+    <definition name="default" path="/layout/template.jsp">
+        <put name="title" value="Information System"/>
+        <put name="menu" value="/layout/menu.jsp"/>
+    </definition>
+
+    <definition name="dataAccessFailure" extends="default">
+        <put name="title" value="Data Access Error"/>
+        <put name="content" value="/common/dataAccessFailure.jsp"/>
+    </definition>
+
+    <definition name="blank" extends="default">
+        <put name="title" value=""/>
+        <put name="content" value="/common/blank.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * AppProperty 
+    ************************
+    -->
+    <definition name="appPropertyList" extends="default">
+        <put name="content" value="/common/appPropertyList.jsp"/>
+    </definition>
+
+    <definition name="appPropertyForm" extends="default">
+        <put name="content" value="/common/appPropertyForm.jsp"/>
+    </definition>
+
+<!-- ********************************************* -->
+
+    <!-- 
+    ************************ 
+    * ProfitDetail 
+    ************************
+    -->
+    <definition name="profitDetailList" extends="default">
+        <put name="content" value="/profitDetailList.jsp"/>
+    </definition>
+
+    <definition name="profitDetailForm" extends="default">
+        <put name="content" value="/profitDetailForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * CustomerStandardCost 
+    ************************
+    -->
+    <definition name="customerStandardCostList" extends="default">
+        <put name="content" value="/customerStandardCostList.jsp"/>
+    </definition>
+
+    <definition name="customerStandardCostForm" extends="default">
+        <put name="content" value="/customerStandardCostForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * ProfitFee 
+    ************************
+    -->
+    <definition name="profitFeeList" extends="default">
+        <put name="content" value="/profitFeeList.jsp"/>
+    </definition>
+
+    <definition name="profitFeeForm" extends="default">
+        <put name="content" value="/profitFeeForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * StandardCost 
+    ************************
+    -->
+    <definition name="standardCostList" extends="default">
+        <put name="content" value="/standardCostList.jsp"/>
+    </definition>
+
+    <definition name="standardCostForm" extends="default">
+        <put name="content" value="/standardCostForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Profit 
+    ************************
+    -->
+    <definition name="profitList" extends="default">
+        <put name="content" value="/profitList.jsp"/>
+    </definition>
+
+    <definition name="profitForm" extends="default">
+        <put name="content" value="/profitForm.jsp"/>
+    </definition>
+

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<tiles-definitions>
+    <definition name="default" path="/layout/template.jsp">
+        <put name="title" value="Information System"/>
+        <put name="menu" value="/layout/menu.jsp"/>
+    </definition>
+
+    <definition name="dataAccessFailure" extends="default">
+        <put name="title" value="Data Access Error"/>
+        <put name="content" value="/common/dataAccessFailure.jsp"/>
+    </definition>
+
+    <definition name="blank" extends="default">
+        <put name="title" value=""/>
+        <put name="content" value="/common/blank.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * AppProperty 
+    ************************
+    -->
+    <definition name="appPropertyList" extends="default">
+        <put name="content" value="/common/appPropertyList.jsp"/>
+    </definition>
+
+    <definition name="appPropertyForm" extends="default">
+        <put name="content" value="/common/appPropertyForm.jsp"/>
+    </definition>
+
+<!-- ********************************************* -->
+
+    <!-- 
+    ************************ 
+    * Course 
+    ************************
+    -->
+    <definition name="courseList" extends="default">
+        <put name="content" value="/courseList.jsp"/>
+    </definition>
+
+    <definition name="courseForm" extends="default">
+        <put name="content" value="/courseForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * CourseMember 
+    ************************
+    -->
+    <definition name="courseMemberList" extends="default">
+        <put name="content" value="/courseMemberList.jsp"/>
+    </definition>
+
+    <definition name="courseMemberForm" extends="default">
+        <put name="content" value="/courseMemberForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * SubMenu 
+    ************************
+    -->
+    <definition name="subMenuList" extends="default">
+        <put name="content" value="/subMenuList.jsp"/>
+    </definition>
+
+    <definition name="subMenuForm" extends="default">
+        <put name="content" value="/subMenuForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Clock 
+    ************************
+    -->
+    <definition name="clockList" extends="default">
+        <put name="content" value="/clockList.jsp"/>
+    </definition>
+
+    <definition name="clockForm" extends="default">
+        <put name="content" value="/clockForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * SubItem 
+    ************************
+    -->
+    <definition name="subItemList" extends="default">
+        <put name="content" value="/subItemList.jsp"/>
+    </definition>
+
+    <definition name="subItemForm" extends="default">
+        <put name="content" value="/subItemForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Links 
+    ************************
+    -->
+    <definition name="linksList" extends="default">
+        <put name="content" value="/linksList.jsp"/>
+    </definition>
+
+    <definition name="linksForm" extends="default">
+        <put name="content" value="/linksForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Bulletin 
+    ************************
+    -->
+    <definition name="bulletinList" extends="default">
+        <put name="content" value="/bulletinList.jsp"/>
+    </definition>
+
+    <definition name="bulletinForm" extends="default">
+        <put name="content" value="/bulletinForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Consultant 
+    ************************
+    -->
+    <definition name="consultantList" extends="default">
+        <put name="content" value="/consultantList.jsp"/>
+    </definition>
+
+    <definition name="consultantForm" extends="default">
+        <put name="content" value="/consultantForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * CheckingState 
+    ************************
+    -->
+    <definition name="checkingStateList" extends="default">
+        <put name="content" value="/checkingStateList.jsp"/>
+    </definition>
+
+    <definition name="checkingStateForm" extends="default">
+        <put name="content" value="/checkingStateForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * BolgClass 
+    ************************
+    -->
+    <definition name="bolgClassList" extends="default">
+        <put name="content" value="/bolgClassList.jsp"/>
+    </definition>
+
+    <definition name="bolgClassForm" extends="default">
+        <put name="content" value="/bolgClassForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * PerRefer 
+    ************************
+    -->
+    <definition name="perReferList" extends="default">
+        <put name="content" value="/perReferList.jsp"/>
+    </definition>
+
+    <definition name="perReferForm" extends="default">
+        <put name="content" value="/perReferForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Bolg 
+    ************************
+    -->
+    <definition name="bolgList" extends="default">
+        <put name="content" value="/bolgList.jsp"/>
+    </definition>
+
+    <definition name="bolgForm" extends="default">
+        <put name="content" value="/bolgForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Room 
+    ************************
+    -->
+    <definition name="roomList" extends="default">
+        <put name="content" value="/roomList.jsp"/>
+    </definition>
+
+    <definition name="roomForm" extends="default">
+        <put name="content" value="/roomForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Menu 
+    ************************
+    -->
+    <definition name="menuList" extends="default">
+        <put name="content" value="/menuList.jsp"/>
+    </definition>
+
+    <definition name="menuForm" extends="default">
+        <put name="content" value="/menuForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * AgreeTerms 
+    ************************
+    -->
+    <definition name="agreeTermsList" extends="default">
+        <put name="content" value="/agreeTermsList.jsp"/>
+    </definition>
+
+    <definition name="agreeTermsForm" extends="default">
+        <put name="content" value="/agreeTermsForm.jsp"/>
+    </definition>
+

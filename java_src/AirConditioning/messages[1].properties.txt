@@ -1,0 +1,715 @@
+errors.numericRequired=${getText(fieldName)}Must be Numbers!
+errors.required=${getText(fieldName)}Must filled up!
+
+function.authority=Authority
+function.category=Category
+function.desc=Description
+function.descCh=Description(Chinese)
+function.descEn=Description(English)
+function.disabled=Pause?
+function.editBegin=Begin Time
+function.editEnd=End Time
+function.form=Function
+function.funKey=Function Code
+function.funNameCh=Code Name(Chinese)
+function.funNameEn=Code Name(English)
+function.funUrl=URL
+function.kind=Class
+function.list=Function List
+function.productOnlineCategory=Product Line Category
+function.seqNo=Seq No
+functionCategory.form=Function Management
+functionCategory.isFront=Can be display in webpage?
+functionCategory.list=Function Management
+functionCategory.nameCh=Category Name(Chinese)
+functionCategory.nameEn=Category Name(English)
+functionCategory.seqNo=Seq
+function.functionCategory=Category
+
+
+group.form=Group Management
+group.groupKey=Group Code
+group.groupNameCh=Group Name(Chinese)
+group.groupNameEn=Group Name(English)
+group.list=Group List
+
+
+common.April=April
+common.August=August
+common.December=December
+common.February=Febuary
+common.January=January
+common.July=July
+common.June=June
+common.March=March
+common.May=May
+common.November=November
+common.October=October
+common.September=September
+common.action=
+common.add=Add
+common.available=Available
+common.avg=Average
+common.back=Back
+common.cancel=Cancel
+common.category=Category
+common.checkbox=Choose
+common.checkingState=Pending
+common.clear=Clear
+common.confirmClear=Clear?
+common.confirmDelete1=About to delete
+common.confirmDelete2=Are you sure?
+common.confirmDelete=Deleted?
+common.confirmSubmit=Can't change after sending. Sure to send?
+common.confirmSubmitChecking=Can't change after Checking. Sure to Check?
+common.connectFailed=Can't Connect!
+common.copy=Copy
+common.createdDate=Date Created
+common.createdUser=Created By
+common.date=Date
+common.delete=Delete
+common.doChecking=Pending
+common.dollar.au=澳幣
+common.dollar.ge=歐元
+common.dollar.jp=日幣
+common.dollar.tw=台幣
+common.dollar.uk=英鎊
+common.dollar.us=美金
+common.sum1=結算
+common.dollar=元
+common.down=Down
+common.edit=Edit
+common.editTimeExceed=Time Exceed!
+common.female=Female
+common.firstLogin=First Login
+common.function.openPeriod=Activation Time
+common.function.openPeriodExceed=Activation Expires!
+common.have=Yes
+common.help=Help
+common.hint=Hint:
+common.hour=Hour
+common.hours=Hours
+common.login.error=Login Error! Please try again.
+common.login.disabled=Login Disabled!
+common.dataAccessError=Data access error
+common.dataAccessErrorMessage=Please contact administrator
+common.pleaseInputId=Member Id
+common.pleaseInputPassword=Password
+common.captchaHint=Please enter exactly what you see
+common.isFront=Put in first page?
+common.keyword=Enter Keyword
+
+
+
+common.id=ID
+common.inputErrorHint=Error in entering data! Data not save! Please enter again.
+common.insert=Add
+common.insertOrUpdate=New or Edit
+common.lastLoginTime=Last Login
+common.lastModifiedDate=Edit Date
+common.lastModifiedUser=Edit By
+common.leftParenthesis=『
+common.login.disabled=Login Disabled!
+common.login.error=Login Error!
+common.login=Login
+common.loginId=Member ID
+common.logout=LOgout
+common.male=Male
+common.man=Male
+common.max=Max
+common.message1=本項資料由行政教會輸入，教師不需填寫！
+common.min=Min
+common.month01=Jan
+common.month02=Feb
+common.month03=Mar
+common.month04=Apr
+common.month05=May
+common.month06=Jun
+common.month07=Jul
+common.month08=Aug
+common.month09=Sep
+common.month10=Oct
+common.month11=Nov
+common.month12=Dec
+common.month=Month
+common.mustSelectOne=Choose at least one!
+common.mustSelectOnlyOne=Choose one!
+common.new=Add
+common.no=No
+common.none=None
+common.notFill=(No need to fill if your not interested）
+common.or=Or
+common.password=Password
+common.person=Person
+common.personnel.nobody.pictureUrl=images/nobody.bmp
+common.pleaseSelect=Select
+common.productOnlineCategoryUrl=prdlist.html
+common.propertyValue=Value
+common.questionMark=？
+common.reset=Reset
+common.rightParenthesis=』
+common.save=Save
+common.score=Points
+common.search=Search
+common.searchCriteria=Criteria
+common.select=Select
+common.selectAll=Select All
+common.selected=Selected
+common.sessionTimeout=Session Timeout!
+common.site=Site
+common.state.pass=Pass
+common.state.patch=補件
+common.state.submitted=未審查
+common.state.unpass=未通過
+common.style.default=style.css
+common.style.departmentEmp=depstyle.css
+common.style.fullTimeTeacher=style.css
+common.style.viewonly=viewstyle.css
+common.subTotal=小計
+common.submit=送出
+common.submitChecking=送出審查
+common.sum=合計
+common.teacherOf=老師的
+common.times=次數
+common.title=San Jose Christian Assembly
+common.subtitle=問卷調查系統
+common.total=總計
+common.unit.nobody.pictureUrl=images/adm.gif
+common.up=上
+common.user=User
+common.view=View
+common.welcome=Welcome!
+common.window.close=Close
+common.year=Year
+common.yearMonth=Year Month
+common.yearkind.academic=學年度
+common.yearkind.annual=年度
+common.yearkind.range=學期
+common.yearkind.semester=學期
+common.yeartype.academic=學年度
+common.yeartype.annual=年度
+common.yeartype.range1=上學期
+common.yeartype.range2=下學期
+common.yeartype.semester1=上學期
+common.yeartype.semester2=下學期
+common.yes=Yes
+common.inputRequired=Required Field!
+common.welcomeip=Welcome!{0},Your IP is{1}
+common.register=Add member
+common.loginId=Member ID
+common.password=Password
+common.forgotpassword=Forget Password
+common.passwordquery=Password Inquiry
+common.forgotpassword.subject=厚德會弟兄姊妹密碼通知信
+common.forgotpassword.sending=Your passcode has been mail to your mailbox.
+common.forgotpassword.nouser=Sorry, No such user!
+common.remark=Remark
+common.userLoginId=ID（Ex A123456789）
+common.userPasswd=Password（Your birthday,Ex Jan 1 = 0101）
+common.exportXml=※ Export Excel
+
+#註冊email通知
+common.mail.host=mail.tnu.edu.tw
+common.mail.port=25
+common.mail.username=cc1
+common.mail.password=2aixujxu
+common.mail.defaultSender=cc1@mail.tnu.edu.tw
+common.mail.defaultSmsReceiver=cc1@mail.tnu.edu.tw
+common.mail.subject=Subject
+
+
+appProperty.survey.type=問卷種類
+
+appProperty.form=產品屬性表單
+appProperty.item=屬性項目
+appProperty.kind=項目
+appProperty.seqNo=序號
+appProperty.subKind=次項目
+appProperty.valueTw=屬性名稱(中文)
+appProperty.valueUs=屬性名稱(英文)
+appProperty.propertyValue=屬性值
+
+webSite.code=代碼
+webSite.country=國家
+webSite.description=SEO描述
+webSite.description=SEO網站描述
+webSite.domain=網域名稱
+webSite.form=網站資料表
+webSite.functionCategory=功能類別
+webSite.homeUri=首頁網址
+webSite.keyword=SEO網站關鍵字
+webSite.keyword=SEO關鍵字
+webSite.list=網站清單
+webSite.name=網站名稱
+webSite.title=SEO網站標題
+webSite.title=網站預設標題
+
+miscCode.id=ID
+miscCode.codeName=Code Name
+miscCode.form=Code Form
+miscCode.keyName=常數代碼
+miscCode.list=常數清單
+miscCode.valueCh=常數值(中文)
+miscCode.valueEn=常數值(英文)
+
+member.group=Group
+member.unit=Church
+member.list=Bro & Sis Listing
+member.form=Bro & Sis Listing
+member.memberId=Member ID
+member.password=Password
+member.name=Chinese Name
+member.enabled=Enabled?
+member.deleted=Deleted?
+member.sex=Sex
+member.email=Email
+member.address=Address
+member.uploadPhoto.dir={0}/upload/member
+member.uploadPhoto.relativeUrl=upload/member
+member.photo=Picture
+member.cellphone=Cellphone
+member.zip=Zip Code
+member.family=Family
+
+
+member.ename=English Name
+member.address1=Address2
+member.email1=Email2
+member.cellphone1=Cellphone2
+member.homePhone=Home Phone1
+member.homePhone1=Home Phone2
+member.officePhone=Office Tel.
+member.fax=Fax1
+member.fax1=Fax2 
+member.msn=MSN,Yahoo
+member.birthday=Birthday
+member.degree=Education
+member.introducer=Introduce By
+member.firstName=First Name
+member.lastName=Last Name
+member.firstComeDate=First time to come to church
+
+member.city=City
+member.state=(State)
+member.bapPlace=Baptism Place
+member.bapTime=Baptism Date
+member.christian=Christian
+member.relation=Family
+member.serviceTeam=Team
+member.downloadexcelnote=step1.Right click save as \nstep2.Open with EXCEL
+member.memberList=D:\\Tomcat 6.0\\webapps\\sjca\\export\\memberList.xls
+member.map=Maps
+member.newmemo=Latest Info
+member.color=Color Management
+
+unit.list=Lists
+unit.form=Forms
+unit.name=Chinese Name
+unit.ename=English Name
+###########################################
+# church
+###########################################
+
+cog.church=Church
+
+
+#最新消息
+news.list=New List
+news.form=New List
+menu.newsList=New List
+menu.newsForm=New List
+news.subject=Subject
+news.Content=Content
+news.memo=Memo
+news.publishBegin=Start Date
+news.publishEnd=End Date
+news.property=Property
+
+#簡訊發送
+
+sms.send=Press to Send
+sms.sender=Sender
+sms.msg=Content
+sms.other=Email Address
+sms.method=How to send
+sms.otherlist=[Send List]
+sms.send.error=Fail！
+sms.send.success=Successful！
+sms.smsmail=Contact
+sms.=Content
+
+#組別管理
+team.list=Group
+team.form=Group
+team.name=Group Name
+team.primaryLeader=Group Leader
+team.secondLeader=Group Leader
+team.members=Members
+#職稱管理
+grade.list=Position Listing
+grade.form=Position
+menu.gradeList=Position Management
+menu.gradeForm=Position Management
+grade.members=Members
+grade.name=Position
+
+
+#通聯記錄管理
+smsMailRec.list=Record List
+smsMailRec.form=Records
+menu.smsMailRecList=Records
+menu.smsMailRecForm=Record List
+smsMailRec.cellphone=Cellphone(1)
+smsMailRec.cellphone1=Cellphone(2)
+smsMailRec.email=email(1)
+smsMailRec.email1=email(2)
+smsMailRec.msg=Content
+smsMailRec.sendDate=Send time
+smsMailRec.target=To
+smsMailRec.member=Sender
+
+
+###########################################
+# Survey
+###########################################
+
+
+category.form=分類資料表
+category.intro=分類說明
+category.list=分類清單
+category.name=名稱
+category.parent=上層分類
+category.level=分層
+
+option.form=Option Form
+option.list=Option List
+option.seqNo=seqNo
+option.insert=新增
+option.remove=移除
+option.type.userInput=自訂輸入選項
+option.type.sysDefined=從選項庫中選擇選項
+option.type=請選擇選項產生方式：
+
+
+question.category=題目分類
+question.form=題目資料表
+question.list=題目清單
+question.name=題目代碼
+question.remark=備註
+question.text=題目內容
+question.choiceNum=choiceNum
+question.property=基本屬性
+
+question.qtype=題目型態
+question.qtype.singleChoice=一般題目(單選)
+question.qtype.multipleChoice=一般題目(複選)
+question.qtype.numericOpenEnd=開放式題目(數字)
+question.qtype.textOpenEnd=開放式題目(文字)
+question.qtype.ratingScale=分級給分式題目
+question.qtype.aggreementScale=贊成度題目
+
+question.option=題目選項
+question.numberOfGrade=級數
+question.gradeNum.3grade=三等級
+question.gradeNum.4grade=四等級
+question.gradeNum.5grade=五等級
+question.gradeNum.7grade=七等級
+question.optionType=選項產生方式
+
+question.gradeType=贊成度類型
+question.gradeType.importance=重要性類型
+question.gradeType.satisfied=滿意度類型
+question.gradeType.agreement=同意度類型
+question.gradeType.good=看好度類型
+question.gradeType.related=關聯程度類型
+question.required=此題是否必答
+question.needOpenOption=在所有的選項之後加入一個開放式選項
+question.misc=其他
+
+question.3g.imp.1=重要
+question.3g.imp.2=普通
+question.3g.imp.3=不重要
+
+question.4g.imp.1=非常重要
+question.4g.imp.2=重要
+question.4g.imp.3=不重要
+question.4g.imp.4=非常不重要
+
+question.5g.imp.1=非常重要
+question.5g.imp.2=重要
+question.5g.imp.3=普通
+question.5g.imp.4=不重要
+question.5g.imp.5=非常不重要
+
+question.7g.imp.1=非常非常重要
+question.7g.imp.2=非常重要
+question.7g.imp.3=重要
+question.7g.imp.4=普通
+question.7g.imp.5=不重要
+question.7g.imp.6=非常不重要
+question.7g.imp.7=非常非常不重要
+
+question.3g.sat.1=滿意
+question.3g.sat.2=普通
+question.3g.sat.3=不滿意
+
+question.4g.sat.1=非常滿意
+question.4g.sat.2=滿意
+question.4g.sat.3=不滿意
+question.4g.sat.4=非常不滿意
+
+question.5g.sat.1=非常滿意
+question.5g.sat.2=滿意
+question.5g.sat.3=普通
+question.5g.sat.4=不滿意
+question.5g.sat.5=非常不滿意
+
+question.7g.sat.1=非常非常滿意
+question.7g.sat.2=非常滿意
+question.7g.sat.3=滿意
+question.7g.sat.4=普通
+question.7g.sat.5=不滿意
+question.7g.sat.6=非常不滿意
+question.7g.sat.7=非常非常不滿意
+
+question.3g.agr.1=同意
+question.3g.agr.2=普通
+question.3g.agr.3=不同意
+
+question.4g.agr.1=非常同意
+question.4g.agr.2=同意
+question.4g.agr.3=不同意
+question.4g.agr.4=非常不同意
+
+question.5g.agr.1=非常同意
+question.5g.agr.2=同意
+question.5g.agr.3=普通
+question.5g.agr.4=不同意
+question.5g.agr.5=非常不同意
+
+question.7g.agr.1=非常非常同意
+question.7g.agr.2=非常同意
+question.7g.agr.3=同意
+question.7g.agr.4=普通
+question.7g.agr.5=不同意
+question.7g.agr.6=非常不同意
+question.7g.agr.7=非常非常不同意
+
+
+question.3g.goo.1=佳
+question.3g.goo.2=普通
+question.3g.goo.3=不佳
+
+question.5g.goo.1=極佳
+question.5g.goo.2=佳
+question.5g.goo.3=普通
+question.5g.goo.4=不佳
+question.5g.goo.5=極不佳
+
+question.7g.goo.1=非常非常好
+question.7g.goo.2=非常好
+question.7g.goo.3=好
+question.7g.goo.4=普通
+question.7g.goo.5=不好
+question.7g.goo.6=非常不好
+question.7g.goo.7=非常非常不好
+
+question.3g.rel.1=相關
+question.3g.rel.2=普通
+question.3g.rel.3=不相關
+
+question.5g.rel.1=極相關
+question.5g.rel.2=相關
+question.5g.rel.3=普通
+question.5g.rel.4=不相關
+question.5g.rel.5=極不相關
+
+question.7g.rel.1=非常非常相關
+question.7g.rel.2=非常相關
+question.7g.rel.3=相關
+question.7g.rel.4=普通
+question.7g.rel.5=不相關
+question.7g.rel.6=非常不相關
+question.7g.rel.7=非常非常不相關
+
+question.longText=是否允許為長文字(大於100字)
+
+survey.form=問卷資料表
+survey.intro=簡介
+survey.list=活動清單
+survey.name=名稱
+survey.picture=首頁圖片
+survey.published=是否上線
+survey.publishedEndDate=調查結束時間
+survey.publishedStartDate=調查開始時間
+survey.surveyType=問卷型態
+survey.uploadPicture.dir={0}/upload/survey
+survey.uploadPicture.relativeUrl=upload/survey
+survey.authoritygroup=授權群組
+survey.noauthority=不計名
+survey.user=受訪對象
+
+
+
+
+survey.question=題目
+survey.property=基本資料
+survey.assign.form=維護問卷題目
+publishedEndDate=調查結束時間
+publishedStartDate=調查開始時間
+survey.selectedQuestion=已選擇的題目清單
+question.insert=新增題目 >>
+question.delete=<< 刪除題目
+survey.online=模擬線上問卷
+survey.goto=前往
+common.start=開始填寫
+survey.period=開放期間
+survey.pleaseSelectRating=請選擇級分
+survey.submit=完成問卷, 送出答案!
+survey.multipleChoice=可多選
+survey.preview=預覽
+survey.numericRequired=必須為數字!
+survey.expired=本問卷調查時間已過!
+survey.thanks=感謝您的協助!
+survey.notBegin=本問卷尚未開始調查!
+survey.requiredField1=第
+survey.requiredField2=題是必填欄位!
+survey.sort=調整題目順序
+survey.sortQuestionList=維護題目順序
+survey.seqNo=調整順序
+survey.summary=統計圖表
+survey.fontName=標楷體
+survey.summaryAnswer=統計數據
+chart.noData=無資料!
+chart.indicate=表示
+survey.selectAll=全選
+survey.unselectAll=全不選
+survey.copyUrl=複製網址
+survey.regUrl=報名網址已經複製到您的剪貼簿!
+
+optionBase.form=選項庫資料表
+optionBase.kind=選項項目
+optionBase.list=選項庫清單
+optionBase.seqNo=排序號
+optionBase.value=選項文字
+
+#特會報名
+
+room.list=房間一覽表
+room.form=房間清單
+menu.roomList=房間一覽表
+menu.roomForm=房間清單
+room.name=房間名稱
+room.floor=樓層
+room.price=價格
+room.size=幾人房
+room.depart=營區
+room.unit=所屬教會
+room.register=所屬特會
+room.members=住房人員
+room.edit=設定人員
+
+user.list=特會報名一覽表
+user.form=特會報名清單
+menu.userList=特會報名一覽表
+menu.userForm=特會報名清單
+user.member=報名人員
+user.register=所屬特會
+user.meals=膳食狀況
+user.dorms=住宿狀況
+user.agelevel=年齡層
+user.belief=信仰狀況
+user.trafficCome=交通方式(來)
+user.trafficOut=交通方式(回)
+user.confirm=確認參加
+user.church=教會
+user.sunschool=參加主日學
+user.family=家屬
+user.memento=紀念品
+user.downloadexcel=※ 匯出Excel. 1.請按右鍵另存新檔2.再用Excel開啟
+user.mementoinfo1=※	記念品請勾選：舒適棉被 或 睡袋
+user.mementoinfo2=※	凡住宿兩夜（含）以上者，贈送一條舒適棉被或登山用高級睡袋一只。只住一天者請自備寢具。
+
+register.list=特會一覽表
+register.form=特會清單
+menu.registerList=特會一覽表
+menu.registerForm=特會清單
+register.name=特會主題
+register.published=是否開放
+register.publishedStartDate=報名開始日期
+register.publishedEndDate=報名截止日期
+
+
+cTeam.list=特會分組一覽表
+cTeam.form=特會分組清單
+menu.cTeamList=特會分組一覽表
+menu.cTeamForm=特會分組清單
+cTeam.name=組別名稱
+cTeam.place=組別地點
+cTeam.unit=所屬教會
+cTeam.leader=帶領人
+cTeam.register=所屬特會
+cTeam.members=參與人員
+cTeam.edit=設定人員
+
+hall.list=特會分堂一覽表
+hall.form=特會分堂表
+menu.hallList=特會分堂一覽表
+menu.hallForm=特會分堂表
+hall.name=分堂名稱
+hall.leader=帶領人
+hall.register=特會名稱
+hall.members=參與人員
+hall.edit=設定人員
+hall.keyword=輸入關鍵字
+
+#事奉團隊
+serviceTeam.list=Service List
+serviceTeam.form=Service Form
+menu.serviceTeamList=Service List
+menu.serviceTeamForm=Service Form
+serviceTeam.name=Service Team Name
+serviceTeam.primaryLeader=Leader
+serviceTeam.secondLeader=Leader
+serviceTeam.members=Service Personel
+
+#家庭管理
+family.list=Family Listing
+family.form=Family
+menu.familyList=Family Listing
+menu.familyForm=Family
+family.familyLeader=Family Leaders
+family.members=Family Members
+
+#弟兄姊妹備忘
+remark.list=Log List
+remark.form=Log Form
+menu.remarkList=Log List
+menu.remarkForm=Log Form
+remark.memo=Remark
+remark.member=Name
+remark.addremark=Add Remark
+remark.lookremark=View Remark
+remark.save=Save Remark
+
+#備忘屬性
+remarkClass.list=Remark List
+remarkClass.form=Remark Form
+menu.remarkClassList=Remark List
+menu.remarkClassForm=Remart Form
+remarkClass.name=Remark Name
+remarkClass.name=Remark Property
+
+#點名
+roll.list=Roll List
+roll.form=Roll Count
+menu.rollList=Roll List
+menu.rollForm=Roll Count
+roll.teamLeader=Team Leader
+roll.members=Total
+roll.presence=Present
+roll.absentmembers=Absent
+roll.createdDate=Date
+roll.peoples=Total
+roll.absent=Absent
+roll.presence=Present

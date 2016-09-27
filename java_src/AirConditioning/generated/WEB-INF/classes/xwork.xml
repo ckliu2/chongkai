@@ -1,0 +1,506 @@
+<!DOCTYPE xwork PUBLIC
+    "-//OpenSymphony Group//XWork 1.1.1//EN"
+    "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+    <include file="webwork-default.xml" />
+
+    <package name="default" extends="webwork-default">
+        <interceptors>
+            <interceptor-stack name="defaultStack">
+                <interceptor-ref name="exception" />
+                <interceptor-ref name="alias" />
+                <interceptor-ref name="servlet-config" />
+                <interceptor-ref name="prepare" />
+                <interceptor-ref name="i18n" />
+                <interceptor-ref name="chain" />
+                <interceptor-ref name="model-driven" />
+                <interceptor-ref name="fileUpload" />
+                <interceptor-ref name="static-params" />
+                <interceptor-ref name="params" />
+                <interceptor-ref name="conversionError" />
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">execute,delete,edit,list,copy</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back</param>
+                </interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <global-results>
+            <result name="dataAccessFailure" type="tiles">dataAccessFailure</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="org.springframework.dao.DataAccessException"
+                result="dataAccessFailure"/>
+        </global-exception-mappings>
+
+        <!-- Login -->
+        <action name="login" class="loginAction">
+            <result name="input">index.jsp</result>
+            <result name="success" type="tiles">blank</result>
+        </action>
+
+        <action name="logout" class="loginAction" method="logout">
+            <result name="success">index.jsp</result>
+            <result name="input">index.jsp</result>
+        </action>
+
+    <!-- AppProperty -->
+        <action name="appPropertyList" class="appPropertyAction" method="list">
+            <result name="success" type="tiles">appPropertyList</result>
+            <result name="input" type="tiles">appPropertyList</result>
+        </action>
+
+        <action name="editAppProperty" class="appPropertyAction" method="edit">
+            <result name="success" type="tiles">appPropertyForm</result>
+            <result name="input" type="tiles">appPropertyList</result>
+        </action>
+
+        <action name="saveAppProperty" class="appPropertyAction">
+            <result name="delete" type="redirect">appPropertyList.html</result>
+            <result name="input" type="tiles">appPropertyForm</result>
+            <result name="success" type="chain">saveAppPropertyWithValidation</result>
+        </action>
+
+        <action name="saveAppPropertyWithValidation" class="appPropertyAction" method="save">
+            <result name="input" type="tiles">appPropertyForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+<!-- ********************************************* -->
+
+    <!-- Log -->
+        <action name="logList" class="logAction" method="list">
+            <result name="success" type="tiles">logList</result>
+            <result name="input" type="tiles">logList</result>
+        </action>
+
+        <action name="editLog" class="logAction" method="edit">
+            <result name="success" type="tiles">logForm</result>
+            <result name="input" type="tiles">logList</result>
+        </action>
+
+        <action name="copyLog" class="logAction" method="copy">
+            <result name="success" type="tiles">logForm</result>
+            <result name="input" type="tiles">logList</result>
+        </action>
+
+        <action name="saveLog" class="logAction">
+            <result name="delete" type="redirect">logList.html</result>
+            <result name="input" type="tiles">logForm</result>
+            <result name="success" type="chain">saveLogWithValidation</result>
+        </action>
+
+        <action name="saveLogWithValidation" class="logAction" method="save">
+            <result name="input" type="tiles">logForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- ScheduleReaderDaily -->
+        <action name="scheduleReaderDailyList" class="scheduleReaderDailyAction" method="list">
+            <result name="success" type="tiles">scheduleReaderDailyList</result>
+            <result name="input" type="tiles">scheduleReaderDailyList</result>
+        </action>
+
+        <action name="editScheduleReaderDaily" class="scheduleReaderDailyAction" method="edit">
+            <result name="success" type="tiles">scheduleReaderDailyForm</result>
+            <result name="input" type="tiles">scheduleReaderDailyList</result>
+        </action>
+
+        <action name="copyScheduleReaderDaily" class="scheduleReaderDailyAction" method="copy">
+            <result name="success" type="tiles">scheduleReaderDailyForm</result>
+            <result name="input" type="tiles">scheduleReaderDailyList</result>
+        </action>
+
+        <action name="saveScheduleReaderDaily" class="scheduleReaderDailyAction">
+            <result name="delete" type="redirect">scheduleReaderDailyList.html</result>
+            <result name="input" type="tiles">scheduleReaderDailyForm</result>
+            <result name="success" type="chain">saveScheduleReaderDailyWithValidation</result>
+        </action>
+
+        <action name="saveScheduleReaderDailyWithValidation" class="scheduleReaderDailyAction" method="save">
+            <result name="input" type="tiles">scheduleReaderDailyForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- PowerController -->
+        <action name="powerControllerList" class="powerControllerAction" method="list">
+            <result name="success" type="tiles">powerControllerList</result>
+            <result name="input" type="tiles">powerControllerList</result>
+        </action>
+
+        <action name="editPowerController" class="powerControllerAction" method="edit">
+            <result name="success" type="tiles">powerControllerForm</result>
+            <result name="input" type="tiles">powerControllerList</result>
+        </action>
+
+        <action name="copyPowerController" class="powerControllerAction" method="copy">
+            <result name="success" type="tiles">powerControllerForm</result>
+            <result name="input" type="tiles">powerControllerList</result>
+        </action>
+
+        <action name="savePowerController" class="powerControllerAction">
+            <result name="delete" type="redirect">powerControllerList.html</result>
+            <result name="input" type="tiles">powerControllerForm</result>
+            <result name="success" type="chain">savePowerControllerWithValidation</result>
+        </action>
+
+        <action name="savePowerControllerWithValidation" class="powerControllerAction" method="save">
+            <result name="input" type="tiles">powerControllerForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- SpaceReader -->
+        <action name="spaceReaderList" class="spaceReaderAction" method="list">
+            <result name="success" type="tiles">spaceReaderList</result>
+            <result name="input" type="tiles">spaceReaderList</result>
+        </action>
+
+        <action name="editSpaceReader" class="spaceReaderAction" method="edit">
+            <result name="success" type="tiles">spaceReaderForm</result>
+            <result name="input" type="tiles">spaceReaderList</result>
+        </action>
+
+        <action name="copySpaceReader" class="spaceReaderAction" method="copy">
+            <result name="success" type="tiles">spaceReaderForm</result>
+            <result name="input" type="tiles">spaceReaderList</result>
+        </action>
+
+        <action name="saveSpaceReader" class="spaceReaderAction">
+            <result name="delete" type="redirect">spaceReaderList.html</result>
+            <result name="input" type="tiles">spaceReaderForm</result>
+            <result name="success" type="chain">saveSpaceReaderWithValidation</result>
+        </action>
+
+        <action name="saveSpaceReaderWithValidation" class="spaceReaderAction" method="save">
+            <result name="input" type="tiles">spaceReaderForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- BasicInfo -->
+        <action name="basicInfoList" class="basicInfoAction" method="list">
+            <result name="success" type="tiles">basicInfoList</result>
+            <result name="input" type="tiles">basicInfoList</result>
+        </action>
+
+        <action name="editBasicInfo" class="basicInfoAction" method="edit">
+            <result name="success" type="tiles">basicInfoForm</result>
+            <result name="input" type="tiles">basicInfoList</result>
+        </action>
+
+        <action name="copyBasicInfo" class="basicInfoAction" method="copy">
+            <result name="success" type="tiles">basicInfoForm</result>
+            <result name="input" type="tiles">basicInfoList</result>
+        </action>
+
+        <action name="saveBasicInfo" class="basicInfoAction">
+            <result name="delete" type="redirect">basicInfoList.html</result>
+            <result name="input" type="tiles">basicInfoForm</result>
+            <result name="success" type="chain">saveBasicInfoWithValidation</result>
+        </action>
+
+        <action name="saveBasicInfoWithValidation" class="basicInfoAction" method="save">
+            <result name="input" type="tiles">basicInfoForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- ScheduleDaily -->
+        <action name="scheduleDailyList" class="scheduleDailyAction" method="list">
+            <result name="success" type="tiles">scheduleDailyList</result>
+            <result name="input" type="tiles">scheduleDailyList</result>
+        </action>
+
+        <action name="editScheduleDaily" class="scheduleDailyAction" method="edit">
+            <result name="success" type="tiles">scheduleDailyForm</result>
+            <result name="input" type="tiles">scheduleDailyList</result>
+        </action>
+
+        <action name="copyScheduleDaily" class="scheduleDailyAction" method="copy">
+            <result name="success" type="tiles">scheduleDailyForm</result>
+            <result name="input" type="tiles">scheduleDailyList</result>
+        </action>
+
+        <action name="saveScheduleDaily" class="scheduleDailyAction">
+            <result name="delete" type="redirect">scheduleDailyList.html</result>
+            <result name="input" type="tiles">scheduleDailyForm</result>
+            <result name="success" type="chain">saveScheduleDailyWithValidation</result>
+        </action>
+
+        <action name="saveScheduleDailyWithValidation" class="scheduleDailyAction" method="save">
+            <result name="input" type="tiles">scheduleDailyForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- Shutdown -->
+        <action name="shutdownList" class="shutdownAction" method="list">
+            <result name="success" type="tiles">shutdownList</result>
+            <result name="input" type="tiles">shutdownList</result>
+        </action>
+
+        <action name="editShutdown" class="shutdownAction" method="edit">
+            <result name="success" type="tiles">shutdownForm</result>
+            <result name="input" type="tiles">shutdownList</result>
+        </action>
+
+        <action name="copyShutdown" class="shutdownAction" method="copy">
+            <result name="success" type="tiles">shutdownForm</result>
+            <result name="input" type="tiles">shutdownList</result>
+        </action>
+
+        <action name="saveShutdown" class="shutdownAction">
+            <result name="delete" type="redirect">shutdownList.html</result>
+            <result name="input" type="tiles">shutdownForm</result>
+            <result name="success" type="chain">saveShutdownWithValidation</result>
+        </action>
+
+        <action name="saveShutdownWithValidation" class="shutdownAction" method="save">
+            <result name="input" type="tiles">shutdownForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- PowerControllerReader -->
+        <action name="powerControllerReaderList" class="powerControllerReaderAction" method="list">
+            <result name="success" type="tiles">powerControllerReaderList</result>
+            <result name="input" type="tiles">powerControllerReaderList</result>
+        </action>
+
+        <action name="editPowerControllerReader" class="powerControllerReaderAction" method="edit">
+            <result name="success" type="tiles">powerControllerReaderForm</result>
+            <result name="input" type="tiles">powerControllerReaderList</result>
+        </action>
+
+        <action name="copyPowerControllerReader" class="powerControllerReaderAction" method="copy">
+            <result name="success" type="tiles">powerControllerReaderForm</result>
+            <result name="input" type="tiles">powerControllerReaderList</result>
+        </action>
+
+        <action name="savePowerControllerReader" class="powerControllerReaderAction">
+            <result name="delete" type="redirect">powerControllerReaderList.html</result>
+            <result name="input" type="tiles">powerControllerReaderForm</result>
+            <result name="success" type="chain">savePowerControllerReaderWithValidation</result>
+        </action>
+
+        <action name="savePowerControllerReaderWithValidation" class="powerControllerReaderAction" method="save">
+            <result name="input" type="tiles">powerControllerReaderForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- Space -->
+        <action name="spaceList" class="spaceAction" method="list">
+            <result name="success" type="tiles">spaceList</result>
+            <result name="input" type="tiles">spaceList</result>
+        </action>
+
+        <action name="editSpace" class="spaceAction" method="edit">
+            <result name="success" type="tiles">spaceForm</result>
+            <result name="input" type="tiles">spaceList</result>
+        </action>
+
+        <action name="copySpace" class="spaceAction" method="copy">
+            <result name="success" type="tiles">spaceForm</result>
+            <result name="input" type="tiles">spaceList</result>
+        </action>
+
+        <action name="saveSpace" class="spaceAction">
+            <result name="delete" type="redirect">spaceList.html</result>
+            <result name="input" type="tiles">spaceForm</result>
+            <result name="success" type="chain">saveSpaceWithValidation</result>
+        </action>
+
+        <action name="saveSpaceWithValidation" class="spaceAction" method="save">
+            <result name="input" type="tiles">spaceForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- Reader -->
+        <action name="readerList" class="readerAction" method="list">
+            <result name="success" type="tiles">readerList</result>
+            <result name="input" type="tiles">readerList</result>
+        </action>
+
+        <action name="editReader" class="readerAction" method="edit">
+            <result name="success" type="tiles">readerForm</result>
+            <result name="input" type="tiles">readerList</result>
+        </action>
+
+        <action name="copyReader" class="readerAction" method="copy">
+            <result name="success" type="tiles">readerForm</result>
+            <result name="input" type="tiles">readerList</result>
+        </action>
+
+        <action name="saveReader" class="readerAction">
+            <result name="delete" type="redirect">readerList.html</result>
+            <result name="input" type="tiles">readerForm</result>
+            <result name="success" type="chain">saveReaderWithValidation</result>
+        </action>
+
+        <action name="saveReaderWithValidation" class="readerAction" method="save">
+            <result name="input" type="tiles">readerForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- ClearDaily -->
+        <action name="clearDailyList" class="clearDailyAction" method="list">
+            <result name="success" type="tiles">clearDailyList</result>
+            <result name="input" type="tiles">clearDailyList</result>
+        </action>
+
+        <action name="editClearDaily" class="clearDailyAction" method="edit">
+            <result name="success" type="tiles">clearDailyForm</result>
+            <result name="input" type="tiles">clearDailyList</result>
+        </action>
+
+        <action name="copyClearDaily" class="clearDailyAction" method="copy">
+            <result name="success" type="tiles">clearDailyForm</result>
+            <result name="input" type="tiles">clearDailyList</result>
+        </action>
+
+        <action name="saveClearDaily" class="clearDailyAction">
+            <result name="delete" type="redirect">clearDailyList.html</result>
+            <result name="input" type="tiles">clearDailyForm</result>
+            <result name="success" type="chain">saveClearDailyWithValidation</result>
+        </action>
+
+        <action name="saveClearDailyWithValidation" class="clearDailyAction" method="save">
+            <result name="input" type="tiles">clearDailyForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- EvenLog -->
+        <action name="evenLogList" class="evenLogAction" method="list">
+            <result name="success" type="tiles">evenLogList</result>
+            <result name="input" type="tiles">evenLogList</result>
+        </action>
+
+        <action name="editEvenLog" class="evenLogAction" method="edit">
+            <result name="success" type="tiles">evenLogForm</result>
+            <result name="input" type="tiles">evenLogList</result>
+        </action>
+
+        <action name="copyEvenLog" class="evenLogAction" method="copy">
+            <result name="success" type="tiles">evenLogForm</result>
+            <result name="input" type="tiles">evenLogList</result>
+        </action>
+
+        <action name="saveEvenLog" class="evenLogAction">
+            <result name="delete" type="redirect">evenLogList.html</result>
+            <result name="input" type="tiles">evenLogForm</result>
+            <result name="success" type="chain">saveEvenLogWithValidation</result>
+        </action>
+
+        <action name="saveEvenLogWithValidation" class="evenLogAction" method="save">
+            <result name="input" type="tiles">evenLogForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- CommandLog -->
+        <action name="commandLogList" class="commandLogAction" method="list">
+            <result name="success" type="tiles">commandLogList</result>
+            <result name="input" type="tiles">commandLogList</result>
+        </action>
+
+        <action name="editCommandLog" class="commandLogAction" method="edit">
+            <result name="success" type="tiles">commandLogForm</result>
+            <result name="input" type="tiles">commandLogList</result>
+        </action>
+
+        <action name="copyCommandLog" class="commandLogAction" method="copy">
+            <result name="success" type="tiles">commandLogForm</result>
+            <result name="input" type="tiles">commandLogList</result>
+        </action>
+
+        <action name="saveCommandLog" class="commandLogAction">
+            <result name="delete" type="redirect">commandLogList.html</result>
+            <result name="input" type="tiles">commandLogForm</result>
+            <result name="success" type="chain">saveCommandLogWithValidation</result>
+        </action>
+
+        <action name="saveCommandLogWithValidation" class="commandLogAction" method="save">
+            <result name="input" type="tiles">commandLogForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- Course -->
+        <action name="courseList" class="courseAction" method="list">
+            <result name="success" type="tiles">courseList</result>
+            <result name="input" type="tiles">courseList</result>
+        </action>
+
+        <action name="editCourse" class="courseAction" method="edit">
+            <result name="success" type="tiles">courseForm</result>
+            <result name="input" type="tiles">courseList</result>
+        </action>
+
+        <action name="copyCourse" class="courseAction" method="copy">
+            <result name="success" type="tiles">courseForm</result>
+            <result name="input" type="tiles">courseList</result>
+        </action>
+
+        <action name="saveCourse" class="courseAction">
+            <result name="delete" type="redirect">courseList.html</result>
+            <result name="input" type="tiles">courseForm</result>
+            <result name="success" type="chain">saveCourseWithValidation</result>
+        </action>
+
+        <action name="saveCourseWithValidation" class="courseAction" method="save">
+            <result name="input" type="tiles">courseForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- ClassRoom -->
+        <action name="classRoomList" class="classRoomAction" method="list">
+            <result name="success" type="tiles">classRoomList</result>
+            <result name="input" type="tiles">classRoomList</result>
+        </action>
+
+        <action name="editClassRoom" class="classRoomAction" method="edit">
+            <result name="success" type="tiles">classRoomForm</result>
+            <result name="input" type="tiles">classRoomList</result>
+        </action>
+
+        <action name="copyClassRoom" class="classRoomAction" method="copy">
+            <result name="success" type="tiles">classRoomForm</result>
+            <result name="input" type="tiles">classRoomList</result>
+        </action>
+
+        <action name="saveClassRoom" class="classRoomAction">
+            <result name="delete" type="redirect">classRoomList.html</result>
+            <result name="input" type="tiles">classRoomForm</result>
+            <result name="success" type="chain">saveClassRoomWithValidation</result>
+        </action>
+
+        <action name="saveClassRoomWithValidation" class="classRoomAction" method="save">
+            <result name="input" type="tiles">classRoomForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- CourseOpen -->
+        <action name="courseOpenList" class="courseOpenAction" method="list">
+            <result name="success" type="tiles">courseOpenList</result>
+            <result name="input" type="tiles">courseOpenList</result>
+        </action>
+
+        <action name="editCourseOpen" class="courseOpenAction" method="edit">
+            <result name="success" type="tiles">courseOpenForm</result>
+            <result name="input" type="tiles">courseOpenList</result>
+        </action>
+
+        <action name="copyCourseOpen" class="courseOpenAction" method="copy">
+            <result name="success" type="tiles">courseOpenForm</result>
+            <result name="input" type="tiles">courseOpenList</result>
+        </action>
+
+        <action name="saveCourseOpen" class="courseOpenAction">
+            <result name="delete" type="redirect">courseOpenList.html</result>
+            <result name="input" type="tiles">courseOpenForm</result>
+            <result name="success" type="chain">saveCourseOpenWithValidation</result>
+        </action>
+
+        <action name="saveCourseOpenWithValidation" class="courseOpenAction" method="save">
+            <result name="input" type="tiles">courseOpenForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+

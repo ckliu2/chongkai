@@ -1,0 +1,61 @@
+﻿<?xml version=\"1.0\" encoding=\"utf-8\"?>
+<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">
+  <soap:Body>
+    <SetGroup2 xmlns=\"http://tquark.com.tw/OGSystem/\">
+      <GroupNo>C01</GroupNo>
+      <GroupName>電算中心</GroupName>
+      <InfoClass>
+        <ManagerNos>
+          <string>950201</string>
+        </ManagerNos>
+        <MemberNos>
+          <string>950201</string>
+        </MemberNos>
+      </InfoClass>
+      <downloadMode>Queue</downloadMode>
+    </SetGroup2>
+  </soap:Body>
+</soap:Envelope>
+
+
+------------------------------------------------------
+
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <SetGroup2 xmlns="http://tquark.com.tw/OGSystem/">
+      <GroupNo>string</GroupNo>
+      <GroupName>string</GroupName>
+      <InfoClass>
+        <ManagerNos>
+          <string>string</string>
+          <string>string</string>
+        </ManagerNos>
+        <MemberNos>
+          <string>string</string>
+          <string>string</string>
+        </MemberNos>
+      </InfoClass>
+      <downloadMode>None or Direct or Queue</downloadMode>
+    </SetGroup2>
+  </soap:Body>
+</soap:Envelope>
+----------------------------------------------------------
+
+<?xml version="1.0" encoding="utf-8"?>	
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> 
+<soap:Body><SetGroup2 xmlns="http://tquark.com.tw/OGSystem/"> 
+<GroupNo>C01</GroupNo> 
+<GroupName>電算中心</GroupName>
+<InfoClass>
+<ManagerNos>
+<string>950201</string>
+</ManagerNos>
+<MemberNos>
+<string>950201</string>
+</MemberNos>
+</InfoClass>
+<downloadMode>Queue</downloadMode>
+</SetGroup2>
+</soap:Body>
+</soap:Envelope>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="loginAction" class="com.common.web.action.LoginAction" singleton="false">
+        <property name="genericManager" ref="commonManager"/>
+    </bean>
+    
+    <bean id="appPropertyAction" class="com.common.web.action.AppPropertyAction" singleton="false">
+        <property name="genericManager" ref="commonManager"/>
+    </bean>
+
+    <bean id="miscCodeAction" class="com.common.web.action.MiscCodeAction" singleton="false">
+        <property name="genericManager" ref="commonManager"/>
+    </bean>
+
+    
+    <bean id="functionAction" class="com.common.web.action.FunctionAction" singleton="false">
+        <property name="genericManager" ref="commonManager"/>
+    </bean>
+
+    <bean id="functionCategoryAction" class="com.common.web.action.FunctionCategoryAction" singleton="false">
+        <property name="genericManager" ref="commonManager"/>
+    </bean>
+
+    <bean id="groupAction" class="com.common.web.action.GroupAction" singleton="false">
+        <property name="genericManager" ref="commonManager"/>
+    </bean>
+
+    
+    <bean id="memberAction" class="com.common.web.action.MemberAction" singleton="false">
+        <property name="genericManager" ref="commonManager"/>
+    </bean>
+    
+<!-- ********************************************* -->
+   
+    <bean id="shopAction" class="com.photo.web.action.ShopAction" singleton="false">
+        <property name="genericManager" ref="photoManager"/>
+    </bean>
+
+    <bean id="customerAction" class="com.photo.web.action.CustomerAction" singleton="false">
+        <property name="genericManager" ref="photoManager"/>
+    </bean>
+
+    <bean id="billAction" class="com.photo.web.action.BillAction" singleton="false">
+        <property name="genericManager" ref="photoManager"/>
+    </bean>
+    
+    <bean id="productAction" class="com.photo.web.action.ProductAction" singleton="false">
+        <property name="genericManager" ref="photoManager"/>
+    </bean>
+    
+    <bean id="sizeAction" class="com.photo.web.action.SizeAction" singleton="false">
+        <property name="genericManager" ref="photoManager"/>
+    </bean>
+    
+    <bean id="stytleAction" class="com.photo.web.action.StytleAction" singleton="false">
+        <property name="genericManager" ref="photoManager"/>
+    </bean>
+    
+    <bean id="webAction" class="com.photo.web.action.WebAction" singleton="false">
+        <property name="genericManager" ref="photoManager"/>
+    </bean>
+
+
+    
+
+  
+</beans>

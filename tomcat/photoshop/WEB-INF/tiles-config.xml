@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+    <definition name="default" path="/layout/template.jsp">
+        <put name="title" value="Information System"/>
+        <put name="menu" value="/layout/menu.jsp"/>
+        <put name="rightColumn" value="/layout/right.jsp"/>
+    </definition>    
+
+    <definition name="surveyOnlineTemplate" path="/layout/templateOnline.jsp">
+        <put name="title" value="Information System"/>
+        <put name="foot" value="/layout/foot.jsp"/>
+    </definition>
+
+    <definition name="noMenuTemplate" path="/layout/noMenuTemplate.jsp">
+        <put name="title" value="Information System"/>
+    </definition>    
+    
+
+    <definition name="searchResultTemplate" path="/layout/searchResultTemplate.jsp">
+        <put name="title" value="Information System"/>
+    </definition>
+
+    <definition name="dataAccessFailure" extends="default">
+        <put name="title" value="Data Access Error"/>
+        <put name="content" value="/common/dataAccessFailure.jsp"/>
+    </definition>
+
+    <definition name="blank" extends="default">
+        <put name="title" value=""/>
+        <put name="content" value="/common/blank.jsp"/>    
+    </definition>
+
+    <definition name="editTimeExceed" extends="default">
+        <put name="title" value=""/>
+        <put name="content" value="/common/editTimeExceed.jsp"/>
+    </definition>
+  
+
+    <!-- 
+    ************************ 
+    * AppProperty 
+    ************************
+    -->
+    <definition name="appPropertyList" extends="default">
+        <put name="content" value="/adm/appPropertyList.jsp"/>
+    </definition>
+    <definition name="appPropertyForm" extends="default">
+        <put name="content" value="/adm/appPropertyForm.jsp"/>
+    </definition>
+ 
+     <!-- 
+    ************************ 
+    * MiscCode 
+    ************************
+    -->
+    <definition name="miscCodeList" extends="default">
+        <put name="content" value="/adm/miscCodeList.jsp"/>
+    </definition>
+    <definition name="miscCodeForm" extends="default">
+        <put name="content" value="/adm/miscCodeForm.jsp"/>
+    </definition>
+ 
+     <!-- 
+    ************************ 
+    * Function 
+    ************************
+    -->
+    <definition name="functionList" extends="default">
+        <put name="content" value="/adm/functionList.jsp"/>
+    </definition>
+
+    <definition name="functionForm" extends="default">
+        <put name="content" value="/adm/functionForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * FunctionCategory 
+    ************************
+    -->
+    <definition name="functionCategoryList" extends="default">
+        <put name="content" value="/adm/functionCategoryList.jsp"/>
+    </definition>
+
+    <definition name="functionCategoryForm" extends="default">
+        <put name="content" value="/adm/functionCategoryForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Group 
+    ************************
+    -->
+    <definition name="groupList" extends="default">
+        <put name="content" value="/adm/groupList.jsp"/>
+    </definition>
+
+    <definition name="groupForm" extends="default">
+        <put name="content" value="/adm/groupForm.jsp"/>
+    </definition>
+
+
+    <!-- 
+    ************************ 
+    * Member 
+    ************************
+    -->
+    <definition name="memberList" extends="default">
+        <put name="content" value="/adm/memberList.jsp"/>
+    </definition>
+
+    <definition name="memberForm" extends="default">
+        <put name="content" value="/adm/memberForm.jsp"/>
+    </definition>
+    
+    <!-- 
+    ************************ 
+    * Product 
+    ************************
+    -->
+    <definition name="productList" extends="default">
+        <put name="content" value="/photo/productList.jsp"/>
+    </definition>
+
+    <definition name="productForm" extends="default">
+        <put name="content" value="/photo/productForm.jsp"/>
+    </definition>
+    
+    <!-- 
+    ************************ 
+    * Bill 
+    ************************
+    -->
+    <definition name="billList" extends="default">
+        <put name="content" value="/photo/billList.jsp"/>
+    </definition>
+
+    <definition name="billForm" extends="default">
+        <put name="content" value="/photo/billForm.jsp"/>
+    </definition>
+    
+    <!-- 
+    ************************ 
+    * Shop 
+    ************************
+    -->
+    <definition name="shopList" extends="default">
+        <put name="content" value="/photo/shopList.jsp"/>
+    </definition>
+
+    <definition name="shopForm" extends="default">
+        <put name="content" value="/photo/shopForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Customer 
+    ************************
+    -->
+    <definition name="customerList" extends="default">
+        <put name="content" value="/photo/customerList.jsp"/>
+    </definition>
+
+    <definition name="customerForm" extends="default">
+        <put name="content" value="/photo/customerForm.jsp"/>
+    </definition>
+    
+    <!-- 
+    ************************ 
+    * Size 
+    ************************
+    -->
+    <definition name="sizeList" extends="default">
+        <put name="content" value="/photo/sizeList.jsp"/>
+    </definition>
+
+    <definition name="sizeForm" extends="default">
+        <put name="content" value="/photo/sizeForm.jsp"/>
+    </definition>
+    
+    <!-- 
+    ************************ 
+    * Stytle 
+    ************************
+    -->
+    <definition name="stytleList" extends="default">
+        <put name="content" value="/photo/stytleList.jsp"/>
+    </definition>
+
+    <definition name="stytleForm" extends="default">
+        <put name="content" value="/photo/stytleForm.jsp"/>
+    </definition>
+
+    
+</tiles-definitions>
