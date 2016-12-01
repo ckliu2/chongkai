@@ -200,12 +200,14 @@ public class ProfitAction extends CommonActionSupport {
 	public List<Profit> getProfitList_bk() {
 		int pageIndex = getPageIndex();
 		int pageSize = getPageSize();
-		System.out.println("projectNo=" + projectNo + "--customerId=" + customerId + "--startDate=" + startDate + "--endDate=" + endDate + "--pageIndex=" + pageIndex + "--pageSize=" + pageSize + "---scost=" + scost);
+		System.out.println("projectNo=" + projectNo + "--customerId=" + customerId + "--startDate=" + startDate
+				+ "--endDate=" + endDate + "--pageIndex=" + pageIndex + "--pageSize=" + pageSize + "---scost=" + scost);
 
 		List<Profit> al = new ArrayList<Profit>();
 		customer = getGenericManager().getCustomerById(customerId);
 		salesmen = getGenericManager().getMemberById(salesmenId);
-		int resultSize = getGenericManager().getProfitListByConditionCount(projectNo, startDate, endDate, customer, salesmen);
+		int resultSize = getGenericManager().getProfitListByConditionCount(projectNo, startDate, endDate, customer,
+				salesmen);
 		getSession().setAttribute("RESULT_SIZE", new Integer(resultSize));
 		System.out.println("resultSize=" + resultSize);
 		al = getGenericManager().getProfitList(projectNo, startDate, endDate, customer, salesmen, pageSize, pageIndex);
@@ -303,8 +305,6 @@ public class ProfitAction extends CommonActionSupport {
 		return al;
 
 	}
-	
-	
 
 	public List<Customer> getCustomerList() {
 		ArrayList<Customer> al = new ArrayList<Customer>();
@@ -332,7 +332,8 @@ public class ProfitAction extends CommonActionSupport {
 				jo.accumulate("name", s.getProductName());
 				jsonArray.put(jo);
 			}
-			// System.out.println("findMemberByJSON JSONArray="+jsonArray.toString());
+			// System.out.println("findMemberByJSON
+			// JSONArray="+jsonArray.toString());
 		} catch (Exception e) {
 			System.out.println("findProductByJSON error..");
 		}
@@ -352,28 +353,32 @@ public class ProfitAction extends CommonActionSupport {
 				jo.accumulate("name", s.getName());
 				jsonArray.put(jo);
 			}
-			// System.out.println("findCustomerByJSON JSONArray="+jsonArray.toString());
+			// System.out.println("findCustomerByJSON
+			// JSONArray="+jsonArray.toString());
 		} catch (Exception e) {
 			System.out.println("findCustomerByJSON error..");
 		}
 		return jsonArray;
 	}
-	
-	
+
 	public List<Profit> getProfitRateList() {
-		return getGenericManager().getProfitRateList(startDate, endDate,tag,profitPerc);
+		return getGenericManager().getProfitRateList(startDate, endDate, tag, profitPerc);
 	}
 
 	public List<ProfitProduct> getProfitProductList() {
 		ArrayList<ProfitProduct> al = new ArrayList<ProfitProduct>();
-
+		System.out.println("getProfitProductList-----");
+		
 		if (selectedProductIds != null) {
 			for (int j = 0; j < selectedProductIds.length; j++) {
-				product = getGenericManager().getProductById(selectedProductIds[j]);
-
-				ProfitProduct p = getGenericManager().getProfitProductList(startDate, endDate, product);
-				if (p != null) {
-					al.add(p);
+				try {
+					product = getGenericManager().getProductById(selectedProductIds[j]);
+					ProfitProduct p = getGenericManager().getProfitProductList(startDate, endDate, product);
+					if (p != null) {
+						al.add(p);
+					}
+				} catch (Exception e) {
+					System.out.println("getProfitProductList Action err=" + e.toString());
 				}
 
 			}
@@ -411,22 +416,23 @@ public class ProfitAction extends CommonActionSupport {
 
 	public List getProfitDetailListByProduct() {
 		product = getProductById();
-		System.out.println("product.name=" + product.getProductName() + "--startDate=" + startDate + "--endDate=" + endDate);
+		System.out.println(
+				"product.name=" + product.getProductName() + "--startDate=" + startDate + "--endDate=" + endDate);
 		return getGenericManager().getProfitDetailListByProduct(startDate, endDate, product);
 	}
-	
-	public String calculateProfitJSON(){
-		try{
+
+	public String calculateProfitJSON() {
+		try {
 			System.out.println("dbo.CalculationProfit");
-			String sql=" dbo.CalculationProfit ";
+			String sql = " dbo.CalculationProfit ";
 			getGenericManager().executeSQL(sql);
-			
-		}catch(Exception e){
+
+		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
 		return "";
 	}
-	
+
 	public int getTag() {
 		return tag;
 	}
@@ -442,5 +448,5 @@ public class ProfitAction extends CommonActionSupport {
 	public void setProfitPerc(BigDecimal profitPerc) {
 		this.profitPerc = profitPerc;
 	}
-	
+
 }

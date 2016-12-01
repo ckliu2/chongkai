@@ -100,7 +100,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 			return obj;
 	}
 
-	public List<Bill> getBillListByCondition(Customer customer, String billNo, int state, String startDate, String endDate, int pageSize, int pageIndex) {
+	public List<Bill> getBillListByCondition(Customer customer, String billNo, int state, String startDate,
+			String endDate, int pageSize, int pageIndex) {
 
 		Criteria c = getHibernateSession().createCriteria(Bill.class);
 
@@ -163,14 +164,16 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 
 	// ProcessState
 
-	public List<Bill> getProcessStateByCondition(int condition, Customer customer, String billNo, int pageSize, int pageIndex, Group group, boolean isCheck) {
+	public List<Bill> getProcessStateByCondition(int condition, Customer customer, String billNo, int pageSize,
+			int pageIndex, Group group, boolean isCheck) {
 		ArrayList<Bill> al = new ArrayList<Bill>();
 		String hsql, customerstr = "", billNostr = "";
 		String step = group.getGroupNameEn();
 		if (customer != null) {
 			customerstr = " and s.bill.customer=:customer ";
 		}
-		hsql = "from ProcessState s where s.step" + step + "=:isCheck " + customerstr + " and s.bill.id like :billNo   order by s.bill.id desc ";
+		hsql = "from ProcessState s where s.step" + step + "=:isCheck " + customerstr
+				+ " and s.bill.id like :billNo   order by s.bill.id desc ";
 		System.out.println("getProcessStateByCondition hsql=" + hsql + "  isCheck=" + isCheck);
 		Query query = getHibernateSession().createQuery(hsql);
 		query.setParameter("isCheck", isCheck);
@@ -271,9 +274,11 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 		ArrayList<BillDetail> al = new ArrayList<BillDetail>();
 		String hsql;
 		if (product == null) {
-			hsql = "from BillSchedule s left join s.billDetail as b where  s.step" + step + "=:result order by s.billDetail.bill.id";
+			hsql = "from BillSchedule s left join s.billDetail as b where  s.step" + step
+					+ "=:result order by s.billDetail.bill.id";
 		} else {
-			hsql = "from BillSchedule s left join s.billDetail as b where b.product=:product and s.step" + step + "=:result order by s.billDetail.bill.id";
+			hsql = "from BillSchedule s left join s.billDetail as b where b.product=:product and s.step" + step
+					+ "=:result order by s.billDetail.bill.id";
 		}
 
 		// System.out.println("hsql="+hsql);
@@ -293,7 +298,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 
 				if (isStepEnabled(m.getBill(), group)) {
 					BillFinish finish = findBillFinishByBill(m.getBill());
-					if (finish == null && m.getProduct().getProductClass().getExpectionFlows().contains(group) == false) {
+					if (finish == null
+							&& m.getProduct().getProductClass().getExpectionFlows().contains(group) == false) {
 						al.add(m);
 					}
 				}
@@ -306,15 +312,18 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 		return al;
 	}
 
-	public List<BillDetail> getBillScheduleListByCondition(Long step, Product product, boolean result, int pageSize, int pageIndex) {
+	public List<BillDetail> getBillScheduleListByCondition(Long step, Product product, boolean result, int pageSize,
+			int pageIndex) {
 		System.out.println("getBillScheduleListByCondition start=" + Tools.getCurrentTimestamp());
 
 		ArrayList<BillDetail> al = new ArrayList<BillDetail>();
 		String hsql;
 		if (product == null) {
-			hsql = "from BillSchedule s left join s.billDetail as b where  s.step" + step + "=:result order by s.billDetail.bill.id";
+			hsql = "from BillSchedule s left join s.billDetail as b where  s.step" + step
+					+ "=:result order by s.billDetail.bill.id";
 		} else {
-			hsql = "from BillSchedule s left join s.billDetail as b where b.product=:product and s.step" + step + "=:result order by s.billDetail.bill.id";
+			hsql = "from BillSchedule s left join s.billDetail as b where b.product=:product and s.step" + step
+					+ "=:result order by s.billDetail.bill.id";
 		}
 
 		// System.out.println("hsql="+hsql);
@@ -338,7 +347,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 
 				if (isStepEnabled(m.getBill(), group)) {
 					BillFinish finish = findBillFinishByBill(m.getBill());
-					if (finish == null && m.getProduct().getProductClass().getExpectionFlows().contains(group) == false) {
+					if (finish == null
+							&& m.getProduct().getProductClass().getExpectionFlows().contains(group) == false) {
 						al.add(m);
 					}
 				}
@@ -351,7 +361,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 		return al;
 	}
 
-	public List<Meter> getMeterListByCondition(Long step, Product product, boolean result, int pageSize, int pageIndex) {
+	public List<Meter> getMeterListByCondition(Long step, Product product, boolean result, int pageSize,
+			int pageIndex) {
 		ArrayList<Meter> al = new ArrayList<Meter>();
 		Criteria c = getHibernateSession().createCriteria(Meter.class);
 
@@ -588,7 +599,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 		ArrayList<Customer> al = new ArrayList<Customer>();
 		try {
 			Criteria c = getHibernateSession().createCriteria(Customer.class);
-			c.add(Restrictions.or(Restrictions.like("id", "%" + KeyWord + "%"), Restrictions.like("name", "%" + KeyWord + "%")));
+			c.add(Restrictions.or(Restrictions.like("id", "%" + KeyWord + "%"),
+					Restrictions.like("name", "%" + KeyWord + "%")));
 			List result = c.list();
 			for (int i = 0; i < result.size(); i++) {
 				Customer m = (Customer) result.get(i);
@@ -681,7 +693,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 		ArrayList<CustomerDetail> al = new ArrayList<CustomerDetail>();
 		Criteria c = getHibernateSession().createCriteria(CustomerDetail.class);
 		c.add(Expression.eq("customer", customer));
-		c.add(Restrictions.or(Restrictions.like("counterNo", "%" + key + "%"), Restrictions.like("counter", "%" + key + "%")));
+		c.add(Restrictions.or(Restrictions.like("counterNo", "%" + key + "%"),
+				Restrictions.like("counter", "%" + key + "%")));
 		List result = c.list();
 		for (int i = 0; i < result.size(); i++) {
 			al.add((CustomerDetail) result.get(i));
@@ -712,7 +725,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 	public List<Product> getProductListByCondition(String name, String id) {
 		ArrayList<Product> al = new ArrayList<Product>();
 		Criteria c = getHibernateSession().createCriteria(Product.class);
-		c.add(Restrictions.or(Restrictions.like("id", "%" + id + "%"), Restrictions.like("productName", "%" + name + "%")));
+		c.add(Restrictions.or(Restrictions.like("id", "%" + id + "%"),
+				Restrictions.like("productName", "%" + name + "%")));
 		List result = c.list();
 		for (int i = 0; i < result.size(); i++) {
 			Product m = (Product) result.get(i);
@@ -1158,7 +1172,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 				j = i + 1;
 			}
 
-			System.out.println(groups.get(j).getGroupKey().substring(2, 4) + "--NextStep=" + groups.get(j) + "--group=" + group.getGroupName());
+			System.out.println(groups.get(j).getGroupKey().substring(2, 4) + "--NextStep=" + groups.get(j) + "--group="
+					+ group.getGroupName());
 
 			if (group.getId() == groups.get(j).getId()) {
 				r = true;
@@ -1589,7 +1604,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 		case 1:
 			if (billSchedule.getStep1() == true) {
 				result = true;
-				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker1() + " / " + Tools.formatSimpleDate1(billSchedule.getCheck1()) + ")<br>";
+				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker1() + " / "
+						+ Tools.formatSimpleDate1(billSchedule.getCheck1()) + ")<br>";
 			} else {
 				result = false;
 			}
@@ -1597,7 +1613,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 		case 2:
 			if (billSchedule.getStep2() == true) {
 				result = true;
-				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker2() + " / " + Tools.formatSimpleDate1(billSchedule.getCheck2()) + ")<br>";
+				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker2() + " / "
+						+ Tools.formatSimpleDate1(billSchedule.getCheck2()) + ")<br>";
 			} else {
 				result = false;
 			}
@@ -1605,7 +1622,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 		case 3:
 			if (billSchedule.getStep3() == true) {
 				result = true;
-				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker3() + " / " + Tools.formatSimpleDate1(billSchedule.getCheck3()) + ")<br>";
+				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker3() + " / "
+						+ Tools.formatSimpleDate1(billSchedule.getCheck3()) + ")<br>";
 			} else {
 				result = false;
 			}
@@ -1613,7 +1631,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 		case 4:
 			if (billSchedule.getStep4() == true) {
 				result = true;
-				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker4() + " / " + Tools.formatSimpleDate1(billSchedule.getCheck4()) + ")<br>";
+				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker4() + " / "
+						+ Tools.formatSimpleDate1(billSchedule.getCheck4()) + ")<br>";
 			} else {
 				result = false;
 			}
@@ -1621,7 +1640,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 		case 5:
 			if (billSchedule.getStep5() == true) {
 				result = true;
-				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker5() + " / " + Tools.formatSimpleDate1(billSchedule.getCheck5()) + ")<br>";
+				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker5() + " / "
+						+ Tools.formatSimpleDate1(billSchedule.getCheck5()) + ")<br>";
 			} else {
 				result = false;
 			}
@@ -1629,7 +1649,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 		case 6:
 			if (billSchedule.getStep6() == true) {
 				result = true;
-				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker6() + " / " + Tools.formatSimpleDate1(billSchedule.getCheck6()) + ")<br>";
+				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker6() + " / "
+						+ Tools.formatSimpleDate1(billSchedule.getCheck6()) + ")<br>";
 			} else {
 				result = false;
 			}
@@ -1637,7 +1658,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 		case 7:
 			if (billSchedule.getStep7() == true) {
 				result = true;
-				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker7() + " / " + Tools.formatSimpleDate1(billSchedule.getCheck7()) + ")<br>";
+				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker7() + " / "
+						+ Tools.formatSimpleDate1(billSchedule.getCheck7()) + ")<br>";
 			} else {
 				result = false;
 			}
@@ -1645,7 +1667,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 		case 8:
 			if (billSchedule.getStep8() == true) {
 				result = true;
-				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker8() + " / " + Tools.formatSimpleDate1(billSchedule.getCheck8()) + ")<br>";
+				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker8() + " / "
+						+ Tools.formatSimpleDate1(billSchedule.getCheck8()) + ")<br>";
 			} else {
 				result = false;
 			}
@@ -1653,7 +1676,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 		case 9:
 			if (billSchedule.getStep9() == true) {
 				result = true;
-				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker9() + " / " + Tools.formatSimpleDate1(billSchedule.getCheck9()) + ")<br>";
+				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker9() + " / "
+						+ Tools.formatSimpleDate1(billSchedule.getCheck9()) + ")<br>";
 			} else {
 				result = false;
 			}
@@ -1661,7 +1685,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 		case 10:
 			if (billSchedule.getStep10() == true) {
 				result = true;
-				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker10() + " / " + Tools.formatSimpleDate1(billSchedule.getCheck10()) + ")<br>";
+				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker10() + " / "
+						+ Tools.formatSimpleDate1(billSchedule.getCheck10()) + ")<br>";
 			} else {
 				result = false;
 			}
@@ -1669,7 +1694,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 		case 11:
 			if (billSchedule.getStep11() == true) {
 				result = true;
-				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker11() + " / " + Tools.formatSimpleDate1(billSchedule.getCheck11()) + ")<br>";
+				remark += "請接洽(" + group.getGroupName() + " / " + billSchedule.getChecker11() + " / "
+						+ Tools.formatSimpleDate1(billSchedule.getCheck11()) + ")<br>";
 			} else {
 				result = false;
 			}
@@ -1698,7 +1724,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 	public CustomerScreen findCustomerScreenById(Long id) {
 		if (id == null)
 			return null;
-		CustomerScreen obj = (CustomerScreen) getHibernateTemplate().get(northwest.common.value.CustomerScreen.class, id);
+		CustomerScreen obj = (CustomerScreen) getHibernateTemplate().get(northwest.common.value.CustomerScreen.class,
+				id);
 		if (obj == null)
 			throw new ObjectRetrievalFailureException(northwest.common.value.CustomerScreen.class, id);
 		else
@@ -1780,7 +1807,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 	public OutputEquipment findOutputEquipmentById(Long id) {
 		if (id == null)
 			return null;
-		OutputEquipment obj = (OutputEquipment) getHibernateTemplate().get(northwest.common.value.OutputEquipment.class, id);
+		OutputEquipment obj = (OutputEquipment) getHibernateTemplate().get(northwest.common.value.OutputEquipment.class,
+				id);
 		if (obj == null)
 			throw new ObjectRetrievalFailureException(northwest.common.value.OutputEquipment.class, id);
 		else
@@ -1847,7 +1875,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 		if (group != null) {
 			x1 = x + " s.step" + step + "=:status ";
 		}
-		String hsql = "from ProcessState s where  s.bill.id like :billNo  " + x1 + " and s.worker like :worker  order by s.bill.id";
+		String hsql = "from ProcessState s where  s.bill.id like :billNo  " + x1
+				+ " and s.worker like :worker  order by s.bill.id";
 
 		System.out.println(hsql);
 		System.out.println("status=" + status);
@@ -1940,7 +1969,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 			filter += v.get(i) + s;
 		}
 
-		String sql = "select salesCostSum=isnull(cast(sum(salesCost) as varchar),'0') ,purchaseSum=isnull(cast(sum(purchase) as varchar),'0') ,salesPriceSum=isnull(cast(sum(salesPrice) as varchar),'0') ,profitSum=isnull(cast(sum(profit) as varchar),'0')  from Northwest_Profit " + filter;
+		String sql = "select salesCostSum=isnull(cast(sum(salesCost) as varchar),'0') ,purchaseSum=isnull(cast(sum(purchase) as varchar),'0') ,salesPriceSum=isnull(cast(sum(salesPrice) as varchar),'0') ,profitSum=isnull(cast(sum(profit) as varchar),'0')  from Northwest_Profit "
+				+ filter;
 		System.out.println(sql);
 
 		try {
@@ -1967,7 +1997,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 
 	}
 
-	public List<Profit> getProfitList(String projectNo, String start, String end, Customer customer, Member salesmen, int pageSize, int pageIndex) {
+	public List<Profit> getProfitList(String projectNo, String start, String end, Customer customer, Member salesmen,
+			int pageSize, int pageIndex) {
 		Criteria c = getHibernateSession().createCriteria(Profit.class);
 		c.addOrder(Order.desc("salesNo"));
 		c.setFirstResult(pageSize * pageIndex);
@@ -1975,7 +2006,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 
 		if (projectNo != null) {
 			if (!projectNo.equals("")) {
-				c.add(Restrictions.or(Restrictions.like("salesNo", "%" + projectNo + "%"), Restrictions.like("billNo", "%" + projectNo + "%")));
+				c.add(Restrictions.or(Restrictions.like("salesNo", "%" + projectNo + "%"),
+						Restrictions.like("billNo", "%" + projectNo + "%")));
 				c.add(Expression.like("projectNo", "%" + projectNo + "%"));
 				// c.add(Restrictions.or(Expression.eq("salesNo", projectNo),
 				// Expression.eq("billNo", projectNo)));
@@ -2006,15 +2038,15 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 
 	public List<Profit> getProfitRateList(String start, String end, int tag, BigDecimal profitPerc) {
 		Criteria c = getHibernateSession().createCriteria(Profit.class);
-		if(start == null && end == null){
+		if (start == null && end == null) {
 			System.out.println("start == null && end == null");
 			c.add(Expression.eq("id", 0L));
 		}
-		
-		System.out.println(start+"*****"+end);
-		
+
+		System.out.println(start + "*****" + end);
+
 		if (start != null && end != null) {
-			System.out.println(start+"--"+end);
+			System.out.println(start + "--" + end);
 			c.add(Restrictions.between("billDate", start, end));
 		}
 
@@ -2023,17 +2055,18 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 		} else {
 			c.add(Restrictions.le("profitPerc", profitPerc));
 		}
-		
+
 		c.addOrder(Order.asc("billDate"));
-		
-		List ls=c.list();
-		
-		System.out.println("ls.size="+ls.size());
-		
+
+		List ls = c.list();
+
+		System.out.println("ls.size=" + ls.size());
+
 		return ls;
 	}
 
-	public int getProfitListByConditionCount(String projectNo, String start, String end, Customer customer, Member salesmen) {
+	public int getProfitListByConditionCount(String projectNo, String start, String end, Customer customer,
+			Member salesmen) {
 		Criteria c = getHibernateSession().createCriteria(Profit.class);
 		c.addOrder(Order.asc("profit"));
 		if (projectNo != null) {
@@ -2090,7 +2123,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 		if (projectNo != null) {
 			if (!projectNo.equals("")) {
 				System.out.println("hiber projectNo=" + projectNo);
-				c.add(Restrictions.or(Restrictions.like("salesNo", "%" + projectNo + "%"), Restrictions.like("billNo", "%" + projectNo + "%")));
+				c.add(Restrictions.or(Restrictions.like("salesNo", "%" + projectNo + "%"),
+						Restrictions.like("billNo", "%" + projectNo + "%")));
 				i++;
 			}
 		}
@@ -2160,43 +2194,50 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 	// ProfitProduct
 	public ProfitProduct getProfitProductList(String startDate, String endDate, Product product) {
 
-		String hsql = "select sum(p.salesPrice),sum(p.purchasePrice),sum(p.salesCost),sum(p.profit),(sum(p.profit)/sum(p.salesPrice) *100 ),sum(p.unit1),sum(p.unit2),sum(p.unit3) from ProfitDetail p inner join p.profitNo as profit where profit.billDate between :startDate and :endDate and p.product=:product";
-		Query query = getHibernateSession().createQuery(hsql);
-		query.setParameter("startDate", startDate);
-		query.setParameter("endDate", endDate);
-		query.setParameter("product", product);
-
-		System.out.println(hsql);
-
-		System.out.println("startDate=" + startDate);
-		System.out.println("endDate=" + endDate);
-		System.out.println("product.ProductName=" + product.getProductName());
-
+		// String hsql = "select sum(p.salesPrice),sum(p.purchasePrice),sum(p.salesCost),sum(p.profit),(sum(p.profit)/sum(p.salesPrice) *100 ),sum(p.unit1),sum(p.unit2),sum(p.unit3) from ProfitDetail p inner join p.profitNo as profit where profit.billDate between :startDate and :endDate and p.product=:product";
 		ProfitProduct p = null;
-		Iterator ite = query.list().iterator();
-		while (ite.hasNext()) {
-			Object[] objects = (Object[]) ite.next();
-			System.out.println("salesPrice= " + objects[0]);
-			System.out.println("purchasePrice= " + objects[1]);
-			System.out.println("salesCost= " + objects[2]);
-			System.out.println("profit= " + objects[3]);
-			System.out.println("profitRate= " + String.valueOf(objects[4]));
+		try {
+			String hsql = "select sum(p.salesPrice),sum(p.purchasePrice),sum(p.salesCost),sum(p.profit),(0),sum(p.unit1),sum(p.unit2),sum(p.unit3) from ProfitDetail p inner join p.profitNo as profit where profit.billDate between :startDate and :endDate and p.product=:product";
+			Query query = getHibernateSession().createQuery(hsql);
+			query.setParameter("startDate", startDate);
+			query.setParameter("endDate", endDate);
+			query.setParameter("product", product);
 
-			p = new ProfitProduct();
-			p.setSalesPrice(String.valueOf(objects[0]));
-			p.setPurchasePrice(String.valueOf(objects[1]));
-			p.setSalesCost(String.valueOf(objects[2]));
-			p.setProfit(String.valueOf(objects[3]));
-			p.setProfitRate(String.valueOf(objects[4]));
-			p.setUnit1(String.valueOf(objects[5]));
-			p.setUnit2(String.valueOf(objects[6]));
-			p.setUnit3(String.valueOf(objects[7]));
+			System.out.println(hsql);
 
-			p.setBeginDate(Tools.convertToDate1(startDate));
-			p.setEndDate(Tools.convertToDate1(endDate));
-			p.setProduct(product);
+			System.out.println("startDate=" + startDate);
+			System.out.println("endDate=" + endDate);
+			System.out.println("product.ProductName=" + product.getProductName());
+
+			
+			Iterator ite = query.list().iterator();
+			while (ite.hasNext()) {
+				Object[] objects = (Object[]) ite.next();
+				System.out.println("salesPrice= " + objects[0]);
+				System.out.println("purchasePrice= " + objects[1]);
+				System.out.println("salesCost= " + objects[2]);
+				System.out.println("profit= " + objects[3]);
+				System.out.println("profitRate= " + String.valueOf(objects[4]));
+
+				p = new ProfitProduct();
+				p.setSalesPrice(String.valueOf(objects[0]));
+				p.setPurchasePrice(String.valueOf(objects[1]));
+				p.setSalesCost(String.valueOf(objects[2]));
+				p.setProfit(String.valueOf(objects[3]));
+				p.setProfitRate(String.valueOf(objects[4]));
+				p.setUnit1(String.valueOf(objects[5]));
+				p.setUnit2(String.valueOf(objects[6]));
+				p.setUnit3(String.valueOf(objects[7]));
+
+				p.setBeginDate(Tools.convertToDate1(startDate));
+				p.setEndDate(Tools.convertToDate1(endDate));
+				p.setProduct(product);
+			}
+			return p;
+		} catch (Exception e) {
+			System.out.println("getProfitProductList err="+e.toString());
+			return null;
 		}
-		return p;
 	}
 
 	// WorkEfficiency
@@ -2211,10 +2252,14 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 				String hsql;
 				if (group.getGroupKey().equals("cuticle")) {
 
-					hsql = " select d.product,sum(d.quantity),sum(d.basicQuantity),count(*) from BillSchedule s inner join s.billDetail as d where s.cuticle" + " between :startDate and :endDate " + " and s.cuticleer" + "=:member " + " group by d.product ";
+					hsql = " select d.product,sum(d.quantity),sum(d.basicQuantity),count(*) from BillSchedule s inner join s.billDetail as d where s.cuticle"
+							+ " between :startDate and :endDate " + " and s.cuticleer" + "=:member "
+							+ " group by d.product ";
 
 				} else {
-					hsql = " select d.product,sum(d.quantity),sum(d.basicQuantity),count(*) from BillSchedule s inner join s.billDetail as d where s.check" + group.getGroupNameEn() + " between :startDate and :endDate " + " and s.checker" + group.getGroupNameEn() + "=:member " + " group by d.product ";
+					hsql = " select d.product,sum(d.quantity),sum(d.basicQuantity),count(*) from BillSchedule s inner join s.billDetail as d where s.check"
+							+ group.getGroupNameEn() + " between :startDate and :endDate " + " and s.checker"
+							+ group.getGroupNameEn() + "=:member " + " group by d.product ";
 				}
 				// System.out.println(hsql);
 
@@ -2355,7 +2400,8 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 	public CustomerStandardCost findCustomerStandardCostById(Long id) {
 		if (id == null)
 			return null;
-		CustomerStandardCost obj = (CustomerStandardCost) getHibernateTemplate().get(northwest.common.value.CustomerStandardCost.class, id);
+		CustomerStandardCost obj = (CustomerStandardCost) getHibernateTemplate()
+				.get(northwest.common.value.CustomerStandardCost.class, id);
 		if (obj == null)
 			throw new ObjectRetrievalFailureException(northwest.common.value.CustomerStandardCost.class, id);
 		else
