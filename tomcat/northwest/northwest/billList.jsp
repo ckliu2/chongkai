@@ -105,21 +105,32 @@
       </a>
     </display:column>
     
+    
     <display:column title="photo">  
       <a href="http://192.168.1.222/?rpt=4&id=${row.id}" target="_blank">
          <img src="images/form2.jpg" border=0>
       </a>
     </display:column>
     
+    
     <display:column title="Barcode">
-    <%--
-    http://203.71.172.251:8888/?rpt=0&id=${row.id}
-    http://192.168.1.222/?rpt=0&id=${row.id}
-    --%>
       <a href="http://192.168.1.222/?rpt=0&id=${row.id}" target="_blank">
          <img src="images/barcode.jpg" border=0>
       </a>
     </display:column>
+    
+     <display:column title="Sticker">
+      <a href="http://192.168.1.222/?rpt=6&billNo=${row.id}" target="_blank">
+         Sticker
+      </a>
+    </display:column>
+    
+    <display:column title="sum">  
+      <a href="http://192.168.1.222/?rpt=7&billno=${row.id}" target="_blank">
+         <img src="images/sa.png" border=0>
+      </a>
+    </display:column>
+    
       
     <display:column titleKey="bill.id" sortable="true" style="width:5px">
       <a href="editBill.html?bill.id=${row.id}" target="_blank">${row.id}</a>
