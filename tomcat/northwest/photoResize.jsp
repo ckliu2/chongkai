@@ -8,14 +8,23 @@
       
 
     if(sn.indexOf("-")!=-1){    
-      String filePath="D://IIS//bill//photo//"+id+"//"; 
-      File f = new File(filePath);       
+      String filePath="D://bill//photo//"+id+"//"; 
+      File f = new File(filePath);   
+      
       String[] paths = f.list();
       for(String path:paths)
       {     
-          if(path.indexOf(sn)!=-1){
-            filename=path;           
-          }         
+        try{
+          String token[]=sn.split("-");      
+          String num=token[1];
+      
+          String filetoken[]=path.split("-"); 
+          String fileNum=filetoken[1].substring(0,filetoken[1].indexOf("."));
+          System.out.println("fileNum="+fileNum+"--num="+num);
+          if(fileNum.equals(num)){
+             filename=path;           
+          } 
+        }catch(Exception e){}     
       }           
     }else{
     	filename=sn+".jpg";
@@ -23,12 +32,15 @@
     
 	    
 	   
-	    String srcImageFile="D://IIS//bill//photo//"+id+"//"+filename;
+	    String srcImageFile="D://bill//photo//"+id+"//"+filename;
+	    
+	    System.out.println("srcImageFile="+srcImageFile);
 	        
 	    BufferedImage src = ImageIO.read(new File(srcImageFile)); 
       int width = src.getWidth(); 
       int height = src.getHeight();
       System.out.println("id="+id+"--sn="+sn+"--width="+width+"--height="+height);      
+            
       
       java.text.DecimalFormat df = new java.text.DecimalFormat("#0.####");
       int reWidth,reHeight;  
