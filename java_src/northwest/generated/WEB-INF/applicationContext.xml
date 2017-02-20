@@ -38,42 +38,146 @@
 
 <!-- ********************************************* -->
 
-    <bean id="profitDetailManager" parent="txProxyTemplate">
+    <bean id="meterManager" parent="txProxyTemplate">
         <property name="target">
-            <bean class="northwest.common.service.impl.ProfitDetailManagerImpl">
-                <property name="genericDAO" ref="profitDetailDAO"/>
+            <bean class="northwest.common.service.impl.MeterManagerImpl">
+                <property name="genericDAO" ref="meterDAO"/>
             </bean>
         </property>
     </bean>
 
-    <bean id="customerStandardCostManager" parent="txProxyTemplate">
+    <bean id="billFinishManager" parent="txProxyTemplate">
         <property name="target">
-            <bean class="northwest.common.service.impl.CustomerStandardCostManagerImpl">
-                <property name="genericDAO" ref="customerStandardCostDAO"/>
+            <bean class="northwest.common.service.impl.BillFinishManagerImpl">
+                <property name="genericDAO" ref="billFinishDAO"/>
             </bean>
         </property>
     </bean>
 
-    <bean id="profitFeeManager" parent="txProxyTemplate">
+    <bean id="processStateManager" parent="txProxyTemplate">
         <property name="target">
-            <bean class="northwest.common.service.impl.ProfitFeeManagerImpl">
-                <property name="genericDAO" ref="profitFeeDAO"/>
+            <bean class="northwest.common.service.impl.ProcessStateManagerImpl">
+                <property name="genericDAO" ref="processStateDAO"/>
             </bean>
         </property>
     </bean>
 
-    <bean id="standardCostManager" parent="txProxyTemplate">
+    <bean id="freightManager" parent="txProxyTemplate">
         <property name="target">
-            <bean class="northwest.common.service.impl.StandardCostManagerImpl">
-                <property name="genericDAO" ref="standardCostDAO"/>
+            <bean class="northwest.common.service.impl.FreightManagerImpl">
+                <property name="genericDAO" ref="freightDAO"/>
             </bean>
         </property>
     </bean>
 
-    <bean id="profitManager" parent="txProxyTemplate">
+    <bean id="billQAManager" parent="txProxyTemplate">
         <property name="target">
-            <bean class="northwest.common.service.impl.ProfitManagerImpl">
-                <property name="genericDAO" ref="profitDAO"/>
+            <bean class="northwest.common.service.impl.BillQAManagerImpl">
+                <property name="genericDAO" ref="billQADAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="productManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="northwest.common.service.impl.ProductManagerImpl">
+                <property name="genericDAO" ref="productDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="outputEquipmentManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="northwest.common.service.impl.OutputEquipmentManagerImpl">
+                <property name="genericDAO" ref="outputEquipmentDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="customerScreenManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="northwest.common.service.impl.CustomerScreenManagerImpl">
+                <property name="genericDAO" ref="customerScreenDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="billFilesManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="northwest.common.service.impl.BillFilesManagerImpl">
+                <property name="genericDAO" ref="billFilesDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="billAuthorityManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="northwest.common.service.impl.BillAuthorityManagerImpl">
+                <property name="genericDAO" ref="billAuthorityDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="productUnitManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="northwest.common.service.impl.ProductUnitManagerImpl">
+                <property name="genericDAO" ref="productUnitDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="billScheduleManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="northwest.common.service.impl.BillScheduleManagerImpl">
+                <property name="genericDAO" ref="billScheduleDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="customerDetailManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="northwest.common.service.impl.CustomerDetailManagerImpl">
+                <property name="genericDAO" ref="customerDetailDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="customerManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="northwest.common.service.impl.CustomerManagerImpl">
+                <property name="genericDAO" ref="customerDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="billManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="northwest.common.service.impl.BillManagerImpl">
+                <property name="genericDAO" ref="billDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="billDetailManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="northwest.common.service.impl.BillDetailManagerImpl">
+                <property name="genericDAO" ref="billDetailDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="productClassManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="northwest.common.service.impl.ProductClassManagerImpl">
+                <property name="genericDAO" ref="productClassDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="productCombineManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="northwest.common.service.impl.ProductCombineManagerImpl">
+                <property name="genericDAO" ref="productCombineDAO"/>
             </bean>
         </property>
     </bean>

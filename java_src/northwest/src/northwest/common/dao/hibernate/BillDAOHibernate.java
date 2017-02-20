@@ -2415,5 +2415,40 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 		}
 		return c.list();
 	}
+	
+	//BillQA
+	public void saveBillQA(BillQA val)
+    {
+        getHibernateTemplate().saveOrUpdate(val);
+    }
+
+    public void removeBillQA(BillQA val)
+    {
+        getHibernateTemplate().delete(val);
+    }
+
+    public void removeBillQA(Long id)
+    {
+        BillQA obj = findBillQAById(id);
+        getHibernateTemplate().delete(obj);
+    }
+
+    public BillQA findBillQAById(Long id)
+    {
+        if (id == null)
+            return null;
+        BillQA obj = (BillQA)getHibernateTemplate().get(northwest.common.value.BillQA.class, id);
+        if (obj == null)
+            throw new ObjectRetrievalFailureException(northwest.common.value.BillQA.class, id);
+        else
+            return obj;
+    }
+
+    public List<BillQA> findAllBillQA(Bill bill)
+    {
+    	Criteria c = getHibernateSession().createCriteria(BillQA.class);
+		c.add(Expression.eq("bill", bill));
+		return c.list();
+    }
 
 }

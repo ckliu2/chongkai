@@ -13,7 +13,7 @@ import com.base.value.Function;
  WebWork Application Generator V 1.0
 
     Copyright 2006 Chih-Shyang Chang
-    Created Date: Mon Mar 10 17:34:04 CST 2014
+    Created Date: Mon Feb 20 21:48:12 CST 2017
 */
 
 public class BillScheduleAction extends CommonActionSupport
@@ -27,6 +27,7 @@ public class BillScheduleAction extends CommonActionSupport
     private String isSendTime;
     private String arrival;
     private String uploadDrawingsTime;
+    private String cuticle;
     private String check1;
     private String check2;
     private String check3;
@@ -147,6 +148,7 @@ public class BillScheduleAction extends CommonActionSupport
         isSendTime = Tools.dateToString(billSchedule.getIsSendTime());
         arrival = Tools.dateToString(billSchedule.getArrival());
         uploadDrawingsTime = Tools.dateToString(billSchedule.getUploadDrawingsTime());
+        cuticle = Tools.dateToString(billSchedule.getCuticle());
         check1 = Tools.dateToString(billSchedule.getCheck1());
         check2 = Tools.dateToString(billSchedule.getCheck2());
         check3 = Tools.dateToString(billSchedule.getCheck3());
@@ -171,6 +173,7 @@ public class BillScheduleAction extends CommonActionSupport
         billSchedule.setIsSendTime(Tools.convertToDate(isSendTime)); 
         billSchedule.setArrival(Tools.convertToDate(arrival)); 
         billSchedule.setUploadDrawingsTime(Tools.convertToDate(uploadDrawingsTime)); 
+        billSchedule.setCuticle(Tools.convertToDate(cuticle)); 
         billSchedule.setCheck1(Tools.convertToDate(check1)); 
         billSchedule.setCheck2(Tools.convertToDate(check2)); 
         billSchedule.setCheck3(Tools.convertToDate(check3)); 
@@ -208,6 +211,7 @@ public class BillScheduleAction extends CommonActionSupport
         billSchedule.setWorker(getGenericManager().getMemberById(billSchedule.getWorkerId())); 
         billSchedule.setBillDetail(getGenericManager().getBillDetailById(billSchedule.getBillDetailId())); 
         billSchedule.setCustomerScreen(getGenericManager().getCustomerScreenById(billSchedule.getCustomerScreenId())); 
+        billSchedule.setCuticleer(getGenericManager().getMemberById(billSchedule.getCuticleerId())); 
         billSchedule.setChecker1(getGenericManager().getMemberById(billSchedule.getChecker1Id())); 
         billSchedule.setChecker2(getGenericManager().getMemberById(billSchedule.getChecker2Id())); 
         billSchedule.setChecker3(getGenericManager().getMemberById(billSchedule.getChecker3Id())); 
@@ -271,6 +275,16 @@ public class BillScheduleAction extends CommonActionSupport
     public String getUploadDrawingsTime()
     {
         return uploadDrawingsTime;
+    }
+
+    public void setCuticle(String val)
+    {
+        cuticle = val;
+    }
+
+    public String getCuticle()
+    {
+        return cuticle;
     }
 
     public void setCheck1(String val)
@@ -506,6 +520,11 @@ public class BillScheduleAction extends CommonActionSupport
     public List<CustomerScreen> getCustomerScreenList()
     {
         return getGenericManager().getCustomerScreenList(); // TODO
+    }
+
+    public List<Member> getCuticleerList()
+    {
+        return getGenericManager().getCuticleerList(); // TODO
     }
 
     public List<Member> getChecker1List()

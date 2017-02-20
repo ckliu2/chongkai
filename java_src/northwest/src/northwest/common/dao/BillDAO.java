@@ -298,5 +298,17 @@ public interface BillDAO extends CommonDAO {
 	public abstract CustomerStandardCost findCustomerStandardCostById(Long id);
 
 	public abstract List<CustomerStandardCost> findAllCustomerStandardCost(Customer customer);
+	
+	//BillQA
+	public abstract void saveBillQA(BillQA val);
+
+    public abstract void removeBillQA(BillQA val);
+
+    public abstract void removeBillQA(Long id);
+
+    public abstract BillQA findBillQAById(Long id);
+
+    public abstract List<BillQA> findAllBillQA(Bill bill);
+	
 
 }

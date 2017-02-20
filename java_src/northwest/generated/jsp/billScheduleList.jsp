@@ -48,6 +48,8 @@
     <display:column property="step10" sortable="true" titleKey="billSchedule.step10" style="text-align:left" />
     <display:column property="step11" sortable="true" titleKey="billSchedule.step11" style="text-align:left" />
     <display:column property="step12" sortable="true" titleKey="billSchedule.step12" style="text-align:left" />
+    <display:column property="cuticlestep" sortable="true" titleKey="billSchedule.cuticlestep" style="text-align:left" />
+    <display:column property="cuticle" sortable="true" titleKey="billSchedule.cuticle" format="{0,date,yyyy/MM/dd}" style="text-align:left" />
     <display:column property="check1" sortable="true" titleKey="billSchedule.check1" format="{0,date,yyyy/MM/dd}" style="text-align:left" />
     <display:column property="check2" sortable="true" titleKey="billSchedule.check2" format="{0,date,yyyy/MM/dd}" style="text-align:left" />
     <display:column property="check3" sortable="true" titleKey="billSchedule.check3" format="{0,date,yyyy/MM/dd}" style="text-align:left" />
@@ -60,6 +62,7 @@
     <display:column property="check10" sortable="true" titleKey="billSchedule.check10" format="{0,date,yyyy/MM/dd}" style="text-align:left" />
     <display:column property="check11" sortable="true" titleKey="billSchedule.check11" format="{0,date,yyyy/MM/dd}" style="text-align:left" />
     <display:column property="check12" sortable="true" titleKey="billSchedule.check12" format="{0,date,yyyy/MM/dd}" style="text-align:left" />
+    <display:column property="code" sortable="true" titleKey="billSchedule.code" style="text-align:left" />
     <display:column property="imageDiagram.caption_" sortable="true" titleKey="billSchedule.imageDiagram" style="text-align:left"/>
     <display:column property="checkDiagram.caption_" sortable="true" titleKey="billSchedule.checkDiagram" style="text-align:left"/>
     <display:column property="outputEquipment.caption_" sortable="true" titleKey="billSchedule.outputEquipment" style="text-align:left"/>
@@ -69,6 +72,7 @@
     <display:column property="worker.caption_" sortable="true" titleKey="billSchedule.worker" style="text-align:left"/>
     <display:column property="billDetail.caption_" sortable="true" titleKey="billSchedule.billDetail" style="text-align:left"/>
     <display:column property="customerScreen.caption_" sortable="true" titleKey="billSchedule.customerScreen" style="text-align:left"/>
+    <display:column property="cuticleer.caption_" sortable="true" titleKey="billSchedule.cuticleer" style="text-align:left"/>
     <display:column property="checker1.caption_" sortable="true" titleKey="billSchedule.checker1" style="text-align:left"/>
     <display:column property="checker2.caption_" sortable="true" titleKey="billSchedule.checker2" style="text-align:left"/>
     <display:column property="checker3.caption_" sortable="true" titleKey="billSchedule.checker3" style="text-align:left"/>

@@ -107,6 +107,18 @@
         </td>
     </tr>
 
+    <tr><td class="cInputCaption"><fmt:message key="billDetail.complete"/></td>
+        <td class="cInputColumn">
+            <ww:textfield name="billDetail.complete" value="%{billDetail.complete}" maxlength="0" cssClass="cInputTextField" />
+        </td>
+    </tr>
+
+    <tr><td class="cInputCaption"><fmt:message key="billDetail.uncomplete"/></td>
+        <td class="cInputColumn">
+            <ww:textfield name="billDetail.uncomplete" value="%{billDetail.uncomplete}" maxlength="0" cssClass="cInputTextField" />
+        </td>
+    </tr>
+
     <tr><td class="cInputCaption"><fmt:message key="billDetail.product"/></td>
         <td class="cInputColumn">
             <ww:select name="billDetail.productId" 

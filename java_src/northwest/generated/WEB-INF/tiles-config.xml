@@ -33,66 +33,235 @@
 
     <!-- 
     ************************ 
-    * ProfitDetail 
+    * Meter 
     ************************
     -->
-    <definition name="profitDetailList" extends="default">
-        <put name="content" value="/profitDetailList.jsp"/>
+    <definition name="meterList" extends="default">
+        <put name="content" value="/meterList.jsp"/>
     </definition>
 
-    <definition name="profitDetailForm" extends="default">
-        <put name="content" value="/profitDetailForm.jsp"/>
+    <definition name="meterForm" extends="default">
+        <put name="content" value="/meterForm.jsp"/>
     </definition>
 
     <!-- 
     ************************ 
-    * CustomerStandardCost 
+    * BillFinish 
     ************************
     -->
-    <definition name="customerStandardCostList" extends="default">
-        <put name="content" value="/customerStandardCostList.jsp"/>
+    <definition name="billFinishList" extends="default">
+        <put name="content" value="/billFinishList.jsp"/>
     </definition>
 
-    <definition name="customerStandardCostForm" extends="default">
-        <put name="content" value="/customerStandardCostForm.jsp"/>
+    <definition name="billFinishForm" extends="default">
+        <put name="content" value="/billFinishForm.jsp"/>
     </definition>
 
     <!-- 
     ************************ 
-    * ProfitFee 
+    * ProcessState 
     ************************
     -->
-    <definition name="profitFeeList" extends="default">
-        <put name="content" value="/profitFeeList.jsp"/>
+    <definition name="processStateList" extends="default">
+        <put name="content" value="/processStateList.jsp"/>
     </definition>
 
-    <definition name="profitFeeForm" extends="default">
-        <put name="content" value="/profitFeeForm.jsp"/>
+    <definition name="processStateForm" extends="default">
+        <put name="content" value="/processStateForm.jsp"/>
     </definition>
 
     <!-- 
     ************************ 
-    * StandardCost 
+    * Freight 
     ************************
     -->
-    <definition name="standardCostList" extends="default">
-        <put name="content" value="/standardCostList.jsp"/>
+    <definition name="freightList" extends="default">
+        <put name="content" value="/freightList.jsp"/>
     </definition>
 
-    <definition name="standardCostForm" extends="default">
-        <put name="content" value="/standardCostForm.jsp"/>
+    <definition name="freightForm" extends="default">
+        <put name="content" value="/freightForm.jsp"/>
     </definition>
 
     <!-- 
     ************************ 
-    * Profit 
+    * BillQA 
     ************************
     -->
-    <definition name="profitList" extends="default">
-        <put name="content" value="/profitList.jsp"/>
+    <definition name="billQAList" extends="default">
+        <put name="content" value="/billQAList.jsp"/>
     </definition>
 
-    <definition name="profitForm" extends="default">
-        <put name="content" value="/profitForm.jsp"/>
+    <definition name="billQAForm" extends="default">
+        <put name="content" value="/billQAForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Product 
+    ************************
+    -->
+    <definition name="productList" extends="default">
+        <put name="content" value="/productList.jsp"/>
+    </definition>
+
+    <definition name="productForm" extends="default">
+        <put name="content" value="/productForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * OutputEquipment 
+    ************************
+    -->
+    <definition name="outputEquipmentList" extends="default">
+        <put name="content" value="/outputEquipmentList.jsp"/>
+    </definition>
+
+    <definition name="outputEquipmentForm" extends="default">
+        <put name="content" value="/outputEquipmentForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * CustomerScreen 
+    ************************
+    -->
+    <definition name="customerScreenList" extends="default">
+        <put name="content" value="/customerScreenList.jsp"/>
+    </definition>
+
+    <definition name="customerScreenForm" extends="default">
+        <put name="content" value="/customerScreenForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * BillFiles 
+    ************************
+    -->
+    <definition name="billFilesList" extends="default">
+        <put name="content" value="/billFilesList.jsp"/>
+    </definition>
+
+    <definition name="billFilesForm" extends="default">
+        <put name="content" value="/billFilesForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * BillAuthority 
+    ************************
+    -->
+    <definition name="billAuthorityList" extends="default">
+        <put name="content" value="/billAuthorityList.jsp"/>
+    </definition>
+
+    <definition name="billAuthorityForm" extends="default">
+        <put name="content" value="/billAuthorityForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * ProductUnit 
+    ************************
+    -->
+    <definition name="productUnitList" extends="default">
+        <put name="content" value="/productUnitList.jsp"/>
+    </definition>
+
+    <definition name="productUnitForm" extends="default">
+        <put name="content" value="/productUnitForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * BillSchedule 
+    ************************
+    -->
+    <definition name="billScheduleList" extends="default">
+        <put name="content" value="/billScheduleList.jsp"/>
+    </definition>
+
+    <definition name="billScheduleForm" extends="default">
+        <put name="content" value="/billScheduleForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * CustomerDetail 
+    ************************
+    -->
+    <definition name="customerDetailList" extends="default">
+        <put name="content" value="/customerDetailList.jsp"/>
+    </definition>
+
+    <definition name="customerDetailForm" extends="default">
+        <put name="content" value="/customerDetailForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Customer 
+    ************************
+    -->
+    <definition name="customerList" extends="default">
+        <put name="content" value="/customerList.jsp"/>
+    </definition>
+
+    <definition name="customerForm" extends="default">
+        <put name="content" value="/customerForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Bill 
+    ************************
+    -->
+    <definition name="billList" extends="default">
+        <put name="content" value="/billList.jsp"/>
+    </definition>
+
+    <definition name="billForm" extends="default">
+        <put name="content" value="/billForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * BillDetail 
+    ************************
+    -->
+    <definition name="billDetailList" extends="default">
+        <put name="content" value="/billDetailList.jsp"/>
+    </definition>
+
+    <definition name="billDetailForm" extends="default">
+        <put name="content" value="/billDetailForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * ProductClass 
+    ************************
+    -->
+    <definition name="productClassList" extends="default">
+        <put name="content" value="/productClassList.jsp"/>
+    </definition>
+
+    <definition name="productClassForm" extends="default">
+        <put name="content" value="/productClassForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * ProductCombine 
+    ************************
+    -->
+    <definition name="productCombineList" extends="default">
+        <put name="content" value="/productCombineList.jsp"/>
+    </definition>
+
+    <definition name="productCombineForm" extends="default">
+        <put name="content" value="/productCombineForm.jsp"/>
     </definition>
 

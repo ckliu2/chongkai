@@ -155,6 +155,18 @@
         </td>
     </tr>
 
+    <tr><td class="cInputCaption"><fmt:message key="billSchedule.cuticlestep"/></td>
+        <td class="cInputColumn">
+            <ww:checkbox name="billSchedule.cuticlestep" cssClass="cCheckboxField" />
+        </td>
+    </tr>
+
+    <tr><td class="cInputCaption"><fmt:message key="billSchedule.cuticle"/></td>
+        <td class="cInputColumn">
+            <ww:datepicker cssClass="cInputTextFieldShort" name="cuticle" id="cuticle" value="%{cuticle}" language="zh" format="%Y/%m/%d"/>
+        </td>
+    </tr>
+
     <tr><td class="cInputCaption"><fmt:message key="billSchedule.check1"/></td>
         <td class="cInputColumn">
             <ww:datepicker cssClass="cInputTextFieldShort" name="check1" id="check1" value="%{check1}" language="zh" format="%Y/%m/%d"/>
@@ -224,6 +236,12 @@
     <tr><td class="cInputCaption"><fmt:message key="billSchedule.check12"/></td>
         <td class="cInputColumn">
             <ww:datepicker cssClass="cInputTextFieldShort" name="check12" id="check12" value="%{check12}" language="zh" format="%Y/%m/%d"/>
+        </td>
+    </tr>
+
+    <tr><td class="cInputCaption"><fmt:message key="billSchedule.code"/></td>
+        <td class="cInputColumn">
+            <ww:textfield name="billSchedule.code" value="%{billSchedule.code}" maxlength="0" cssClass="cInputTextField" />
         </td>
     </tr>
 
@@ -343,6 +361,19 @@
                headerKey=""
                headerValue="%{getText('common.pleaseSelect')}..."
                list="customerScreenList"
+               listKey="id"
+               listValue="caption_"
+               cssClass="cInputListField"
+            />
+        </td>
+    </tr>
+
+    <tr><td class="cInputCaption"><fmt:message key="billSchedule.cuticleer"/></td>
+        <td class="cInputColumn">
+            <ww:select name="billSchedule.cuticleerId" 
+               headerKey=""
+               headerValue="%{getText('common.pleaseSelect')}..."
+               list="cuticleerList"
                listKey="id"
                listValue="caption_"
                cssClass="cInputListField"

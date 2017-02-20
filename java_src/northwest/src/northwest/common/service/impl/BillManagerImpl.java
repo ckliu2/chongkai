@@ -712,6 +712,32 @@ public class BillManagerImpl extends CommonManagerImpl implements BillManager
     {
         return getGenericDAO().findAllCustomerStandardCost(customer);
     }
+    
+    //BillQA
+    public void saveBillQA(BillQA val)
+    {
+        getGenericDAO().saveBillQA(val);
+    }
+
+    public void removeBillQA(BillQA val)
+    {
+        getGenericDAO().removeBillQA(val);
+    }
+
+    public void removeBillQA(Long id)
+    {
+        getGenericDAO().removeBillQA(id);
+    }
+
+    public BillQA getBillQAById(Long id)
+    {
+         return getGenericDAO().findBillQAById(id);
+    }
+
+    public List<BillQA> getBillQAList(Bill bill)
+    {
+        return getGenericDAO().findAllBillQA(bill);
+    }
 
 }
 

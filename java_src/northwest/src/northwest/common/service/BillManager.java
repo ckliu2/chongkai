@@ -302,4 +302,11 @@ public interface BillManager extends CommonManager {
 	public abstract CustomerStandardCost getCustomerStandardCostById(Long id);
 
 	public abstract List<CustomerStandardCost> getCustomerStandardCostList(Customer customer);
+	
+	//BillQA
+    public abstract void saveBillQA(BillQA val);
+    public abstract void removeBillQA(BillQA val);
+    public abstract void removeBillQA(Long id);
+    public abstract BillQA getBillQAById(Long id);
+    public abstract List<BillQA> getBillQAList(Bill bill);
 }

@@ -81,6 +81,12 @@ public class BillSchedule implements Serializable {
     private Boolean step12;
 
     /** nullable persistent field */
+    private Boolean cuticlestep;
+
+    /** nullable persistent field */
+    private Date cuticle;
+
+    /** nullable persistent field */
     private Date check1;
 
     /** nullable persistent field */
@@ -115,6 +121,9 @@ public class BillSchedule implements Serializable {
 
     /** nullable persistent field */
     private Date check12;
+
+    /** nullable persistent field */
+    private String code;
 
     /** nullable persistent field */
     private UploadedFile imageDiagram;
@@ -153,6 +162,10 @@ public class BillSchedule implements Serializable {
     /** nullable persistent field */
     private northwest.common.value.CustomerScreen customerScreen;
     private Long customerScreenId;
+
+    /** nullable persistent field */
+    private Member cuticleer;
+    private Long cuticleerId;
 
     /** nullable persistent field */
     private Member checker1;
@@ -206,7 +219,7 @@ public class BillSchedule implements Serializable {
     private List drawingsFiles;
 
     /** full constructor */
-    public BillSchedule(String fileName, String outputDevice, Date outputTime, Date deliveryTime, Date isSendTime, Date arrival, String freightNo, Integer costs, Date uploadDrawingsTime, String drawingsMemo, Boolean step1, Boolean step2, Boolean step3, Boolean step4, Boolean step5, Boolean step6, Boolean step7, Boolean step8, Boolean step9, Boolean step10, Boolean step11, Boolean step12, Date check1, Date check2, Date check3, Date check4, Date check5, Date check6, Date check7, Date check8, Date check9, Date check10, Date check11, Date check12, UploadedFile imageDiagram, UploadedFile checkDiagram, northwest.common.value.OutputEquipment outputEquipment, AppProperty isSend, northwest.common.value.CustomerDetail customerAddress, northwest.common.value.Freight freight, Member worker, northwest.common.value.BillDetail billDetail, northwest.common.value.CustomerScreen customerScreen, Member checker1, Member checker2, Member checker3, Member checker4, Member checker5, Member checker6, Member checker7, Member checker8, Member checker9, Member checker10, Member checker11, Member checker12, List drawingsFiles) {
+    public BillSchedule(String fileName, String outputDevice, Date outputTime, Date deliveryTime, Date isSendTime, Date arrival, String freightNo, Integer costs, Date uploadDrawingsTime, String drawingsMemo, Boolean step1, Boolean step2, Boolean step3, Boolean step4, Boolean step5, Boolean step6, Boolean step7, Boolean step8, Boolean step9, Boolean step10, Boolean step11, Boolean step12, Boolean cuticlestep, Date cuticle, Date check1, Date check2, Date check3, Date check4, Date check5, Date check6, Date check7, Date check8, Date check9, Date check10, Date check11, Date check12, String code, UploadedFile imageDiagram, UploadedFile checkDiagram, northwest.common.value.OutputEquipment outputEquipment, AppProperty isSend, northwest.common.value.CustomerDetail customerAddress, northwest.common.value.Freight freight, Member worker, northwest.common.value.BillDetail billDetail, northwest.common.value.CustomerScreen customerScreen, Member cuticleer, Member checker1, Member checker2, Member checker3, Member checker4, Member checker5, Member checker6, Member checker7, Member checker8, Member checker9, Member checker10, Member checker11, Member checker12, List drawingsFiles) {
         this.fileName = fileName;
         this.outputDevice = outputDevice;
         this.outputTime = outputTime;
@@ -229,6 +242,8 @@ public class BillSchedule implements Serializable {
         this.step10 = step10;
         this.step11 = step11;
         this.step12 = step12;
+        this.cuticlestep = cuticlestep;
+        this.cuticle = cuticle;
         this.check1 = check1;
         this.check2 = check2;
         this.check3 = check3;
@@ -241,6 +256,7 @@ public class BillSchedule implements Serializable {
         this.check10 = check10;
         this.check11 = check11;
         this.check12 = check12;
+        this.code = code;
         this.imageDiagram = imageDiagram;
         this.checkDiagram = checkDiagram;
         this.outputEquipment = outputEquipment;
@@ -250,6 +266,7 @@ public class BillSchedule implements Serializable {
         this.worker = worker;
         this.billDetail = billDetail;
         this.customerScreen = customerScreen;
+        this.cuticleer = cuticleer;
         this.checker1 = checker1;
         this.checker2 = checker2;
         this.checker3 = checker3;
@@ -445,6 +462,22 @@ public class BillSchedule implements Serializable {
         this.step12 = step12;
     }
 
+    public Boolean getCuticlestep() {
+        return this.cuticlestep;
+    }
+
+    public void setCuticlestep(Boolean cuticlestep) {
+        this.cuticlestep = cuticlestep;
+    }
+
+    public Date getCuticle() {
+        return this.cuticle;
+    }
+
+    public void setCuticle(Date cuticle) {
+        this.cuticle = cuticle;
+    }
+
     public Date getCheck1() {
         return this.check1;
     }
@@ -539,6 +572,14 @@ public class BillSchedule implements Serializable {
 
     public void setCheck12(Date check12) {
         this.check12 = check12;
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public UploadedFile getImageDiagram() {
@@ -717,6 +758,24 @@ public class BillSchedule implements Serializable {
 
     public void setCustomerScreenId(Long id) {
         this.customerScreenId = id;
+    }
+
+    public Member getCuticleer() {
+        return this.cuticleer;
+    }
+
+    public void setCuticleer(Member cuticleer) {
+        this.cuticleer = cuticleer;
+    }
+
+    public Long getCuticleerId() {
+        if (this.cuticleer != null && this.cuticleer.getId() != null)
+            return cuticleer.getId();
+        return this.cuticleerId;
+    }
+
+    public void setCuticleerId(Long id) {
+        this.cuticleerId = id;
     }
 
     public Member getChecker1() {
@@ -967,6 +1026,8 @@ public class BillSchedule implements Serializable {
             .append("step10", getStep10())
             .append("step11", getStep11())
             .append("step12", getStep12())
+            .append("cuticlestep", getCuticlestep())
+            .append("cuticle", getCuticle())
             .append("check1", getCheck1())
             .append("check2", getCheck2())
             .append("check3", getCheck3())
@@ -979,6 +1040,7 @@ public class BillSchedule implements Serializable {
             .append("check10", getCheck10())
             .append("check11", getCheck11())
             .append("check12", getCheck12())
+            .append("code", getCode())
             .append("imageDiagram", getImageDiagram())
             .append("checkDiagram", getCheckDiagram())
             .append("outputEquipment", getOutputEquipment())
@@ -988,6 +1050,7 @@ public class BillSchedule implements Serializable {
             .append("worker", getWorker())
             .append("billDetail", getBillDetail())
             .append("customerScreen", getCustomerScreen())
+            .append("cuticleer", getCuticleer())
             .append("checker1", getChecker1())
             .append("checker2", getChecker2())
             .append("checker3", getChecker3())

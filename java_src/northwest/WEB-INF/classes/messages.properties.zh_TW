@@ -672,6 +672,13 @@ barcode.font=下載barcode字型
 barcode.user.steps=流程權限
 barcode.user.allsteps=全部流程
 
+billQA.list=QA清單
+billQA.form=QA明細
+menu.billQAList=QA清單
+menu.billQAForm=QA明細
+billQA.question=客戶反應問題
+billQA.answer=處理方式
+
 
 
 

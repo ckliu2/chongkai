@@ -40,6 +40,8 @@
     <display:column property="itemRemark" sortable="true" titleKey="billDetail.itemRemark" style="text-align:left" />
     <display:column property="paperPrice" sortable="true" titleKey="billDetail.paperPrice" />
     <display:column property="amount" sortable="true" titleKey="billDetail.amount" />
+    <display:column property="complete" sortable="true" titleKey="billDetail.complete" style="text-align:left" />
+    <display:column property="uncomplete" sortable="true" titleKey="billDetail.uncomplete" style="text-align:left" />
     <display:column property="product.caption_" sortable="true" titleKey="billDetail.product" style="text-align:left"/>
     <display:column property="bill.caption_" sortable="true" titleKey="billDetail.bill" style="text-align:left"/>
     <display:column titleKey="common.action">

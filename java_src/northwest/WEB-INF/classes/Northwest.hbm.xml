@@ -452,6 +452,22 @@
         </id>
         <property name="name"	type="string"   column="name"/>             
   	</class>
+  	
+  	<!-- 
+    ************************ 
+    * 訂單QA
+    ************************
+    -->    	
+  	<class name="northwest.common.value.BillQA" table="Northwest_BillQA">  	 
+        <id name="id" column="id" unsaved-value="null">
+            <generator class="identity"/>
+        </id>  
+        <many-to-one name="bill" class="northwest.common.value.Bill"  column="bill" />             
+        <property name="question" type="string" /> 
+        <property name="answer" type="string" />         
+        <property name="lastModifiedDate"   type="timestamp"    not-null="true" />       
+        <property name="createdDate"        type="timestamp"    insert="true" update="false" not-null="true" /> 
+    </class> 
 
   	
   	 

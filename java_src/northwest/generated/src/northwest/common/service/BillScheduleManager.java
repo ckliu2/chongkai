@@ -8,7 +8,7 @@ import com.common.service.CommonManager;
  WebWork Application Generator V 1.0
 
     Copyright 2006 Chih-Shyang Chang
-    Created Date: Mon Mar 10 17:34:04 CST 2014
+    Created Date: Mon Feb 20 21:48:11 CST 2017
 */
 
 public interface BillScheduleManager extends CommonManager 
@@ -30,6 +30,7 @@ public interface BillScheduleManager extends CommonManager
     public abstract List<Member> getWorkerList();
     public abstract List<BillDetail> getBillDetailList();
     public abstract List<CustomerScreen> getCustomerScreenList();
+    public abstract List<Member> getCuticleerList();
     public abstract List<Member> getChecker1List();
     public abstract List<Member> getChecker2List();
     public abstract List<Member> getChecker3List();

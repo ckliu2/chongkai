@@ -52,6 +52,12 @@ public class BillDetail implements Serializable {
     private Float amount;
 
     /** nullable persistent field */
+    private String complete;
+
+    /** nullable persistent field */
+    private String uncomplete;
+
+    /** nullable persistent field */
     private northwest.common.value.Product product;
     private Long productId;
 
@@ -60,7 +66,7 @@ public class BillDetail implements Serializable {
     private Long billId;
 
     /** full constructor */
-    public BillDetail(Integer fromRow, Integer price, Float width, Float heigh, Float visibleWidth, Float visibleHeigh, Integer calcArea, Integer area, Integer quantity, Integer basicQuantity, String detail, String itemRemark, Integer paperPrice, Float amount, northwest.common.value.Product product, northwest.common.value.Bill bill) {
+    public BillDetail(Integer fromRow, Integer price, Float width, Float heigh, Float visibleWidth, Float visibleHeigh, Integer calcArea, Integer area, Integer quantity, Integer basicQuantity, String detail, String itemRemark, Integer paperPrice, Float amount, String complete, String uncomplete, northwest.common.value.Product product, northwest.common.value.Bill bill) {
         this.fromRow = fromRow;
         this.price = price;
         this.width = width;
@@ -75,6 +81,8 @@ public class BillDetail implements Serializable {
         this.itemRemark = itemRemark;
         this.paperPrice = paperPrice;
         this.amount = amount;
+        this.complete = complete;
+        this.uncomplete = uncomplete;
         this.product = product;
         this.bill = bill;
     }
@@ -195,6 +203,22 @@ public class BillDetail implements Serializable {
         this.amount = amount;
     }
 
+    public String getComplete() {
+        return this.complete;
+    }
+
+    public void setComplete(String complete) {
+        this.complete = complete;
+    }
+
+    public String getUncomplete() {
+        return this.uncomplete;
+    }
+
+    public void setUncomplete(String uncomplete) {
+        this.uncomplete = uncomplete;
+    }
+
     public northwest.common.value.Product getProduct() {
         return this.product;
     }
@@ -247,6 +271,8 @@ public class BillDetail implements Serializable {
             .append("itemRemark", getItemRemark())
             .append("paperPrice", getPaperPrice())
             .append("amount", getAmount())
+            .append("complete", getComplete())
+            .append("uncomplete", getUncomplete())
             .append("product", getProduct())
             .append("bill", getBill())
             .toString();

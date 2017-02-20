@@ -7,7 +7,7 @@
 	compile,properties,xml,obfuscator
 	-->
     <property name="workspace" 				    location="D:/mycase/java_src" />
-    <property name="tomcat"                     location="D:/mycase/Tomcat" />    
+    <property name="tomcat"                     location="D:/mycase/tomcat" />    
     <property name="webapps"                    location="${tomcat}" />
     <property name="deploy"                     location="${webapps}/northwest" />
     <property name="input"                      location="${basedir}" />
@@ -142,11 +142,9 @@
          <hbm2java output="${source.generated}" config="${basedir}/hbm2app.xml">
            <fileset dir="${source.classes}">  
            
-           	<include name="**/Profit.hbm.xml"/>
            	
-           	<!--
            	 <include name="**/Northwest.hbm.xml"/>
-           	-->
+           	
  
            	 
            </fileset>

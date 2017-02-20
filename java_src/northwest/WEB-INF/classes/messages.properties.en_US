@@ -492,6 +492,8 @@ billSchedule.check10=包裝
 billSchedule.check11=出件
 billSchedule.check12=完工上傳
 
+billSchedule.cuticle=護膜
+
 
 bill.form=訂單明細
 bill.isAuthority=是否將"訂單流程設定"套用至"訂單明細"
@@ -591,7 +593,8 @@ profit.customer=客戶
 profit.customer.query=查詢客戶名稱/編號
 profit.Interval=區間
 profit.salesmen=業務
-profit.Intervaly=業務
+profit.Intervaly=銷貨日期
+profit.discount=折讓金額
 
 
 profitDetail.item=項目
@@ -609,6 +612,7 @@ profitDetail.profit=profit
 profitDetail.profitPerc=profitPerc
 profitDetail.project=project
 profitDetail.product=product
+profitDetail.discount=折讓金額
 
 
 profit.profitProduct=產品利潤報表
@@ -630,6 +634,7 @@ profit.salesCostAvg=平均標準成本
 profit.sum=利潤總額
 profit.beginDate=開始日期
 profit.endDate=結束日期
+
 
 workEfficiency.result=統計結果
 workEfficiency.member=請輸入人員編號或姓名
@@ -664,7 +669,15 @@ barcode.status=Barcode狀態
 barcode.complete=完成步驟
 barcode.uncomplete=未完成步驟
 barcode.font=下載barcode字型
+barcode.user.steps=流程權限
+barcode.user.allsteps=全部流程
 
+billQA.list=QA清單
+billQA.form=QA明細
+menu.billQAList=QA清單
+menu.billQAForm=QA明細
+billQA.question=客戶反應問題
+billQA.answer=處理方式
 
 
 

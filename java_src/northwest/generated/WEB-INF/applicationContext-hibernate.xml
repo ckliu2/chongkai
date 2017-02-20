@@ -42,23 +42,75 @@
 
 <!-- ********************************************* -->
 
-    <bean id="profitDetailDAO" class="northwest.common.dao.hibernate.ProfitDetailDAOHibernate">
+    <bean id="meterDAO" class="northwest.common.dao.hibernate.MeterDAOHibernate">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <bean id="customerStandardCostDAO" class="northwest.common.dao.hibernate.CustomerStandardCostDAOHibernate">
+    <bean id="billFinishDAO" class="northwest.common.dao.hibernate.BillFinishDAOHibernate">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <bean id="profitFeeDAO" class="northwest.common.dao.hibernate.ProfitFeeDAOHibernate">
+    <bean id="processStateDAO" class="northwest.common.dao.hibernate.ProcessStateDAOHibernate">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <bean id="standardCostDAO" class="northwest.common.dao.hibernate.StandardCostDAOHibernate">
+    <bean id="freightDAO" class="northwest.common.dao.hibernate.FreightDAOHibernate">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <bean id="profitDAO" class="northwest.common.dao.hibernate.ProfitDAOHibernate">
+    <bean id="billQADAO" class="northwest.common.dao.hibernate.BillQADAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="productDAO" class="northwest.common.dao.hibernate.ProductDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="outputEquipmentDAO" class="northwest.common.dao.hibernate.OutputEquipmentDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="customerScreenDAO" class="northwest.common.dao.hibernate.CustomerScreenDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="billFilesDAO" class="northwest.common.dao.hibernate.BillFilesDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="billAuthorityDAO" class="northwest.common.dao.hibernate.BillAuthorityDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="productUnitDAO" class="northwest.common.dao.hibernate.ProductUnitDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="billScheduleDAO" class="northwest.common.dao.hibernate.BillScheduleDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="customerDetailDAO" class="northwest.common.dao.hibernate.CustomerDetailDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="customerDAO" class="northwest.common.dao.hibernate.CustomerDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="billDAO" class="northwest.common.dao.hibernate.BillDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="billDetailDAO" class="northwest.common.dao.hibernate.BillDetailDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="productClassDAO" class="northwest.common.dao.hibernate.ProductClassDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="productCombineDAO" class="northwest.common.dao.hibernate.ProductCombineDAOHibernate">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 

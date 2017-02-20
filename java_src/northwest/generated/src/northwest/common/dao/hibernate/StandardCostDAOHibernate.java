@@ -10,7 +10,7 @@ import com.common.dao.hibernate.CommonDAOHibernate;
  WebWork Application Generator V 1.0
 
     Copyright 2006 Chih-Shyang Chang
-    Created Date: Fri Mar 11 14:58:27 CST 2016
+    Created Date: Mon Feb 20 20:59:03 CST 2017
 */
 
 public class StandardCostDAOHibernate extends CommonDAOHibernate implements StandardCostDAO

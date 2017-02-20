@@ -95,6 +95,9 @@
         <property name="genericManager" ref="billManager"/>
     </bean>
     
+    <bean id="billQAAction" class="northwest.common.web.action.BillQAAction" singleton="false">
+        <property name="genericManager" ref="billManager"/>
+    </bean>
    
     
     

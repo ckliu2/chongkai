@@ -750,10 +750,32 @@
             <result name="success" >/northwest/saveCustomerStandardCost.jsp</result>           
         </action>
         
-       
-       
-        
-        
+        <!-- BillQA -->
+        <action name="billQAList" class="billQAAction" method="list">
+            <result name="success" type="tiles">billQAList</result>
+            <result name="input" type="tiles">billQAList</result>
+        </action>
+
+        <action name="editBillQA" class="billQAAction" method="edit">
+            <result name="success" type="tiles">billQAForm</result>
+            <result name="input" type="tiles">billQAList</result>
+        </action>
+
+        <action name="copyBillQA" class="billQAAction" method="copy">
+            <result name="success" type="tiles">billQAForm</result>
+            <result name="input" type="tiles">billQAList</result>
+        </action>
+
+        <action name="saveBillQA" class="billQAAction">
+            <result name="delete" type="redirect">billQAList.html${xworkParam}</result>
+            <result name="input" type="tiles">billQAForm</result>
+            <result name="success" type="chain">saveBillQAWithValidation</result>
+        </action>
+
+        <action name="saveBillQAWithValidation" class="billQAAction" method="save">
+            <result name="input" type="tiles">billQAForm</result>
+            <result name="success" type="redirect">billQAList.html${xworkParam}</result>
+        </action>
         
             
     </package>
