@@ -316,7 +316,18 @@
     
     
     
-    
+    <!-- 
+    ************************ 
+    * BillQA 
+    ************************
+    -->
+    <definition name="billQAList" extends="default">
+        <put name="content" value="/northwest/billQAList.jsp"/>
+    </definition>
+
+    <definition name="billQAForm" extends="default">
+        <put name="content" value="/northwest/billQAForm.jsp"/>
+    </definition>
     
     
     
