@@ -467,6 +467,14 @@
         <property name="answer" type="string" />         
         <property name="lastModifiedDate"   type="timestamp"    not-null="true" />       
         <property name="createdDate"        type="timestamp"    insert="true" update="false" not-null="true" /> 
+        <many-to-one name="member" class="com.common.value.Member" cascade="none" />
+        <list name="notifications" cascade="none" lazy="false" table="Northwest_BillQAEmail">
+      		<meta attribute="widget">two-list</meta>
+      		<key column="billQAId"/>
+      		<index column="idx"/>
+      		<many-to-many class="com.common.value.Member" column="memberId"/>
+    	</list>
+        
     </class> 
 
   	

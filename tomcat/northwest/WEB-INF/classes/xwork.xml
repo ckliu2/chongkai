@@ -758,7 +758,7 @@
 
         <action name="editBillQA" class="billQAAction" method="edit">
             <result name="success" type="tiles">billQAForm</result>
-            <result name="input" type="tiles">billQAList</result>
+            <result name="input" type="tiles">billQAList</result>            
         </action>
 
         <action name="copyBillQA" class="billQAAction" method="copy">
@@ -769,12 +769,18 @@
         <action name="saveBillQA" class="billQAAction">
             <result name="delete" type="redirect">billQAList.html${xworkParam}</result>
             <result name="input" type="tiles">billQAForm</result>
-            <result name="success" type="chain">saveBillQAWithValidation</result>
+            <result name="success" type="chain">saveBillQAWithValidation</result>           
         </action>
 
         <action name="saveBillQAWithValidation" class="billQAAction" method="save">
             <result name="input" type="tiles">billQAForm</result>
             <result name="success" type="redirect">billQAList.html${xworkParam}</result>
+            <result name="none" type="redirect">billQAListQuery.html</result>
+        </action>
+        
+        <action name="billQAListQuery" class="billQAAction" method="list">
+            <result name="success" type="tiles">billQAListQuery</result>
+            <result name="input" type="tiles">billQAListQuery</result>
         </action>
         
             
