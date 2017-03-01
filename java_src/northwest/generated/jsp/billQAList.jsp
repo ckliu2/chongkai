@@ -31,6 +31,8 @@
     <display:column property="lastModifiedDate" sortable="true" titleKey="common.lastModifiedDate" style="text-align:left"/>
     <display:column property="createdDate" sortable="true" titleKey="common.createdDate" style="text-align:left"/>
     <display:column property="bill.caption_" sortable="true" titleKey="billQA.bill" style="text-align:left"/>
+    <display:column property="member.caption_" sortable="true" titleKey="billQA.member" style="text-align:left"/>
+    <display:column property="notifications" sortable="true" titleKey="billQA.notifications" style="text-align:left" />
     <display:column titleKey="common.action">
         <ww:if test="recordEditable == true">
             <a href="editBillQA.html?billQA.id=<c:out value="${row.id}"/>"><fmt:message key="common.edit"/></a>&nbsp;&nbsp;

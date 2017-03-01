@@ -119,4 +119,8 @@ public class BaseManagerImpl implements BaseManager
     	getGenericDAO().executeSQL(sql);
     }
     
+    public void sendEmail(String email,String subject,String content){
+    	getGenericDAO().sendEmail(email,subject,content);
+    }
+    
 }

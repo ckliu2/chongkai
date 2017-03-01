@@ -13,7 +13,7 @@ import com.base.value.Function;
  WebWork Application Generator V 1.0
 
     Copyright 2006 Chih-Shyang Chang
-    Created Date: Mon Feb 20 21:48:12 CST 2017
+    Created Date: Sat Feb 25 16:16:35 CST 2017
 */
 
 public class BillQAAction extends CommonActionSupport
@@ -22,6 +22,7 @@ public class BillQAAction extends CommonActionSupport
     private static final long serialVersionUID = 1L;
     private final Log log;
     private BillQA billQA;
+    private Long[] notificationsIds;
     private Long[] selectedBillQAIds;
 
     public BillQAAction()
@@ -125,6 +126,7 @@ public class BillQAAction extends CommonActionSupport
     protected void beanToForm()
     {
         log.info("enter beanToForm()");
+        notificationsIds = getGenericManager().getIdsFromMemberList(billQA.getNotifications());
         log.info("exit beanToForm()");
     }
 
@@ -132,11 +134,44 @@ public class BillQAAction extends CommonActionSupport
     {
         log.info("enter formToBean()");
         billQA.setBill(getGenericManager().getBillById(billQA.getBillId())); 
+        billQA.setMember(getGenericManager().getMemberById(billQA.getMemberId())); 
+        billQA.setNotifications(getGenericManager().getMemberListByIds(notificationsIds)); 
         log.info("exit formToBean()");
     }
     public List<Bill> getBillList()
     {
         return getGenericManager().getBillList(); // TODO
+    }
+
+    public List<Member> getMemberList()
+    {
+        return getGenericManager().getMemberList(); // TODO
+    }
+
+    public List<Member> getNotificationsList()
+    {
+        List<Member> al = getGenericManager().getMemberList();
+        if (al != null) {
+            if (billQA.getNotifications() != null)
+                al.removeAll(billQA.getNotifications());
+            return al;
+        }
+        return new ArrayList<Member>();
+    }
+
+    public List<Member> getObject_notificationsList()
+    {
+        return (billQA.getNotifications() == null) ? new ArrayList<Member>() : billQA.getNotifications();
+    }
+
+    public void setNotificationsIds(Long[] val)
+    {
+        notificationsIds = val;
+    }
+
+    public Long[] getNotificationsIds()
+    {
+        return notificationsIds;
     }
 
     public List<BillQA> getBillQAList()

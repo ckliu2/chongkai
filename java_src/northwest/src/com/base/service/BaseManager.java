@@ -29,4 +29,5 @@ public interface BaseManager
     public abstract SessionUser getSessionUserByLoginIdAndPassword(String uid, String pwd);
     public abstract void exportExcel(String sql,String outFile);
     public abstract void executeSQL(String sql);
+    public abstract void sendEmail(String email,String subject,String content);
 }

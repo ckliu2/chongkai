@@ -1,6 +1,6 @@
 <%@ include file="/common/taglibs.jsp"%>
 
-<ww:form name="billQAForm" action="saveBillQA" method="POST">
+<ww:form name="billQAForm" action="saveBillQA" method="POST" onsubmit="onSubmit()">
   <ww:hidden name="billQA.id" value="${billQA.id}"/>
   <table border="0" cellspacing="1" class="cContentTable">
     <tr><td class="cContentTitle" colspan="2" ><fmt:message key="billQA.form"/></td></tr>
@@ -60,6 +60,55 @@
         </td>
     </tr>
 
+    <tr><td class="cInputCaption"><fmt:message key="billQA.member"/></td>
+        <td class="cInputColumn">
+            <ww:select name="billQA.memberId" 
+               headerKey=""
+               headerValue="%{getText('common.pleaseSelect')}..."
+               list="memberList"
+               listKey="id"
+               listValue="caption_"
+               cssClass="cInputListField"
+            />
+        </td>
+    </tr>
+
+    <tr><td class="cInputCaption"><fmt:message key="billQA.notifications"/></td>
+        <td class="cInputColumn">
+            <table>
+            <tr>
+                <th align="center"><span style="font-size:10pt"><fmt:message key="common.available"/><fmt:message key="billQA.notifications"/></style></th>
+                <th>&nbsp;</th>
+                <th align="center"><span style="font-size:10pt"><fmt:message key="common.selected"/><fmt:message key="billQA.notifications"/></style></th>
+            </tr><tr>
+            <td >
+                <ww:select id="allNotifications"
+                list="notificationsList"
+                listKey="id"
+                listValue="caption_"
+                multiple="true"
+                size="8"
+                cssClass="cQueryFieldList"
+                /></td><td>
+                <input type="button" value=">>" class="cSelectButton" onclick="moveAll(allNotifications, selectedNotifications);"><br>
+                <input type="button" value=">"  class="cSelectButton" onclick="moveOne(allNotifications, selectedNotifications);"><br>
+                <input type="button" value="<"  class="cSelectButton" onclick="moveOne(selectedNotifications, allNotifications);"><br>
+                <input type="button" value="<<" class="cSelectButton" onclick="moveAll(selectedNotifications, allNotifications);"><br>
+            </td><td align="center">
+                <ww:select name="notificationsIds" id="selectedNotifications"
+                list="object_notificationsList"
+                listKey="id"
+                listValue="caption_"
+                multiple="true"
+                size="8"
+                cssClass="cQueryFieldList"
+                />
+            </td>
+            </tr>
+            </table>
+        </td>
+    </tr>
+
     <tr class="cActionButtonLine">
       <td colspan="2">
         <input type=button onclick="javascript:history.back()" class="cButton" value="<fmt:message key="common.back"/>" >
@@ -81,3 +130,10 @@
     </tr>
   </table>
 </ww:form>
+<script>
+function onSubmit() {
+    mySelectAll(document.billQAForm.notificationsIds);
+
+    return true;
+}
+</script>

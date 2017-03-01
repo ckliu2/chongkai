@@ -4,36 +4,43 @@ import java.io.Serializable;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import java.util.*;
 import com.base.value.BaseObject;
+import com.common.value.Member;
 
 /** @author Hibernate CodeGenerator */
 public class BillQA implements Serializable {
-	
+
 	Long id;
 
-    private static final long serialVersionUID = 1L;
-    /** nullable persistent field */
-    private String question;
+	private static final long serialVersionUID = 1L;
+	/** nullable persistent field */
+	private String question;
 
-    /** nullable persistent field */
-    private String answer;
+	/** nullable persistent field */
+	private String answer;
 
-    /** nullable persistent field */
-    private northwest.common.value.Bill bill;
-    private String billId;
-    
-	Date lastModifiedDate,createdDate;
+	/** nullable persistent field */
+	private northwest.common.value.Bill bill;
+	private String billId;
 
-    /** full constructor */
-    public BillQA(String question, String answer, northwest.common.value.Bill bill) {
-        this.question = question;
-        this.answer = answer;
-        this.bill = bill;
-    }
+	Date lastModifiedDate, createdDate;
 
-    /** default constructor */
-    public BillQA() {
-    }
-    
+	Member member;
+
+	List notifications;
+
+	String notificationMembers;
+
+	/** full constructor */
+	public BillQA(String question, String answer, northwest.common.value.Bill bill) {
+		this.question = question;
+		this.answer = answer;
+		this.bill = bill;
+	}
+
+	/** default constructor */
+	public BillQA() {
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -42,41 +49,41 @@ public class BillQA implements Serializable {
 		this.id = id;
 	}
 
-    public String getQuestion() {
-        return this.question;
-    }
+	public String getQuestion() {
+		return this.question;
+	}
 
-    public void setQuestion(String question) {
-        this.question = question;
-    }
+	public void setQuestion(String question) {
+		this.question = question;
+	}
 
-    public String getAnswer() {
-        return this.answer;
-    }
+	public String getAnswer() {
+		return this.answer;
+	}
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
 
-    public northwest.common.value.Bill getBill() {
-        return this.bill;
-    }
+	public northwest.common.value.Bill getBill() {
+		return this.bill;
+	}
 
-    public void setBill(northwest.common.value.Bill bill) {
-        this.bill = bill;
-    }
+	public void setBill(northwest.common.value.Bill bill) {
+		this.bill = bill;
+	}
 
-    public String getBillId() {
-        if (this.bill != null && this.bill.getId() != null)
-            return bill.getId();
-        return this.billId;
-    }
+	public String getBillId() {
+		if (this.bill != null && this.bill.getId() != null)
+			return bill.getId();
+		return this.billId;
+	}
 
-    public void setBillId(String id) {
-        this.billId = id;
-    }
-    
-    public Date getLastModifiedDate() {
+	public void setBillId(String id) {
+		this.billId = id;
+	}
+
+	public Date getLastModifiedDate() {
 		return lastModifiedDate;
 	}
 
@@ -92,16 +99,38 @@ public class BillQA implements Serializable {
 		this.createdDate = createdDate;
 	}
 
-    public String toString() {
-        return new ToStringBuilder(this)
-            .append("question", getQuestion())
-            .append("answer", getAnswer())
-            .append("bill", getBill())
-            .toString();
-    }
+	public Member getMember() {
+		return member;
+	}
 
-    public String getCaption_() {
-        return toString();
-    }
+	public void setMember(Member member) {
+		this.member = member;
+	}
+
+	public List getNotifications() {
+		return notifications;
+	}
+
+	public void setNotifications(List notifications) {
+		this.notifications = notifications;
+	}
+
+	public String getNotificationMembers() {
+		String names = "";
+		List<Member> ls = notifications;
+		for (Member member : ls) {
+			names += member.getName() + " , ";
+		}
+		return names;
+	}
+
+	public String toString() {
+		return new ToStringBuilder(this).append("question", getQuestion()).append("answer", getAnswer())
+				.append("bill", getBill()).toString();
+	}
+
+	public String getCaption_() {
+		return toString();
+	}
 
 }

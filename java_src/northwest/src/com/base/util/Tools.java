@@ -5,6 +5,13 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+
+import com.sun.org.apache.xalan.internal.xsltc.compiler.Pattern;
+import com.sun.org.apache.xerces.internal.impl.xs.identity.Selector.Matcher;
+
 import java.security.*;
 
 public class Tools {
@@ -157,19 +164,7 @@ public class Tools {
 	}
 
 	public static void main(String[] arg) {
-		/*
-		 * for (int i=0; i < 1000; i++) { System.out.println(getUniqueId() +
-		 * ","); }
-		 */
-		try {
-			Date d = convertToDate1("20130927");
-			System.out.println(d);
-
-			Date d1 = convertToDateEnd("20130927");
-			System.out.println(d1);
-		} catch (Exception e) {
-			System.out.println(e.toString());
-		}
+		System.out.println( isValidEmailAddress("chongkai@livemail.tw") );
 
 	}
 
@@ -236,5 +231,18 @@ public class Tools {
 
 		return null;
 	}
+
+	public static boolean isValidEmailAddress(String email) {
+		boolean result = true;
+		try {
+			InternetAddress emailAddr = new InternetAddress(email);
+			emailAddr.validate();
+		} catch (Exception ex) {
+			result = false;
+		}
+		return result;
+	}
+
+	
 
 }

@@ -8,7 +8,7 @@ import com.common.dao.CommonDAO;
  WebWork Application Generator V 1.0
 
     Copyright 2006 Chih-Shyang Chang
-    Created Date: Mon Feb 20 21:48:11 CST 2017
+    Created Date: Sat Feb 25 16:16:34 CST 2017
 */
 
 public interface BillQADAO extends CommonDAO 
@@ -23,5 +23,10 @@ public interface BillQADAO extends CommonDAO
 
     public abstract List<BillQA> findAllBillQA();
     public abstract List<Bill> findBillList();
+    public abstract List<Member> findMemberList();
+    public abstract Long[] getIdsFromMemberList(List<Member> lst);
+
+    public abstract List<Member> getMemberListByIds(Long[] ids);
+
 }
 

@@ -10,7 +10,7 @@ import com.common.dao.hibernate.CommonDAOHibernate;
  WebWork Application Generator V 1.0
 
     Copyright 2006 Chih-Shyang Chang
-    Created Date: Mon Feb 20 21:48:11 CST 2017
+    Created Date: Sat Feb 25 16:16:34 CST 2017
 */
 
 public class BillQADAOHibernate extends CommonDAOHibernate implements BillQADAO
@@ -56,5 +56,38 @@ public class BillQADAOHibernate extends CommonDAOHibernate implements BillQADAO
         return new ArrayList<Bill>(); // TODO
     }
 
+    public List<Member> findMemberList()
+    {
+        return new ArrayList<Member>(); // TODO
+    }
+
+    public Long[] getIdsFromMemberList(List tlist)
+    {
+        ArrayList<Long> al = new ArrayList<Long>();
+        if (tlist != null) {
+            for (int i = 0; i < tlist.size(); i++) {
+                Member t = (Member) tlist.get(i);
+                if (t != null)
+                    al.add(t.getId());
+            }
+        }
+        Long lng[] = new Long[al.size()];
+        al.toArray(lng);
+        
+        return lng;
+    }
+
+    public List getMemberListByIds(Long[] ids)
+    {
+        ArrayList<Member> al = new ArrayList<Member>();
+        if (ids != null) {
+            for (int i = 0; i < ids.length; i++) {
+                Member t = (Member) findMemberById(ids[i]);
+                if (t != null)
+                    al.add(t);
+            }
+        }
+        return al;
+    }
 }
 

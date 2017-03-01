@@ -10,7 +10,7 @@ import com.common.service.impl.CommonManagerImpl;
  WebWork Application Generator V 1.0
 
     Copyright 2006 Chih-Shyang Chang
-    Created Date: Mon Feb 20 21:48:11 CST 2017
+    Created Date: Sat Feb 25 16:16:34 CST 2017
 */
 
 public class ProductManagerImpl extends CommonManagerImpl implements ProductManager

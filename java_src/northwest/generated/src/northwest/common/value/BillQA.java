@@ -1,7 +1,9 @@
 package northwest.common.value;
 
+import com.common.value.Member;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 import com.base.value.BaseObject;
@@ -26,13 +28,22 @@ public class BillQA implements Serializable {
     private northwest.common.value.Bill bill;
     private Long billId;
 
+    /** nullable persistent field */
+    private Member member;
+    private Long memberId;
+
+    /** nullable persistent field */
+    private List notifications;
+
     /** full constructor */
-    public BillQA(String question, String answer, Date lastModifiedDate, Date createdDate, northwest.common.value.Bill bill) {
+    public BillQA(String question, String answer, Date lastModifiedDate, Date createdDate, northwest.common.value.Bill bill, Member member, List notifications) {
         this.question = question;
         this.answer = answer;
         this.lastModifiedDate = lastModifiedDate;
         this.createdDate = createdDate;
         this.bill = bill;
+        this.member = member;
+        this.notifications = notifications;
     }
 
     /** default constructor */
@@ -95,6 +106,32 @@ public class BillQA implements Serializable {
         this.billId = id;
     }
 
+    public Member getMember() {
+        return this.member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
+    public Long getMemberId() {
+        if (this.member != null && this.member.getId() != null)
+            return member.getId();
+        return this.memberId;
+    }
+
+    public void setMemberId(Long id) {
+        this.memberId = id;
+    }
+
+    public List getNotifications() {
+        return this.notifications;
+    }
+
+    public void setNotifications(List notifications) {
+        this.notifications = notifications;
+    }
+
     public String toString() {
         return new ToStringBuilder(this)
             .append("question", getQuestion())
@@ -102,6 +139,8 @@ public class BillQA implements Serializable {
             .append("lastModifiedDate", getLastModifiedDate())
             .append("createdDate", getCreatedDate())
             .append("bill", getBill())
+            .append("member", getMember())
+            .append("notifications", getNotifications())
             .toString();
     }
 

@@ -329,6 +329,10 @@
         <put name="content" value="/northwest/billQAForm.jsp"/>
     </definition>
     
+    <definition name="billQAListQuery" extends="default">
+        <put name="content" value="/northwest/billQAListQuery.jsp"/>
+    </definition>
+    
     
     
     

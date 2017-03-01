@@ -127,6 +127,7 @@
 		<property name="idNo"   type="string"   column="IdentityNumber" />
 		<property name="phone"  type="string"   column="Phone1" />
 		<property name="flag"   type="integer"  column="Flag"/>
+		<property name="email"   type="string"   />
         <set name="groups"    table="COM_MemberGroup" cascade="save-update">              
             <key column="memberId"/> 
             <many-to-many class="com.base.value.Group"  column="groupId"/>            

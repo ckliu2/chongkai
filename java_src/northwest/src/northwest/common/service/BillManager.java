@@ -19,9 +19,11 @@ public interface BillManager extends CommonManager {
 
 	public abstract List<Group> getBillGroupAuthority();
 
-	public abstract List<Bill> getBillListByCondition(Customer customer, String billNo, int state, String startDate, String endDate, int pageSize, int pageIndex);
+	public abstract List<Bill> getBillListByCondition(Customer customer, String billNo, int state, String startDate,
+			String endDate, int pageSize, int pageIndex);
 
-	public abstract int getBillListByCondition(Customer customer, String billNo, int state, String startDate, String endDate);
+	public abstract int getBillListByCondition(Customer customer, String billNo, int state, String startDate,
+			String endDate);
 
 	// public abstract List<Bill> getBillListByCondition(int condition,Customer
 	// customer,String billNo,int pageSize,int pageIndex,Group group,boolean
@@ -29,7 +31,8 @@ public interface BillManager extends CommonManager {
 	// public abstract int getBillListByConditionCount(int condition,Customer
 	// customer,String billNo,Group group,boolean state);
 
-	public abstract List<Bill> getProcessStateByCondition(int condition, Customer customer, String billNo, int pageSize, int pageIndex, Group group, boolean isCheck);
+	public abstract List<Bill> getProcessStateByCondition(int condition, Customer customer, String billNo, int pageSize,
+			int pageIndex, Group group, boolean isCheck);
 
 	// BillFiles
 	public abstract BillFiles getBillFilesByBill(Bill bill);
@@ -55,11 +58,13 @@ public interface BillManager extends CommonManager {
 
 	public abstract int getBillDetailListByBillNoWorker(Bill bill, Member worker);
 
-	public abstract List<BillDetail> getBillScheduleListByCondition(Long step, Product product, boolean result, int pageSize, int pageIndex);
+	public abstract List<BillDetail> getBillScheduleListByCondition(Long step, Product product, boolean result,
+			int pageSize, int pageIndex);
 
 	public abstract List<BillDetail> getBillScheduleListByCondition(Long step, Product product, boolean result);
 
-	public abstract List<Meter> getMeterListByCondition(Long step, Product product, boolean result, int pageSize, int pageIndex);
+	public abstract List<Meter> getMeterListByCondition(Long step, Product product, boolean result, int pageSize,
+			int pageIndex);
 
 	public abstract List<Meter> getMeterListByCondition(Long step, Product product, boolean result);
 
@@ -244,32 +249,37 @@ public interface BillManager extends CommonManager {
 	public abstract List<BillFinish> getBillFinishList();
 
 	// ProcessState
-	public abstract List<ProcessState> getProcessStateList(String billNo, Group group, boolean status, int xor, String worker);
+	public abstract List<ProcessState> getProcessStateList(String billNo, Group group, boolean status, int xor,
+			String worker);
 
 	public abstract List<ProcessState> getProcessStateList();
 
-	// Profit	
+	// Profit
 	public abstract ProfitSum getProfitListSum(List<Profit> ls);
-	
-	public abstract ProfitSum getProfitListSum(String projectNo, String start, String end, Customer customer, Member salesmen);
 
-	public abstract List<Profit> getProfitList(String projectNo, String start, String end, Customer customer, Member salesmen, int pageSize, int pageIndex);
+	public abstract ProfitSum getProfitListSum(String projectNo, String start, String end, Customer customer,
+			Member salesmen);
 
-	public abstract int getProfitListByConditionCount(String projectNo, String start, String end, Customer customer, Member salesmen);
+	public abstract List<Profit> getProfitList(String projectNo, String start, String end, Customer customer,
+			Member salesmen, int pageSize, int pageIndex);
+
+	public abstract int getProfitListByConditionCount(String projectNo, String start, String end, Customer customer,
+			Member salesmen);
 
 	public abstract Profit getProfitById(String id);
 
 	public abstract Profit getProfitBySalesNo(String salesNo);
-	
-	public abstract List<Profit> getProfitList(String projectNo, String start, String end, Customer customer, Member salesmen);
 
-	public abstract List<Profit> getProfitRateList(String start, String end,int tag ,BigDecimal profitPerc);
+	public abstract List<Profit> getProfitList(String projectNo, String start, String end, Customer customer,
+			Member salesmen);
+
+	public abstract List<Profit> getProfitRateList(String start, String end, int tag, BigDecimal profitPerc);
 
 	// ProfitDetail
 	public abstract List<ProfitDetail> getProfitDetailList(Profit profit);
 
 	public abstract List<ProfitDetail> getProfitDetailListBySalesNo(String salesNo);
-	
+
 	public abstract List getProfitDetailListByProduct(String startDate, String endDate, Product product);
 
 	// ProfitProduct
@@ -302,11 +312,18 @@ public interface BillManager extends CommonManager {
 	public abstract CustomerStandardCost getCustomerStandardCostById(Long id);
 
 	public abstract List<CustomerStandardCost> getCustomerStandardCostList(Customer customer);
-	
-	//BillQA
-    public abstract void saveBillQA(BillQA val);
-    public abstract void removeBillQA(BillQA val);
-    public abstract void removeBillQA(Long id);
-    public abstract BillQA getBillQAById(Long id);
-    public abstract List<BillQA> getBillQAList(Bill bill);
+
+	// BillQA
+	public abstract void saveBillQA(BillQA val);
+
+	public abstract void removeBillQA(BillQA val);
+
+	public abstract void removeBillQA(Long id);
+
+	public abstract BillQA getBillQAById(Long id);
+
+	public abstract List<BillQA> getBillQAList(Bill bill);
+
+	public abstract List<BillQA> getBillQAList(String startDate, String endDate, String billno, Customer customer);
+
 }

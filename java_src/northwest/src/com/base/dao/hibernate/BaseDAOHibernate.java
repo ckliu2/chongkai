@@ -371,7 +371,8 @@ public class BaseDAOHibernate extends HibernateDaoSupport implements BaseDAO {
 			String hsql = "select f from com.base.value.Function as f where f.disabled = :disabled order by f.category.seqNo, f.seqNo";
 
 			// String hsql =
-			// "select f from com.base.value.Function as f where f.disabled = :disabled order by f.category.seqNo";
+			// "select f from com.base.value.Function as f where f.disabled =
+			// :disabled order by f.category.seqNo";
 			Query query = getHibernateSession().createQuery(hsql);
 
 			query.setParameter("disabled", new Boolean(false));
@@ -465,10 +466,12 @@ public class BaseDAOHibernate extends HibernateDaoSupport implements BaseDAO {
 
 	public List<Group> findAllGroupWorkfllow() {
 		// System.out.println("findAllGroupWorkfllow..");
-		return getHibernateTemplate().find("from Group where groupKey like '%CK%' or groupKey='cuticle' order by groupKey asc");
+		return getHibernateTemplate()
+				.find("from Group where groupKey like '%CK%' or groupKey='cuticle' order by groupKey asc");
 
 		// return
-		// getHibernateTemplate().find("from Group where groupKey like '%CK%' order by groupKey asc");
+		// getHibernateTemplate().find("from Group where groupKey like '%CK%'
+		// order by groupKey asc");
 
 	}
 
@@ -539,15 +542,18 @@ public class BaseDAOHibernate extends HibernateDaoSupport implements BaseDAO {
 			ServletContext servletContext = getHttpSessionSession().getServletContext();
 			ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(servletContext);
 			MyProperties myProperties = (MyProperties) ctx.getBean("myProperties");
-			// System.out.println("myProperties outpath="+myProperties.getExecelOutputPath());
+			// System.out.println("myProperties
+			// outpath="+myProperties.getExecelOutputPath());
 
-			jxl.write.WritableWorkbook workbook = jxl.Workbook.createWorkbook(new File(myProperties.getExecelOutputPath() + outFile));
+			jxl.write.WritableWorkbook workbook = jxl.Workbook
+					.createWorkbook(new File(myProperties.getExecelOutputPath() + outFile));
 			Connection conn = getHibernateSession().connection();
 			Statement Stmt = conn.createStatement();
 			ResultSet rs = Stmt.executeQuery(sql);
 			jxl.write.WritableSheet sheet = workbook.createSheet("Sheet1", 0);
 			// 產生基本欄位
-			jxl.write.WritableFont wf = new jxl.write.WritableFont(jxl.write.WritableFont.TIMES, 10, jxl.write.WritableFont.NO_BOLD, false);
+			jxl.write.WritableFont wf = new jxl.write.WritableFont(jxl.write.WritableFont.TIMES, 10,
+					jxl.write.WritableFont.NO_BOLD, false);
 			jxl.write.WritableCellFormat wcfF = new jxl.write.WritableCellFormat(wf);
 			Vector v = new Vector();
 			ResultSetMetaData rsmd = rs.getMetaData();
@@ -594,7 +600,19 @@ public class BaseDAOHibernate extends HibernateDaoSupport implements BaseDAO {
 	public void executeSQL(String sql) {
 		try {
 			Connection conn = getHibernateSession().connection();
-			Statement Stmt = conn.createStatement();			
+			Statement Stmt = conn.createStatement();
+			Stmt.executeQuery(sql);
+			conn.close();
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+	}
+
+	public void sendEmail(String email, String subject, String content) {
+		try {
+			Connection conn = getHibernateSession().connection();
+			Statement Stmt = conn.createStatement();
+			String sql = " dbo.sendMail '" + email + "','" + subject + "','" + content + "' ";
 			Stmt.executeQuery(sql);
 			conn.close();
 		} catch (Exception e) {

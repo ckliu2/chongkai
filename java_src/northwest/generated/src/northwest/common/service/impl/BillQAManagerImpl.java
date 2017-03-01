@@ -10,7 +10,7 @@ import com.common.service.impl.CommonManagerImpl;
  WebWork Application Generator V 1.0
 
     Copyright 2006 Chih-Shyang Chang
-    Created Date: Mon Feb 20 21:48:11 CST 2017
+    Created Date: Sat Feb 25 16:16:34 CST 2017
 */
 
 public class BillQAManagerImpl extends CommonManagerImpl implements BillQAManager
@@ -57,6 +57,21 @@ public class BillQAManagerImpl extends CommonManagerImpl implements BillQAManage
     public List<Bill> getBillList()
     {
         return getGenericDAO().findBillList();
+    }
+
+    public List<Member> getMemberList()
+    {
+        return getGenericDAO().findMemberList();
+    }
+
+    public Long[] getIdsFromMemberList(List<Member> lst)
+    {
+        return getGenericDAO().getIdsFromMemberList(lst);
+    }
+
+    public List<Member> getMemberListByIds(Long[] ids)
+    {
+        return getGenericDAO().getMemberListByIds(ids);
     }
 
 }

@@ -4,6 +4,7 @@ import northwest.common.value.*;
 import northwest.common.dao.BillDAO;
 
 import java.util.*;
+import java.util.Date;
 import java.text.*;
 
 import com.base.util.Tools;
@@ -2194,7 +2195,11 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 	// ProfitProduct
 	public ProfitProduct getProfitProductList(String startDate, String endDate, Product product) {
 
-		// String hsql = "select sum(p.salesPrice),sum(p.purchasePrice),sum(p.salesCost),sum(p.profit),(sum(p.profit)/sum(p.salesPrice) *100 ),sum(p.unit1),sum(p.unit2),sum(p.unit3) from ProfitDetail p inner join p.profitNo as profit where profit.billDate between :startDate and :endDate and p.product=:product";
+		// String hsql = "select
+		// sum(p.salesPrice),sum(p.purchasePrice),sum(p.salesCost),sum(p.profit),(sum(p.profit)/sum(p.salesPrice)
+		// *100 ),sum(p.unit1),sum(p.unit2),sum(p.unit3) from ProfitDetail p
+		// inner join p.profitNo as profit where profit.billDate between
+		// :startDate and :endDate and p.product=:product";
 		ProfitProduct p = null;
 		try {
 			String hsql = "select sum(p.salesPrice),sum(p.purchasePrice),sum(p.salesCost),sum(p.profit),(0),sum(p.unit1),sum(p.unit2),sum(p.unit3) from ProfitDetail p inner join p.profitNo as profit where profit.billDate between :startDate and :endDate and p.product=:product";
@@ -2209,7 +2214,6 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 			System.out.println("endDate=" + endDate);
 			System.out.println("product.ProductName=" + product.getProductName());
 
-			
 			Iterator ite = query.list().iterator();
 			while (ite.hasNext()) {
 				Object[] objects = (Object[]) ite.next();
@@ -2235,7 +2239,7 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 			}
 			return p;
 		} catch (Exception e) {
-			System.out.println("getProfitProductList err="+e.toString());
+			System.out.println("getProfitProductList err=" + e.toString());
 			return null;
 		}
 	}
@@ -2415,40 +2419,59 @@ public class BillDAOHibernate extends CommonDAOHibernate implements BillDAO {
 		}
 		return c.list();
 	}
-	
-	//BillQA
-	public void saveBillQA(BillQA val)
-    {
-        getHibernateTemplate().saveOrUpdate(val);
-    }
 
-    public void removeBillQA(BillQA val)
-    {
-        getHibernateTemplate().delete(val);
-    }
+	// BillQA
+	public void saveBillQA(BillQA val) {
+		getHibernateTemplate().saveOrUpdate(val);
+	}
 
-    public void removeBillQA(Long id)
-    {
-        BillQA obj = findBillQAById(id);
-        getHibernateTemplate().delete(obj);
-    }
+	public void removeBillQA(BillQA val) {
+		getHibernateTemplate().delete(val);
+	}
 
-    public BillQA findBillQAById(Long id)
-    {
-        if (id == null)
-            return null;
-        BillQA obj = (BillQA)getHibernateTemplate().get(northwest.common.value.BillQA.class, id);
-        if (obj == null)
-            throw new ObjectRetrievalFailureException(northwest.common.value.BillQA.class, id);
-        else
-            return obj;
-    }
+	public void removeBillQA(Long id) {
+		BillQA obj = findBillQAById(id);
+		getHibernateTemplate().delete(obj);
+	}
 
-    public List<BillQA> findAllBillQA(Bill bill)
-    {
-    	Criteria c = getHibernateSession().createCriteria(BillQA.class);
+	public BillQA findBillQAById(Long id) {
+		if (id == null)
+			return null;
+		BillQA obj = (BillQA) getHibernateTemplate().get(northwest.common.value.BillQA.class, id);
+		if (obj == null)
+			throw new ObjectRetrievalFailureException(northwest.common.value.BillQA.class, id);
+		else
+			return obj;
+	}
+
+	public List<BillQA> findAllBillQA(Bill bill) {
+		Criteria c = getHibernateSession().createCriteria(BillQA.class);
 		c.add(Expression.eq("bill", bill));
 		return c.list();
-    }
+	}
+
+	public List<BillQA> findAllBillQA(String startDate, String endDate, String billno, Customer customer) {
+		System.out.println("hiber findAllBillQA billno=" + billno);
+
+		Criteria c = getHibernateSession().createCriteria(BillQA.class);
+		c.createCriteria("bill", "b");
+		if (billno != null) {			
+			c.add(Expression.like("b.id", "%" + billno + "%"));
+		}
+
+		if (customer != null) {			
+			c.add(Expression.like("b.customer", customer));
+		}
+
+		if (startDate != null && !startDate.equals("") && endDate != null && !endDate.equals("")) {				
+			c.add(Restrictions.between("b.billDate", startDate, endDate));
+		}
+		
+		c.setMaxResults(300);
+		
+		c.addOrder(Order.asc("bill"));
+
+		return c.list();
+	}
 
 }
