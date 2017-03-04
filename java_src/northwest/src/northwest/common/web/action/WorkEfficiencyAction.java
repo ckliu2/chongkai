@@ -137,7 +137,8 @@ public class WorkEfficiencyAction extends CommonActionSupport{
     		   Member s=(Member)ls.get(i);
     		   JSONObject jo = new JSONObject();
         	   jo.accumulate("id",s.getId());
-        	   jo.accumulate("name",s.getName());        	  
+        	   jo.accumulate("name",s.getName());       
+        	   jo.accumulate("email",s.getEmail());  
         	   jsonArray.put(jo);     
         	   //System.out.println("findMemberByJSON="+s.getName());
     	   }    	 

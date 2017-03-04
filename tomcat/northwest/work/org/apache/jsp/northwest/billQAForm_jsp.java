@@ -201,6 +201,11 @@ if (false) {
       out.write("    mySelectAll(document.billQAForm.notificationsIds);\r\n");
       out.write("    return true;\r\n");
       out.write("}\r\n");
+      out.write("\r\n");
+      out.write("function clearText(){  \t \r\n");
+      out.write("   document.all.input.value=\"\";\r\n");
+      out.write("   document.all.input.onfocus();\r\n");
+      out.write(" }\r\n");
       out.write("</script>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
@@ -394,6 +399,18 @@ if (false) {
           if (_jspx_meth_ww_005ftextarea_005f1(_jspx_th_ww_005fform_005f0, _jspx_page_context))
             return true;
           out.write(" \r\n");
+          out.write("        </td>\r\n");
+          out.write("    </tr>\r\n");
+          out.write("    \r\n");
+          out.write("    <tr><td class=\"cInputCaption\">請輸入通知人員關鍵字</td>\r\n");
+          out.write("        <td class=\"cInputColumn\">            \t\r\n");
+          out.write("            <input type=\"text\" \r\n");
+          out.write("             name=\"input\"  \r\n");
+          out.write("             oninput=\"queryKeyWord2(this.value, 'allMember', 'findMemberByJSON.html', 'q');\"\r\n");
+          out.write("             onPropertyChange=\"queryKeyWord2(this.value, 'allMember', 'findMemberByJSON.html', 'q');\"  \r\n");
+          out.write("             onClick=\"javascript:clearText();\"\r\n");
+          out.write("             Class=\"cInputTextFieldTiny\"\r\n");
+          out.write("            >  \r\n");
           out.write("        </td>\r\n");
           out.write("    </tr>\r\n");
           out.write("    \r\n");
@@ -1067,7 +1084,7 @@ if (false) {
     try {
       _jspx_th_fmt_005fmessage_005f13.setPageContext(_jspx_page_context);
       _jspx_th_fmt_005fmessage_005f13.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_ww_005fform_005f0);
-      // /northwest/billQAForm.jsp(57,64) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(69,64) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_fmt_005fmessage_005f13.setKey("common.available");
       int _jspx_eval_fmt_005fmessage_005f13 = _jspx_th_fmt_005fmessage_005f13.doStartTag();
       if (_jspx_th_fmt_005fmessage_005f13.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1088,7 +1105,7 @@ if (false) {
     try {
       _jspx_th_fmt_005fmessage_005f14.setPageContext(_jspx_page_context);
       _jspx_th_fmt_005fmessage_005f14.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_ww_005fform_005f0);
-      // /northwest/billQAForm.jsp(59,64) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(71,64) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_fmt_005fmessage_005f14.setKey("common.selected");
       int _jspx_eval_fmt_005fmessage_005f14 = _jspx_th_fmt_005fmessage_005f14.doStartTag();
       if (_jspx_th_fmt_005fmessage_005f14.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1109,19 +1126,19 @@ if (false) {
     try {
       _jspx_th_ww_005fselect_005f0.setPageContext(_jspx_page_context);
       _jspx_th_ww_005fselect_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_ww_005fform_005f0);
-      // /northwest/billQAForm.jsp(62,16) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(74,16) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_ww_005fselect_005f0.setId("allMember");
-      // /northwest/billQAForm.jsp(62,16) name = list type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(74,16) name = list type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_ww_005fselect_005f0.setList("memberList");
-      // /northwest/billQAForm.jsp(62,16) name = listKey type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(74,16) name = listKey type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_ww_005fselect_005f0.setListKey("id");
-      // /northwest/billQAForm.jsp(62,16) name = listValue type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(74,16) name = listValue type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_ww_005fselect_005f0.setListValue("name+'('+email+')'");
-      // /northwest/billQAForm.jsp(62,16) name = multiple type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(74,16) name = multiple type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_ww_005fselect_005f0.setMultiple("true");
-      // /northwest/billQAForm.jsp(62,16) name = size type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(74,16) name = size type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_ww_005fselect_005f0.setSize("8");
-      // /northwest/billQAForm.jsp(62,16) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(74,16) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_ww_005fselect_005f0.setCssClass("cQueryFieldList");
       int _jspx_eval_ww_005fselect_005f0 = _jspx_th_ww_005fselect_005f0.doStartTag();
       if (_jspx_th_ww_005fselect_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1142,21 +1159,21 @@ if (false) {
     try {
       _jspx_th_ww_005fselect_005f1.setPageContext(_jspx_page_context);
       _jspx_th_ww_005fselect_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_ww_005fform_005f0);
-      // /northwest/billQAForm.jsp(75,16) name = name type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(87,16) name = name type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_ww_005fselect_005f1.setName("notificationsIds");
-      // /northwest/billQAForm.jsp(75,16) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(87,16) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_ww_005fselect_005f1.setId("selectedMember");
-      // /northwest/billQAForm.jsp(75,16) name = list type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(87,16) name = list type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_ww_005fselect_005f1.setList("object_memberList");
-      // /northwest/billQAForm.jsp(75,16) name = listKey type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(87,16) name = listKey type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_ww_005fselect_005f1.setListKey("id");
-      // /northwest/billQAForm.jsp(75,16) name = listValue type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(87,16) name = listValue type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_ww_005fselect_005f1.setListValue("name+'('+email+')'");
-      // /northwest/billQAForm.jsp(75,16) name = multiple type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(87,16) name = multiple type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_ww_005fselect_005f1.setMultiple("true");
-      // /northwest/billQAForm.jsp(75,16) name = size type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(87,16) name = size type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_ww_005fselect_005f1.setSize("8");
-      // /northwest/billQAForm.jsp(75,16) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(87,16) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_ww_005fselect_005f1.setCssClass("cQueryFieldList");
       int _jspx_eval_ww_005fselect_005f1 = _jspx_th_ww_005fselect_005f1.doStartTag();
       if (_jspx_th_ww_005fselect_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1177,7 +1194,7 @@ if (false) {
     try {
       _jspx_th_fmt_005fmessage_005f15.setPageContext(_jspx_page_context);
       _jspx_th_fmt_005fmessage_005f15.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_ww_005fform_005f0);
-      // /northwest/billQAForm.jsp(89,34) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(101,34) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_fmt_005fmessage_005f15.setKey("common.lastModifiedDate");
       int _jspx_eval_fmt_005fmessage_005f15 = _jspx_th_fmt_005fmessage_005f15.doStartTag();
       if (_jspx_th_fmt_005fmessage_005f15.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1198,7 +1215,7 @@ if (false) {
     try {
       _jspx_th_ww_005fproperty_005f0.setPageContext(_jspx_page_context);
       _jspx_th_ww_005fproperty_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_ww_005fform_005f0);
-      // /northwest/billQAForm.jsp(91,33) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(103,33) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_ww_005fproperty_005f0.setValue("billQA.lastModifiedDate");
       int _jspx_eval_ww_005fproperty_005f0 = _jspx_th_ww_005fproperty_005f0.doStartTag();
       if (_jspx_th_ww_005fproperty_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1219,7 +1236,7 @@ if (false) {
     try {
       _jspx_th_fmt_005fmessage_005f16.setPageContext(_jspx_page_context);
       _jspx_th_fmt_005fmessage_005f16.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_ww_005fform_005f0);
-      // /northwest/billQAForm.jsp(95,34) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(107,34) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_fmt_005fmessage_005f16.setKey("common.createdDate");
       int _jspx_eval_fmt_005fmessage_005f16 = _jspx_th_fmt_005fmessage_005f16.doStartTag();
       if (_jspx_th_fmt_005fmessage_005f16.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1240,7 +1257,7 @@ if (false) {
     try {
       _jspx_th_ww_005fproperty_005f1.setPageContext(_jspx_page_context);
       _jspx_th_ww_005fproperty_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_ww_005fform_005f0);
-      // /northwest/billQAForm.jsp(97,33) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(109,33) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_ww_005fproperty_005f1.setValue("billQA.createdDate");
       int _jspx_eval_ww_005fproperty_005f1 = _jspx_th_ww_005fproperty_005f1.doStartTag();
       if (_jspx_th_ww_005fproperty_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1261,7 +1278,7 @@ if (false) {
     try {
       _jspx_th_fmt_005fmessage_005f17.setPageContext(_jspx_page_context);
       _jspx_th_fmt_005fmessage_005f17.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_ww_005fform_005f0);
-      // /northwest/billQAForm.jsp(105,86) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(117,86) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_fmt_005fmessage_005f17.setKey("common.back");
       int _jspx_eval_fmt_005fmessage_005f17 = _jspx_th_fmt_005fmessage_005f17.doStartTag();
       if (_jspx_th_fmt_005fmessage_005f17.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1282,7 +1299,7 @@ if (false) {
     try {
       _jspx_th_ww_005fif_005f3.setPageContext(_jspx_page_context);
       _jspx_th_ww_005fif_005f3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_ww_005fform_005f0);
-      // /northwest/billQAForm.jsp(106,8) name = test type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(118,8) name = test type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_ww_005fif_005f3.setTest("recordEditable == true");
       int _jspx_eval_ww_005fif_005f3 = _jspx_th_ww_005fif_005f3.doStartTag();
       if (_jspx_eval_ww_005fif_005f3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -1332,7 +1349,7 @@ if (false) {
     try {
       _jspx_th_fmt_005fmessage_005f18.setPageContext(_jspx_page_context);
       _jspx_th_fmt_005fmessage_005f18.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_ww_005fif_005f3);
-      // /northwest/billQAForm.jsp(107,40) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(119,40) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_fmt_005fmessage_005f18.setKey("common.save");
       int _jspx_eval_fmt_005fmessage_005f18 = _jspx_th_fmt_005fmessage_005f18.doStartTag();
       if (_jspx_th_fmt_005fmessage_005f18.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1353,7 +1370,7 @@ if (false) {
     try {
       _jspx_th_fmt_005fmessage_005f19.setPageContext(_jspx_page_context);
       _jspx_th_fmt_005fmessage_005f19.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_ww_005fif_005f3);
-      // /northwest/billQAForm.jsp(108,39) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(120,39) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_fmt_005fmessage_005f19.setKey("common.reset");
       int _jspx_eval_fmt_005fmessage_005f19 = _jspx_th_fmt_005fmessage_005f19.doStartTag();
       if (_jspx_th_fmt_005fmessage_005f19.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1374,7 +1391,7 @@ if (false) {
     try {
       _jspx_th_ww_005fif_005f4.setPageContext(_jspx_page_context);
       _jspx_th_ww_005fif_005f4.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_ww_005fif_005f3);
-      // /northwest/billQAForm.jsp(109,12) name = test type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(121,12) name = test type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_ww_005fif_005f4.setTest("billQA.id != null");
       int _jspx_eval_ww_005fif_005f4 = _jspx_th_ww_005fif_005f4.doStartTag();
       if (_jspx_eval_ww_005fif_005f4 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -1419,7 +1436,7 @@ if (false) {
     try {
       _jspx_th_fmt_005fmessage_005f20.setPageContext(_jspx_page_context);
       _jspx_th_fmt_005fmessage_005f20.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_ww_005fif_005f4);
-      // /northwest/billQAForm.jsp(110,85) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(122,85) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_fmt_005fmessage_005f20.setKey("common.confirmDelete");
       int _jspx_eval_fmt_005fmessage_005f20 = _jspx_th_fmt_005fmessage_005f20.doStartTag();
       if (_jspx_th_fmt_005fmessage_005f20.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1440,7 +1457,7 @@ if (false) {
     try {
       _jspx_th_fmt_005fmessage_005f21.setPageContext(_jspx_page_context);
       _jspx_th_fmt_005fmessage_005f21.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_ww_005fif_005f4);
-      // /northwest/billQAForm.jsp(110,137) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(122,137) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_fmt_005fmessage_005f21.setKey("common.delete");
       int _jspx_eval_fmt_005fmessage_005f21 = _jspx_th_fmt_005fmessage_005f21.doStartTag();
       if (_jspx_th_fmt_005fmessage_005f21.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1509,7 +1526,7 @@ if (false) {
     try {
       _jspx_th_fmt_005fmessage_005f22.setPageContext(_jspx_page_context);
       _jspx_th_fmt_005fmessage_005f22.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_ww_005felse_005f1);
-      // /northwest/billQAForm.jsp(114,40) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(126,40) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_fmt_005fmessage_005f22.setKey("common.save");
       int _jspx_eval_fmt_005fmessage_005f22 = _jspx_th_fmt_005fmessage_005f22.doStartTag();
       if (_jspx_th_fmt_005fmessage_005f22.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1530,7 +1547,7 @@ if (false) {
     try {
       _jspx_th_fmt_005fmessage_005f23.setPageContext(_jspx_page_context);
       _jspx_th_fmt_005fmessage_005f23.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_ww_005felse_005f1);
-      // /northwest/billQAForm.jsp(115,39) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(127,39) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_fmt_005fmessage_005f23.setKey("common.reset");
       int _jspx_eval_fmt_005fmessage_005f23 = _jspx_th_fmt_005fmessage_005f23.doStartTag();
       if (_jspx_th_fmt_005fmessage_005f23.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1551,7 +1568,7 @@ if (false) {
     try {
       _jspx_th_ww_005fif_005f5.setPageContext(_jspx_page_context);
       _jspx_th_ww_005fif_005f5.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_ww_005felse_005f1);
-      // /northwest/billQAForm.jsp(116,12) name = test type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(128,12) name = test type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_ww_005fif_005f5.setTest("billQA.id != null");
       int _jspx_eval_ww_005fif_005f5 = _jspx_th_ww_005fif_005f5.doStartTag();
       if (_jspx_eval_ww_005fif_005f5 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -1596,7 +1613,7 @@ if (false) {
     try {
       _jspx_th_fmt_005fmessage_005f24.setPageContext(_jspx_page_context);
       _jspx_th_fmt_005fmessage_005f24.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_ww_005fif_005f5);
-      // /northwest/billQAForm.jsp(117,85) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(129,85) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_fmt_005fmessage_005f24.setKey("common.confirmDelete");
       int _jspx_eval_fmt_005fmessage_005f24 = _jspx_th_fmt_005fmessage_005f24.doStartTag();
       if (_jspx_th_fmt_005fmessage_005f24.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1617,7 +1634,7 @@ if (false) {
     try {
       _jspx_th_fmt_005fmessage_005f25.setPageContext(_jspx_page_context);
       _jspx_th_fmt_005fmessage_005f25.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_ww_005fif_005f5);
-      // /northwest/billQAForm.jsp(117,137) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /northwest/billQAForm.jsp(129,137) name = key type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_fmt_005fmessage_005f25.setKey("common.delete");
       int _jspx_eval_fmt_005fmessage_005f25 = _jspx_th_fmt_005fmessage_005f25.doStartTag();
       if (_jspx_th_fmt_005fmessage_005f25.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {

@@ -286,7 +286,7 @@ public class G50_Server extends HttpServlet {
 				                	System.out.println("G50_Server error="+e.toString());
 				                }				                
 				            }	
-				            sleep(1000);
+				            sleep(300000);
 				      	}				      	                     
 				      	XMLOutputter xmlOutput = new XMLOutputter();
 				      	Format format = Format.getPrettyFormat();
@@ -308,7 +308,7 @@ public class G50_Server extends HttpServlet {
 				    } catch (Exception e) {
 				    	System.out.println("G50_Server error="+e.toString());
 				      } 
-					sleep(3000);
+					sleep(120000);
 					i++;
 				}
 			}

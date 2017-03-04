@@ -3,7 +3,7 @@ var secondBoxId;
 var thirdBoxId;
 
 function queryKeyWord2(keyword, box2Id, action, paramName)
-{ 		  
+{ 		  	
     var secondBoxId = box2Id;
     var urls=action + "?" + paramName + "=" + encodeURIComponent(keyword); 
     //var urls=action + "?" + paramName + "=" + keyword; 
@@ -12,8 +12,8 @@ function queryKeyWord2(keyword, box2Id, action, paramName)
     $.getJSON( urls, function(data) {
     	
     $.each( data, function( key, val ) {
-      //alert(val.id+"--"+val.name); 
-		  var option = '<option value='+val.id+'>'+val.id+'['+val.name+']'+'</option>';   
+      //alert(val.id+"--"+val.name+"--"+val.email); 
+		  var option = '<option value='+val.id+'>'+val.name+'('+val.email+')</option>';   
 		  $('#'+secondBoxId).append(option);	
     });  
   });

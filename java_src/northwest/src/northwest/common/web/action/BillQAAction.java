@@ -197,18 +197,24 @@ public class BillQAAction extends CommonActionSupport {
 	public void sendEmail(BillQA billQA) {
 		try {
 			List<Member> ls = billQA.getNotifications();
+			String subject = "[" + billQA.getBillId() + "] 訂單QA通知";
+			String content = "[時間] : " + Tools.formatSimpleDate1(Tools.getCurrentTimestamp()) + "<p>"
+					+ "[訂單編號] : " + billQA.getBillId() + "<p>" + "[客戶] : "
+					+ billQA.getBill().getCustomer().getName() + "<p>" + "[人員] : "
+					+ billQA.getMember().getName() + "<p>" + "[客戶反應問題] : " + billQA.getQuestion() + "<p>"
+					+ "[處理方式] :" + billQA.getAnswer();
+			
 			for (Member member : ls) {
 				System.out.println("sendEmail name=" + member.getName() + "--" + member.getEmail());
 				if (Tools.isValidEmailAddress(member.getEmail())) {
-					String subject = "[" + billQA.getBillId() + "] 訂單QA通知";
-					String content = "[時間] : " + Tools.formatSimpleDate1(Tools.getCurrentTimestamp()) + "<p>"
-							+ "[訂單編號] : " + billQA.getBillId() + "<p>" + "[客戶] : "
-							+ billQA.getBill().getCustomer().getName() + "<p>" + "[人員] : "
-							+ billQA.getMember().getName() + "<p>" + "[客戶反應問題] : " + billQA.getQuestion() + "<p>"
-							+ "[處理方式] :" + billQA.getAnswer();
+					
 					getGenericManager().sendEmail(member.getEmail(), subject, content);
 				}
 			}
+			
+			//外加寄送給yimin@cip.com.tw / ken@cip.com.tw
+			getGenericManager().sendEmail("yimin@cip.com.tw", subject, content);
+			getGenericManager().sendEmail("ken@cip.com.tw", subject, content);
 		} catch (Exception e) {
 			System.out.println("sendEmail err=" + e.toString());
 		}

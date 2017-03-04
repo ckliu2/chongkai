@@ -5,9 +5,9 @@
 		description="--> Deploy All">
 	</target>
 	<!-- compile,properties,xml,obfuscator -->
-	<property name="workspace" location="D:/Java_Src/WebAp" />
-	<property name="tomcat" location="D:/Tomcat" />
-	<property name="webapps" location="${tomcat}/webapps" />
+	<property name="workspace" location="D:/mycase/java_src" />
+	<property name="tomcat" location="D:/mycase/tomcat/" />
+	<property name="webapps" location="${tomcat}" />
 	<property name="deploy" location="${webapps}/AirConditioning" />
 	<property name="input" location="${basedir}" />
 	<property name="source" location="${basedir}" />
