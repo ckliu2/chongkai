@@ -5,6 +5,7 @@ import northwest.common.service.BillManager;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.json.*;
 
 import java.util.*;
 import java.io.*;
@@ -2174,11 +2175,41 @@ public class BillAction extends CommonActionSupport {
 		System.out.println(sql);
 		getGenericManager().exportExcel(sql, "report2.xls");
 	}
-	
+
 	public List<BillQA> getBillQAList(String id) {
-		System.out.println("getBillQAList id="+id);
+		System.out.println("getBillQAList id=" + id);
 		bill = getGenericManager().getBillById(id);
 		return getGenericManager().getBillQAList(bill);
+	}
+
+	public String billJSON() {
+		System.out.println("billJSON billNo=" + billNo);
+		JSONArray ja = new JSONArray();
+		try {			
+			    List<Bill> ls ;
+			    if(billNo.equals("")){
+			    	ls = new ArrayList<Bill>();
+			    }else{
+			    	ls = getGenericManager().getBillByNo(billNo);
+			    }
+				
+				for (int i = 0; i < ls.size(); i++) {
+					bill = ls.get(i);
+					JSONObject jo = new JSONObject();
+					jo.put("id", bill.getId());
+					jo.put("text", bill.getId());
+					jo.put("customer", (bill.getCustomer() != null) ? bill.getCustomer().getName() : "");
+					jo.put("saleman", (bill.getCustomer().getSaleman() != null) ? bill.getCustomer().getSaleman().getName() : "");
+					if(bill.getId().equals(billNo)){
+						jo.put("selected", true);
+					}					
+					ja.put(jo);  //.getSaleman().getName()
+				}
+			
+		} catch (Exception e) {
+			System.out.println("billJSON=" + e.toString());
+		}
+		return ja.toString();
 	}
 
 }

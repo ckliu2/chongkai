@@ -1,0 +1,52 @@
+三月 27, 2017 9:16:49 下午 org.apache.catalina.core.ApplicationContext log
+資訊: Loading Spring root WebApplicationContext
+三月 27, 2017 9:17:06 下午 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+三月 27, 2017 9:17:06 下午 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+三月 27, 2017 9:27:59 下午 org.apache.catalina.core.ApplicationContext log
+資訊: Closing Spring root WebApplicationContext
+三月 27, 2017 9:28:01 下午 org.apache.catalina.core.ApplicationContext log
+資訊: Loading Spring root WebApplicationContext
+三月 27, 2017 9:52:11 下午 org.apache.catalina.core.ApplicationContext log
+資訊: Loading Spring root WebApplicationContext
+三月 27, 2017 9:52:24 下午 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+三月 27, 2017 9:52:24 下午 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+三月 27, 2017 10:32:57 下午 org.apache.catalina.core.ApplicationContext log
+資訊: Loading Spring root WebApplicationContext
+三月 27, 2017 10:33:11 下午 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+三月 27, 2017 10:33:11 下午 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+三月 27, 2017 10:35:11 下午 org.apache.catalina.core.ApplicationContext log
+資訊: Loading Spring root WebApplicationContext
+三月 27, 2017 10:35:18 下午 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+三月 27, 2017 10:35:18 下午 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+三月 27, 2017 10:37:39 下午 org.apache.catalina.core.ApplicationContext log
+資訊: Loading Spring root WebApplicationContext
+三月 27, 2017 10:37:47 下午 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+三月 27, 2017 10:37:47 下午 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+三月 27, 2017 10:38:19 下午 org.apache.catalina.core.ApplicationContext log
+資訊: Loading Spring root WebApplicationContext
+三月 27, 2017 10:38:27 下午 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+三月 27, 2017 10:38:27 下午 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+三月 27, 2017 10:40:07 下午 org.apache.catalina.core.ApplicationContext log
+資訊: Loading Spring root WebApplicationContext
+三月 27, 2017 10:40:17 下午 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+三月 27, 2017 10:40:17 下午 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+三月 27, 2017 10:41:37 下午 org.apache.catalina.core.ApplicationContext log
+資訊: Loading Spring root WebApplicationContext
+三月 27, 2017 10:41:43 下午 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+三月 27, 2017 10:41:43 下午 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()

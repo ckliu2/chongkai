@@ -85,6 +85,19 @@
 
     <!-- 
     ************************ 
+    * SenderDB 
+    ************************
+    -->
+    <definition name="senderDBList" extends="default">
+        <put name="content" value="/senderDBList.jsp"/>
+    </definition>
+
+    <definition name="senderDBForm" extends="default">
+        <put name="content" value="/senderDBForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
     * BillQA 
     ************************
     -->
@@ -198,6 +211,32 @@
 
     <definition name="customerDetailForm" extends="default">
         <put name="content" value="/customerDetailForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * LogisticsCode 
+    ************************
+    -->
+    <definition name="logisticsCodeList" extends="default">
+        <put name="content" value="/logisticsCodeList.jsp"/>
+    </definition>
+
+    <definition name="logisticsCodeForm" extends="default">
+        <put name="content" value="/logisticsCodeForm.jsp"/>
+    </definition>
+
+    <!-- 
+    ************************ 
+    * Logistics 
+    ************************
+    -->
+    <definition name="logisticsList" extends="default">
+        <put name="content" value="/logisticsList.jsp"/>
+    </definition>
+
+    <definition name="logisticsForm" extends="default">
+        <put name="content" value="/logisticsForm.jsp"/>
     </definition>
 
     <!-- 

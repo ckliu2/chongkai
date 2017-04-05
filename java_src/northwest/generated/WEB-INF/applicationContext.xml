@@ -70,6 +70,14 @@
         </property>
     </bean>
 
+    <bean id="senderDBManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="northwest.common.service.impl.SenderDBManagerImpl">
+                <property name="genericDAO" ref="senderDBDAO"/>
+            </bean>
+        </property>
+    </bean>
+
     <bean id="billQAManager" parent="txProxyTemplate">
         <property name="target">
             <bean class="northwest.common.service.impl.BillQAManagerImpl">
@@ -138,6 +146,22 @@
         <property name="target">
             <bean class="northwest.common.service.impl.CustomerDetailManagerImpl">
                 <property name="genericDAO" ref="customerDetailDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="logisticsCodeManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="northwest.common.service.impl.LogisticsCodeManagerImpl">
+                <property name="genericDAO" ref="logisticsCodeDAO"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="logisticsManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="northwest.common.service.impl.LogisticsManagerImpl">
+                <property name="genericDAO" ref="logisticsDAO"/>
             </bean>
         </property>
     </bean>

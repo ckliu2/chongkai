@@ -335,6 +335,16 @@
     
     
     
+    <!-- 
+    ************************ 
+    * Logistics 
+    ************************
+    -->
+    <definition name="logisticsList" extends="default">
+        <put name="content" value="/northwest/logisticsList.jsp"/>
+    </definition>
+
+    
     
     
 </tiles-definitions>

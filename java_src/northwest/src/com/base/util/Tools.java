@@ -164,7 +164,9 @@ public class Tools {
 	}
 
 	public static void main(String[] arg) {
-		System.out.println( isValidEmailAddress("chongkai@livemail.tw") );
+		String a = IntegerFormart(10,116224064);
+		System.out.println(a);
+		// System.out.println( isValidEmailAddress("chongkai@livemail.tw") );
 
 	}
 
@@ -243,6 +245,8 @@ public class Tools {
 		return result;
 	}
 
-	
+	public static String IntegerFormart(int length, int i) {
+		return String.format("%0" + length + "d", i);
+	}
 
 }

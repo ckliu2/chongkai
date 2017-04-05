@@ -180,6 +180,33 @@
             <result name="success">/common/backback.jsp</result>
         </action>
 
+    <!-- SenderDB -->
+        <action name="senderDBList" class="senderDBAction" method="list">
+            <result name="success" type="tiles">senderDBList</result>
+            <result name="input" type="tiles">senderDBList</result>
+        </action>
+
+        <action name="editSenderDB" class="senderDBAction" method="edit">
+            <result name="success" type="tiles">senderDBForm</result>
+            <result name="input" type="tiles">senderDBList</result>
+        </action>
+
+        <action name="copySenderDB" class="senderDBAction" method="copy">
+            <result name="success" type="tiles">senderDBForm</result>
+            <result name="input" type="tiles">senderDBList</result>
+        </action>
+
+        <action name="saveSenderDB" class="senderDBAction">
+            <result name="delete" type="redirect">senderDBList.html</result>
+            <result name="input" type="tiles">senderDBForm</result>
+            <result name="success" type="chain">saveSenderDBWithValidation</result>
+        </action>
+
+        <action name="saveSenderDBWithValidation" class="senderDBAction" method="save">
+            <result name="input" type="tiles">senderDBForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
     <!-- BillQA -->
         <action name="billQAList" class="billQAAction" method="list">
             <result name="success" type="tiles">billQAList</result>
@@ -420,6 +447,60 @@
 
         <action name="saveCustomerDetailWithValidation" class="customerDetailAction" method="save">
             <result name="input" type="tiles">customerDetailForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- LogisticsCode -->
+        <action name="logisticsCodeList" class="logisticsCodeAction" method="list">
+            <result name="success" type="tiles">logisticsCodeList</result>
+            <result name="input" type="tiles">logisticsCodeList</result>
+        </action>
+
+        <action name="editLogisticsCode" class="logisticsCodeAction" method="edit">
+            <result name="success" type="tiles">logisticsCodeForm</result>
+            <result name="input" type="tiles">logisticsCodeList</result>
+        </action>
+
+        <action name="copyLogisticsCode" class="logisticsCodeAction" method="copy">
+            <result name="success" type="tiles">logisticsCodeForm</result>
+            <result name="input" type="tiles">logisticsCodeList</result>
+        </action>
+
+        <action name="saveLogisticsCode" class="logisticsCodeAction">
+            <result name="delete" type="redirect">logisticsCodeList.html</result>
+            <result name="input" type="tiles">logisticsCodeForm</result>
+            <result name="success" type="chain">saveLogisticsCodeWithValidation</result>
+        </action>
+
+        <action name="saveLogisticsCodeWithValidation" class="logisticsCodeAction" method="save">
+            <result name="input" type="tiles">logisticsCodeForm</result>
+            <result name="success">/common/backback.jsp</result>
+        </action>
+
+    <!-- Logistics -->
+        <action name="logisticsList" class="logisticsAction" method="list">
+            <result name="success" type="tiles">logisticsList</result>
+            <result name="input" type="tiles">logisticsList</result>
+        </action>
+
+        <action name="editLogistics" class="logisticsAction" method="edit">
+            <result name="success" type="tiles">logisticsForm</result>
+            <result name="input" type="tiles">logisticsList</result>
+        </action>
+
+        <action name="copyLogistics" class="logisticsAction" method="copy">
+            <result name="success" type="tiles">logisticsForm</result>
+            <result name="input" type="tiles">logisticsList</result>
+        </action>
+
+        <action name="saveLogistics" class="logisticsAction">
+            <result name="delete" type="redirect">logisticsList.html</result>
+            <result name="input" type="tiles">logisticsForm</result>
+            <result name="success" type="chain">saveLogisticsWithValidation</result>
+        </action>
+
+        <action name="saveLogisticsWithValidation" class="logisticsAction" method="save">
+            <result name="input" type="tiles">logisticsForm</result>
             <result name="success">/common/backback.jsp</result>
         </action>
 

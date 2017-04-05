@@ -58,6 +58,10 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+    <bean id="senderDBDAO" class="northwest.common.dao.hibernate.SenderDBDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
     <bean id="billQADAO" class="northwest.common.dao.hibernate.BillQADAOHibernate">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
@@ -91,6 +95,14 @@
     </bean>
 
     <bean id="customerDetailDAO" class="northwest.common.dao.hibernate.CustomerDetailDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="logisticsCodeDAO" class="northwest.common.dao.hibernate.LogisticsCodeDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="logisticsDAO" class="northwest.common.dao.hibernate.LogisticsDAOHibernate">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 

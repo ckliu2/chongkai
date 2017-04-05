@@ -12,7 +12,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     
     <!--tips-->    
-    <script src="${ctx}/scripts/jquery-1.3.2.min.js"></script>
+    <script src="${ctx}/scripts/jquery-1.7.2.js"></script>
     <script src="${ctx}/scripts/justthetip.js"></script>
     
     

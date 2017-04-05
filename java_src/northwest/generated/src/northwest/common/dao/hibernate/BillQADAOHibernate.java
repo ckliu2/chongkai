@@ -10,7 +10,7 @@ import com.common.dao.hibernate.CommonDAOHibernate;
  WebWork Application Generator V 1.0
 
     Copyright 2006 Chih-Shyang Chang
-    Created Date: Sat Feb 25 16:16:34 CST 2017
+    Created Date: Tue Apr 04 10:27:20 CST 2017
 */
 
 public class BillQADAOHibernate extends CommonDAOHibernate implements BillQADAO

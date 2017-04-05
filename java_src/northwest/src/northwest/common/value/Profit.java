@@ -36,7 +36,8 @@ public class Profit implements Serializable {
     /** nullable persistent field */
     private Integer profit;
 
-
+	Integer fee;
+    
     Integer recdiscount;
 
     /** nullable persistent field */
@@ -222,6 +223,14 @@ public class Profit implements Serializable {
     public void setRecdiscount(Integer recdiscount) {
         this.recdiscount = recdiscount;
     }
+    
+    public Integer getFee() {
+		return fee;
+	}
+
+	public void setFee(Integer fee) {
+		this.fee = fee;
+	}
     
     public String toString() {
 	return new ToStringBuilder(this).append("salesNo", getSalesNo())

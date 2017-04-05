@@ -286,3 +286,4 @@ function myformattertime(date){
 			//2015/08/17 15:07:56
 			return y+'/'+(m<10?('0'+m):m)+'/'+(d<10?('0'+d):d)+' '+hour+':'+minu;
 		}		
+

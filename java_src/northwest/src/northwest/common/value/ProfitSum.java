@@ -6,8 +6,8 @@ import com.base.util.Tools;
 
 public class ProfitSum {
 	
-	int salesCostSum,purchaseSum,salesPriceSum,profitSum;
-	String salesCostSumStr,purchaseSumStr,salesPriceSumStr,profitSumStr;
+	int salesCostSum,purchaseSum,salesPriceSum,profitSum,profitFeeSum;
+	String salesCostSumStr,purchaseSumStr,salesPriceSumStr,profitSumStr,profitFeeSumStr;
 	float profitPerc;
 	DecimalFormat df=new DecimalFormat("#.##");
 	
@@ -65,6 +65,19 @@ public class ProfitSum {
 	public String getProfitSumStr() {
 		return Tools.thousandsFormat(profitSum);
 	}
+	
+	public int getProfitFeeSum() {
+		return profitFeeSum;
+	}
+
+	public void setProfitFeeSum(int profitFeeSum) {
+		this.profitFeeSum = profitFeeSum;
+	}
+
+	public String getProfitFeeSumStr() {
+		return Tools.thousandsFormat(profitFeeSum);
+	}
+
 	
 	
 }

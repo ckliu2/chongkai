@@ -11,6 +11,8 @@ import com.common.value.Member;
 
 public interface BillDAO extends CommonDAO {
 	// Bill
+	public abstract List<Bill> findBillByNo(String keyword);
+
 	public abstract Bill findBillById(String id);
 
 	public abstract List<Bill> findAllBill();
@@ -19,14 +21,11 @@ public interface BillDAO extends CommonDAO {
 
 	public abstract List<Group> getBillGroupAuthority();
 
-	public abstract List<Bill> getBillListByCondition(Customer customer, String billNo, int state, String startDate,
-			String endDate, int pageSize, int pageIndex);
+	public abstract List<Bill> getBillListByCondition(Customer customer, String billNo, int state, String startDate, String endDate, int pageSize, int pageIndex);
 
-	public abstract int getBillListByCondition(Customer customer, String billNo, int state, String startDate,
-			String endDate);
+	public abstract int getBillListByCondition(Customer customer, String billNo, int state, String startDate, String endDate);
 
-	public abstract List<Bill> getProcessStateByCondition(int condition, Customer customer, String billNo, int pageSize,
-			int pageIndex, Group group, boolean isCheck);
+	public abstract List<Bill> getProcessStateByCondition(int condition, Customer customer, String billNo, int pageSize, int pageIndex, Group group, boolean isCheck);
 
 	// BillFiles
 	public abstract BillFiles getBillFilesByBill(Bill bill);
@@ -46,13 +45,11 @@ public interface BillDAO extends CommonDAO {
 
 	public abstract List<BillDetail> getBillDetailListByBillNo(String BillNo, int fromRow1, int fromRow2);
 
-	public abstract List<BillDetail> getBillScheduleListByCondition(Long step, Product product, boolean result,
-			int pageSize, int pageIndex);
+	public abstract List<BillDetail> getBillScheduleListByCondition(Long step, Product product, boolean result, int pageSize, int pageIndex);
 
 	public abstract List<BillDetail> getBillScheduleListByCondition(Long step, Product product, boolean result);
 
-	public abstract List<Meter> getMeterListByCondition(Long step, Product product, boolean result, int pageSize,
-			int pageIndex);
+	public abstract List<Meter> getMeterListByCondition(Long step, Product product, boolean result, int pageSize, int pageIndex);
 
 	public abstract List<Meter> getMeterListByCondition(Long step, Product product, boolean result);
 
@@ -243,29 +240,24 @@ public interface BillDAO extends CommonDAO {
 	public abstract BillFinish findBillFinishByBill(Bill b);
 
 	// ProcessState
-	public abstract List<ProcessState> findAllProcessState(String billNo, Group group, boolean status, int xor,
-			String worker);
+	public abstract List<ProcessState> findAllProcessState(String billNo, Group group, boolean status, int xor, String worker);
 
 	public abstract List<ProcessState> findAllProcessState();
 
 	// Profit
 	public abstract ProfitSum getProfitListSum(List<Profit> ls);
 
-	public abstract ProfitSum getProfitListSum(String projectNo, String start, String end, Customer customer,
-			Member salesmen);
+	public abstract ProfitSum getProfitListSum(String projectNo, String start, String end, Customer customer, Member salesmen);
 
-	public abstract List<Profit> getProfitList(String projectNo, String start, String end, Customer customer,
-			Member salesmen, int pageSize, int pageIndex);
+	public abstract List<Profit> getProfitList(String projectNo, String start, String end, Customer customer, Member salesmen, int pageSize, int pageIndex);
 
-	public abstract int getProfitListByConditionCount(String projectNo, String start, String end, Customer customer,
-			Member salesmen);
+	public abstract int getProfitListByConditionCount(String projectNo, String start, String end, Customer customer, Member salesmen);
 
 	public abstract Profit getProfitById(String id);
 
 	public abstract Profit getProfitBySalesNo(String salesNo);
 
-	public abstract List<Profit> getProfitList(String projectNo, String start, String end, Customer customer,
-			Member salesmen);
+	public abstract List<Profit> getProfitList(String projectNo, String start, String end, Customer customer, Member salesmen);
 
 	public abstract List<Profit> getProfitRateList(String start, String end, int tag, BigDecimal profitPerc);
 
@@ -320,4 +312,22 @@ public interface BillDAO extends CommonDAO {
 
 	public abstract List<BillQA> findAllBillQA(String startDate, String endDate, String billno, Customer customer);
 
+	// Logistics
+	public abstract void saveLogistics(Logistics val);
+
+	public abstract void removeLogistics(Long id);
+
+	public abstract Logistics findLogisticsById(Long id);
+
+	public abstract List<Logistics> findAllLogistics(String keyword, Date startDate, Date endDate);
+
+	// SenderDB
+	public abstract List<SenderDB> findAllSenderDB(String keyword);
+
+	// LogisticsCode
+	public abstract void saveLogisticsCode(LogisticsCode val);
+
+	public abstract void removeLogisticsCode(Logistics val);
+
+	public abstract LogisticsCode getLastOneLogisticsCode();
 }

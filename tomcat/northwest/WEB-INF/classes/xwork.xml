@@ -467,6 +467,11 @@
         </action>
         
         
+        <action name="billJSON" class="billAction" method="list">          
+            <result name="success" >/northwest/billJSON.jsp</result>
+        </action>
+        
+        
      <!-- Customer -->   
         <action name="customerList" class="customerAction" method="list">
             <result name="success" type="tiles">customerList</result>
@@ -782,6 +787,43 @@
             <result name="success" type="tiles">billQAListQuery</result>
             <result name="input" type="tiles">billQAListQuery</result>
         </action>
+        
+        
+      <!-- 物流 -->
+        <action name="logisticsList" class="logisticsAction" method="list">
+            <result name="success" type="tiles">logisticsList</result>
+            <result name="input" type="tiles">logisticsForm</result>
+        </action>
+
+        <action name="editLogistics" class="logisticsAction" method="edit">
+            <result name="success" >/northwest/logisticsForm.jsp</result>           
+        </action>
+        
+        <action name="saveLogisticsJSON" class="logisticsAction" method="list">
+            <result name="success" >/northwest/saveLogisticsJSON.jsp</result>           
+        </action>
+        
+        <action name="deleteLogisticsJSON" class="logisticsAction" method="list">
+            <result name="success" >/northwest/deleteLogisticsJSON.jsp</result>           
+        </action>        
+        
+         <action name="logisticsListJSON" class="logisticsAction" method="list">
+            <result name="success" >/northwest/logisticsListJSON.jsp</result>           
+        </action>
+     
+        <action name="saveLogistics" class="logisticsAction">
+            <result name="delete" type="tiles">logisticsList</result>            
+            <result name="success" type="chain">saveLogisticsWithValidation</result>
+        </action>
+
+        <action name="saveLogisticsWithValidation" class="logisticsAction" method="save">
+            <result name="success" type="redirect">logisticsList</result>
+        </action>
+        
+        <action name="senderDBJSON" class="logisticsAction" method="list">
+            <result name="success" >/northwest/senderDBJSON.jsp</result>           
+        </action>
+        
         
             
     </package>

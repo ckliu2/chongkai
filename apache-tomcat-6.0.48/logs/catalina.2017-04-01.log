@@ -1,0 +1,364 @@
+四月 01, 2017 5:47:39 下午 org.apache.catalina.core.AprLifecycleListener init
+資訊: Loaded APR based Apache Tomcat Native library 1.2.10 using APR version 1.5.2.
+四月 01, 2017 5:47:39 下午 org.apache.catalina.core.AprLifecycleListener init
+資訊: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+四月 01, 2017 5:47:40 下午 org.apache.catalina.core.AprLifecycleListener initializeSSL
+資訊: OpenSSL successfully initialized with version OpenSSL 1.0.2j  26 Sep 2016
+四月 01, 2017 5:47:41 下午 org.apache.coyote.http11.Http11AprProtocol init
+資訊: Initializing Coyote HTTP/1.1 on http-80
+四月 01, 2017 5:47:41 下午 org.apache.coyote.ajp.AjpAprProtocol init
+資訊: Initializing Coyote AJP/1.3 on ajp-8009
+四月 01, 2017 5:47:41 下午 org.apache.catalina.startup.Catalina load
+資訊: Initialization processed in 3897 ms
+四月 01, 2017 5:47:41 下午 org.apache.catalina.core.StandardService start
+資訊: Starting service Catalina
+四月 01, 2017 5:47:41 下午 org.apache.catalina.core.StandardEngine start
+資訊: Starting Servlet Engine: Apache Tomcat/6.0.48
+四月 01, 2017 5:48:04 下午 org.apache.tiles.servlets.TilesServlet init
+資訊: Initializing TilesServlet
+四月 01, 2017 5:48:04 下午 org.apache.tiles.servlets.TilesServlet readFactoryConfig
+資訊: CONFIG FILES DEFINED IN WEB.XML
+四月 01, 2017 5:48:05 下午 org.apache.tiles.servlets.TilesServlet initDefinitionsFactory
+資訊: initializing definitions factory...
+四月 01, 2017 5:48:05 下午 org.apache.catalina.startup.HostConfig deployDescriptor
+資訊: Deploying configuration descriptor host-manager.xml
+四月 01, 2017 5:48:05 下午 org.apache.catalina.startup.HostConfig deployDescriptor
+資訊: Deploying configuration descriptor manager.xml
+四月 01, 2017 5:48:05 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory docs
+四月 01, 2017 5:48:06 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory examples
+四月 01, 2017 5:48:07 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory ROOT
+四月 01, 2017 5:48:07 下午 org.apache.coyote.http11.Http11AprProtocol start
+資訊: Starting Coyote HTTP/1.1 on http-80
+四月 01, 2017 5:48:07 下午 org.apache.coyote.ajp.AjpAprProtocol start
+資訊: Starting Coyote AJP/1.3 on ajp-8009
+四月 01, 2017 5:48:07 下午 org.apache.catalina.startup.Catalina start
+資訊: Server startup in 25872 ms
+四月 01, 2017 10:05:13 下午 org.apache.catalina.core.AprLifecycleListener init
+資訊: Loaded APR based Apache Tomcat Native library 1.2.10 using APR version 1.5.2.
+四月 01, 2017 10:05:13 下午 org.apache.catalina.core.AprLifecycleListener init
+資訊: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+四月 01, 2017 10:05:14 下午 org.apache.catalina.core.AprLifecycleListener initializeSSL
+資訊: OpenSSL successfully initialized with version OpenSSL 1.0.2j  26 Sep 2016
+四月 01, 2017 10:05:15 下午 org.apache.coyote.http11.Http11AprProtocol init
+資訊: Initializing Coyote HTTP/1.1 on http-80
+四月 01, 2017 10:05:15 下午 org.apache.coyote.ajp.AjpAprProtocol init
+資訊: Initializing Coyote AJP/1.3 on ajp-8009
+四月 01, 2017 10:05:15 下午 org.apache.catalina.startup.Catalina load
+資訊: Initialization processed in 3781 ms
+四月 01, 2017 10:05:15 下午 org.apache.catalina.core.StandardService start
+資訊: Starting service Catalina
+四月 01, 2017 10:05:15 下午 org.apache.catalina.core.StandardEngine start
+資訊: Starting Servlet Engine: Apache Tomcat/6.0.48
+四月 01, 2017 10:05:27 下午 org.apache.tiles.servlets.TilesServlet init
+資訊: Initializing TilesServlet
+四月 01, 2017 10:05:27 下午 org.apache.tiles.servlets.TilesServlet readFactoryConfig
+資訊: CONFIG FILES DEFINED IN WEB.XML
+四月 01, 2017 10:05:28 下午 org.apache.tiles.servlets.TilesServlet initDefinitionsFactory
+資訊: initializing definitions factory...
+四月 01, 2017 10:05:28 下午 org.apache.catalina.startup.HostConfig deployDescriptor
+資訊: Deploying configuration descriptor host-manager.xml
+四月 01, 2017 10:05:28 下午 org.apache.catalina.startup.HostConfig deployDescriptor
+資訊: Deploying configuration descriptor manager.xml
+四月 01, 2017 10:05:28 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory docs
+四月 01, 2017 10:05:29 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory examples
+四月 01, 2017 10:05:29 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory ROOT
+四月 01, 2017 10:05:29 下午 org.apache.coyote.http11.Http11AprProtocol start
+資訊: Starting Coyote HTTP/1.1 on http-80
+四月 01, 2017 10:05:30 下午 org.apache.coyote.ajp.AjpAprProtocol start
+資訊: Starting Coyote AJP/1.3 on ajp-8009
+四月 01, 2017 10:05:30 下午 org.apache.catalina.startup.Catalina start
+資訊: Server startup in 14627 ms
+四月 01, 2017 10:16:02 下午 org.apache.catalina.core.AprLifecycleListener init
+資訊: Loaded APR based Apache Tomcat Native library 1.2.10 using APR version 1.5.2.
+四月 01, 2017 10:16:02 下午 org.apache.catalina.core.AprLifecycleListener init
+資訊: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+四月 01, 2017 10:16:04 下午 org.apache.catalina.core.AprLifecycleListener initializeSSL
+資訊: OpenSSL successfully initialized with version OpenSSL 1.0.2j  26 Sep 2016
+四月 01, 2017 10:16:04 下午 org.apache.coyote.http11.Http11AprProtocol init
+資訊: Initializing Coyote HTTP/1.1 on http-80
+四月 01, 2017 10:16:04 下午 org.apache.coyote.ajp.AjpAprProtocol init
+資訊: Initializing Coyote AJP/1.3 on ajp-8009
+四月 01, 2017 10:16:04 下午 org.apache.catalina.startup.Catalina load
+資訊: Initialization processed in 3477 ms
+四月 01, 2017 10:16:05 下午 org.apache.catalina.core.StandardService start
+資訊: Starting service Catalina
+四月 01, 2017 10:16:05 下午 org.apache.catalina.core.StandardEngine start
+資訊: Starting Servlet Engine: Apache Tomcat/6.0.48
+四月 01, 2017 10:16:17 下午 org.apache.tiles.servlets.TilesServlet init
+資訊: Initializing TilesServlet
+四月 01, 2017 10:16:17 下午 org.apache.tiles.servlets.TilesServlet readFactoryConfig
+資訊: CONFIG FILES DEFINED IN WEB.XML
+四月 01, 2017 10:16:17 下午 org.apache.tiles.servlets.TilesServlet initDefinitionsFactory
+資訊: initializing definitions factory...
+四月 01, 2017 10:16:17 下午 org.apache.catalina.startup.HostConfig deployDescriptor
+資訊: Deploying configuration descriptor host-manager.xml
+四月 01, 2017 10:16:18 下午 org.apache.catalina.startup.HostConfig deployDescriptor
+資訊: Deploying configuration descriptor manager.xml
+四月 01, 2017 10:16:18 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory docs
+四月 01, 2017 10:16:19 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory examples
+四月 01, 2017 10:16:19 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory ROOT
+四月 01, 2017 10:16:19 下午 org.apache.coyote.http11.Http11AprProtocol start
+資訊: Starting Coyote HTTP/1.1 on http-80
+四月 01, 2017 10:16:19 下午 org.apache.coyote.ajp.AjpAprProtocol start
+資訊: Starting Coyote AJP/1.3 on ajp-8009
+四月 01, 2017 10:16:19 下午 org.apache.catalina.startup.Catalina start
+資訊: Server startup in 14519 ms
+四月 01, 2017 10:22:42 下午 org.apache.catalina.core.AprLifecycleListener init
+資訊: Loaded APR based Apache Tomcat Native library 1.2.10 using APR version 1.5.2.
+四月 01, 2017 10:22:42 下午 org.apache.catalina.core.AprLifecycleListener init
+資訊: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+四月 01, 2017 10:22:43 下午 org.apache.catalina.core.AprLifecycleListener initializeSSL
+資訊: OpenSSL successfully initialized with version OpenSSL 1.0.2j  26 Sep 2016
+四月 01, 2017 10:22:44 下午 org.apache.coyote.http11.Http11AprProtocol init
+資訊: Initializing Coyote HTTP/1.1 on http-80
+四月 01, 2017 10:22:44 下午 org.apache.coyote.ajp.AjpAprProtocol init
+資訊: Initializing Coyote AJP/1.3 on ajp-8009
+四月 01, 2017 10:22:44 下午 org.apache.catalina.startup.Catalina load
+資訊: Initialization processed in 2538 ms
+四月 01, 2017 10:22:44 下午 org.apache.catalina.core.StandardService start
+資訊: Starting service Catalina
+四月 01, 2017 10:22:44 下午 org.apache.catalina.core.StandardEngine start
+資訊: Starting Servlet Engine: Apache Tomcat/6.0.48
+四月 01, 2017 10:22:56 下午 org.apache.tiles.servlets.TilesServlet init
+資訊: Initializing TilesServlet
+四月 01, 2017 10:22:56 下午 org.apache.tiles.servlets.TilesServlet readFactoryConfig
+資訊: CONFIG FILES DEFINED IN WEB.XML
+四月 01, 2017 10:22:56 下午 org.apache.tiles.servlets.TilesServlet initDefinitionsFactory
+資訊: initializing definitions factory...
+四月 01, 2017 10:22:56 下午 org.apache.catalina.startup.HostConfig deployDescriptor
+資訊: Deploying configuration descriptor host-manager.xml
+四月 01, 2017 10:22:57 下午 org.apache.catalina.startup.HostConfig deployDescriptor
+資訊: Deploying configuration descriptor manager.xml
+四月 01, 2017 10:22:57 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory docs
+四月 01, 2017 10:22:57 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory examples
+四月 01, 2017 10:22:57 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory ROOT
+四月 01, 2017 10:22:58 下午 org.apache.coyote.http11.Http11AprProtocol start
+資訊: Starting Coyote HTTP/1.1 on http-80
+四月 01, 2017 10:22:58 下午 org.apache.coyote.ajp.AjpAprProtocol start
+資訊: Starting Coyote AJP/1.3 on ajp-8009
+四月 01, 2017 10:22:58 下午 org.apache.catalina.startup.Catalina start
+資訊: Server startup in 14135 ms
+四月 01, 2017 10:26:53 下午 org.apache.catalina.core.AprLifecycleListener init
+資訊: Loaded APR based Apache Tomcat Native library 1.2.10 using APR version 1.5.2.
+四月 01, 2017 10:26:53 下午 org.apache.catalina.core.AprLifecycleListener init
+資訊: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+四月 01, 2017 10:26:55 下午 org.apache.catalina.core.AprLifecycleListener initializeSSL
+資訊: OpenSSL successfully initialized with version OpenSSL 1.0.2j  26 Sep 2016
+四月 01, 2017 10:26:55 下午 org.apache.coyote.http11.Http11AprProtocol init
+資訊: Initializing Coyote HTTP/1.1 on http-80
+四月 01, 2017 10:26:55 下午 org.apache.coyote.ajp.AjpAprProtocol init
+資訊: Initializing Coyote AJP/1.3 on ajp-8009
+四月 01, 2017 10:26:55 下午 org.apache.catalina.startup.Catalina load
+資訊: Initialization processed in 2790 ms
+四月 01, 2017 10:26:55 下午 org.apache.catalina.core.StandardService start
+資訊: Starting service Catalina
+四月 01, 2017 10:26:55 下午 org.apache.catalina.core.StandardEngine start
+資訊: Starting Servlet Engine: Apache Tomcat/6.0.48
+四月 01, 2017 10:27:09 下午 org.apache.tiles.servlets.TilesServlet init
+資訊: Initializing TilesServlet
+四月 01, 2017 10:27:09 下午 org.apache.tiles.servlets.TilesServlet readFactoryConfig
+資訊: CONFIG FILES DEFINED IN WEB.XML
+四月 01, 2017 10:27:09 下午 org.apache.tiles.servlets.TilesServlet initDefinitionsFactory
+資訊: initializing definitions factory...
+四月 01, 2017 10:27:09 下午 org.apache.catalina.startup.HostConfig deployDescriptor
+資訊: Deploying configuration descriptor host-manager.xml
+四月 01, 2017 10:27:10 下午 org.apache.catalina.startup.HostConfig deployDescriptor
+資訊: Deploying configuration descriptor manager.xml
+四月 01, 2017 10:27:10 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory docs
+四月 01, 2017 10:27:10 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory examples
+四月 01, 2017 10:27:11 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory ROOT
+四月 01, 2017 10:27:11 下午 org.apache.coyote.http11.Http11AprProtocol start
+資訊: Starting Coyote HTTP/1.1 on http-80
+四月 01, 2017 10:27:11 下午 org.apache.coyote.ajp.AjpAprProtocol start
+資訊: Starting Coyote AJP/1.3 on ajp-8009
+四月 01, 2017 10:27:11 下午 org.apache.catalina.startup.Catalina start
+資訊: Server startup in 16210 ms
+四月 01, 2017 10:34:22 下午 org.apache.catalina.core.StandardContext reload
+資訊: Reloading Context with name [/northwest] has started
+四月 01, 2017 10:34:23 下午 org.apache.catalina.core.ContainerBase backgroundProcess
+警告: Exception processing loader WebappLoader[/northwest] background process
+java.lang.NullPointerException
+	at org.apache.catalina.loader.WebappClassLoader.findResourceInternal(WebappClassLoader.java:3091)
+	at org.apache.catalina.loader.WebappClassLoader.findResource(WebappClassLoader.java:1260)
+	at org.apache.catalina.loader.WebappClassLoader.getResourceAsStream(WebappClassLoader.java:1493)
+	at org.apache.catalina.loader.WebappClassLoader.clearReferencesJdbc(WebappClassLoader.java:2012)
+	at org.apache.catalina.loader.WebappClassLoader.clearReferences(WebappClassLoader.java:1953)
+	at org.apache.catalina.loader.WebappClassLoader.stop(WebappClassLoader.java:1871)
+	at org.apache.catalina.loader.WebappLoader.stop(WebappLoader.java:742)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4994)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:3524)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:426)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1365)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1657)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1666)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1666)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1646)
+	at java.lang.Thread.run(Unknown Source)
+
+四月 01, 2017 10:37:14 下午 org.apache.catalina.core.AprLifecycleListener init
+資訊: Loaded APR based Apache Tomcat Native library 1.2.10 using APR version 1.5.2.
+四月 01, 2017 10:37:15 下午 org.apache.catalina.core.AprLifecycleListener init
+資訊: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+四月 01, 2017 10:37:16 下午 org.apache.catalina.core.AprLifecycleListener initializeSSL
+資訊: OpenSSL successfully initialized with version OpenSSL 1.0.2j  26 Sep 2016
+四月 01, 2017 10:37:17 下午 org.apache.coyote.http11.Http11AprProtocol init
+資訊: Initializing Coyote HTTP/1.1 on http-80
+四月 01, 2017 10:37:17 下午 org.apache.coyote.ajp.AjpAprProtocol init
+資訊: Initializing Coyote AJP/1.3 on ajp-8009
+四月 01, 2017 10:37:17 下午 org.apache.catalina.startup.Catalina load
+資訊: Initialization processed in 3522 ms
+四月 01, 2017 10:37:17 下午 org.apache.catalina.core.StandardService start
+資訊: Starting service Catalina
+四月 01, 2017 10:37:17 下午 org.apache.catalina.core.StandardEngine start
+資訊: Starting Servlet Engine: Apache Tomcat/6.0.48
+四月 01, 2017 10:37:32 下午 org.apache.tiles.servlets.TilesServlet init
+資訊: Initializing TilesServlet
+四月 01, 2017 10:37:32 下午 org.apache.tiles.servlets.TilesServlet readFactoryConfig
+資訊: CONFIG FILES DEFINED IN WEB.XML
+四月 01, 2017 10:37:32 下午 org.apache.tiles.servlets.TilesServlet initDefinitionsFactory
+資訊: initializing definitions factory...
+四月 01, 2017 10:37:32 下午 org.apache.catalina.startup.HostConfig deployDescriptor
+資訊: Deploying configuration descriptor host-manager.xml
+四月 01, 2017 10:37:32 下午 org.apache.catalina.startup.HostConfig deployDescriptor
+資訊: Deploying configuration descriptor manager.xml
+四月 01, 2017 10:37:33 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory docs
+四月 01, 2017 10:37:33 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory examples
+四月 01, 2017 10:37:33 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory ROOT
+四月 01, 2017 10:37:34 下午 org.apache.coyote.http11.Http11AprProtocol start
+資訊: Starting Coyote HTTP/1.1 on http-80
+四月 01, 2017 10:37:34 下午 org.apache.coyote.ajp.AjpAprProtocol start
+資訊: Starting Coyote AJP/1.3 on ajp-8009
+四月 01, 2017 10:37:34 下午 org.apache.catalina.startup.Catalina start
+資訊: Server startup in 17228 ms
+四月 01, 2017 10:52:54 下午 org.apache.catalina.core.AprLifecycleListener init
+資訊: Loaded APR based Apache Tomcat Native library 1.2.10 using APR version 1.5.2.
+四月 01, 2017 10:52:54 下午 org.apache.catalina.core.AprLifecycleListener init
+資訊: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+四月 01, 2017 10:52:55 下午 org.apache.catalina.core.AprLifecycleListener initializeSSL
+資訊: OpenSSL successfully initialized with version OpenSSL 1.0.2j  26 Sep 2016
+四月 01, 2017 10:52:56 下午 org.apache.coyote.http11.Http11AprProtocol init
+資訊: Initializing Coyote HTTP/1.1 on http-80
+四月 01, 2017 10:52:56 下午 org.apache.coyote.ajp.AjpAprProtocol init
+資訊: Initializing Coyote AJP/1.3 on ajp-8009
+四月 01, 2017 10:52:56 下午 org.apache.catalina.startup.Catalina load
+資訊: Initialization processed in 2405 ms
+四月 01, 2017 10:52:56 下午 org.apache.catalina.core.StandardService start
+資訊: Starting service Catalina
+四月 01, 2017 10:52:56 下午 org.apache.catalina.core.StandardEngine start
+資訊: Starting Servlet Engine: Apache Tomcat/6.0.48
+四月 01, 2017 10:53:07 下午 org.apache.tiles.servlets.TilesServlet init
+資訊: Initializing TilesServlet
+四月 01, 2017 10:53:07 下午 org.apache.tiles.servlets.TilesServlet readFactoryConfig
+資訊: CONFIG FILES DEFINED IN WEB.XML
+四月 01, 2017 10:53:07 下午 org.apache.tiles.servlets.TilesServlet initDefinitionsFactory
+資訊: initializing definitions factory...
+四月 01, 2017 10:53:07 下午 org.apache.catalina.startup.HostConfig deployDescriptor
+資訊: Deploying configuration descriptor host-manager.xml
+四月 01, 2017 10:53:07 下午 org.apache.catalina.startup.HostConfig deployDescriptor
+資訊: Deploying configuration descriptor manager.xml
+四月 01, 2017 10:53:08 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory docs
+四月 01, 2017 10:53:08 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory examples
+四月 01, 2017 10:53:08 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory ROOT
+四月 01, 2017 10:53:09 下午 org.apache.coyote.http11.Http11AprProtocol start
+資訊: Starting Coyote HTTP/1.1 on http-80
+四月 01, 2017 10:53:09 下午 org.apache.coyote.ajp.AjpAprProtocol start
+資訊: Starting Coyote AJP/1.3 on ajp-8009
+四月 01, 2017 10:53:09 下午 org.apache.catalina.startup.Catalina start
+資訊: Server startup in 12769 ms
+四月 01, 2017 10:56:14 下午 org.apache.catalina.core.AprLifecycleListener init
+資訊: Loaded APR based Apache Tomcat Native library 1.2.10 using APR version 1.5.2.
+四月 01, 2017 10:56:14 下午 org.apache.catalina.core.AprLifecycleListener init
+資訊: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+四月 01, 2017 10:56:16 下午 org.apache.catalina.core.AprLifecycleListener initializeSSL
+資訊: OpenSSL successfully initialized with version OpenSSL 1.0.2j  26 Sep 2016
+四月 01, 2017 10:56:16 下午 org.apache.coyote.http11.Http11AprProtocol init
+資訊: Initializing Coyote HTTP/1.1 on http-80
+四月 01, 2017 10:56:16 下午 org.apache.coyote.ajp.AjpAprProtocol init
+資訊: Initializing Coyote AJP/1.3 on ajp-8009
+四月 01, 2017 10:56:16 下午 org.apache.catalina.startup.Catalina load
+資訊: Initialization processed in 2370 ms
+四月 01, 2017 10:56:16 下午 org.apache.catalina.core.StandardService start
+資訊: Starting service Catalina
+四月 01, 2017 10:56:16 下午 org.apache.catalina.core.StandardEngine start
+資訊: Starting Servlet Engine: Apache Tomcat/6.0.48
+四月 01, 2017 10:56:29 下午 org.apache.tiles.servlets.TilesServlet init
+資訊: Initializing TilesServlet
+四月 01, 2017 10:56:29 下午 org.apache.tiles.servlets.TilesServlet readFactoryConfig
+資訊: CONFIG FILES DEFINED IN WEB.XML
+四月 01, 2017 10:56:29 下午 org.apache.tiles.servlets.TilesServlet initDefinitionsFactory
+資訊: initializing definitions factory...
+四月 01, 2017 10:56:29 下午 org.apache.catalina.startup.HostConfig deployDescriptor
+資訊: Deploying configuration descriptor host-manager.xml
+四月 01, 2017 10:56:30 下午 org.apache.catalina.startup.HostConfig deployDescriptor
+資訊: Deploying configuration descriptor manager.xml
+四月 01, 2017 10:56:30 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory docs
+四月 01, 2017 10:56:30 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory examples
+四月 01, 2017 10:56:30 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory ROOT
+四月 01, 2017 10:56:30 下午 org.apache.coyote.http11.Http11AprProtocol start
+資訊: Starting Coyote HTTP/1.1 on http-80
+四月 01, 2017 10:56:31 下午 org.apache.coyote.ajp.AjpAprProtocol start
+資訊: Starting Coyote AJP/1.3 on ajp-8009
+四月 01, 2017 10:56:31 下午 org.apache.catalina.startup.Catalina start
+資訊: Server startup in 14530 ms
+四月 01, 2017 10:58:41 下午 org.apache.catalina.core.AprLifecycleListener init
+資訊: Loaded APR based Apache Tomcat Native library 1.2.10 using APR version 1.5.2.
+四月 01, 2017 10:58:41 下午 org.apache.catalina.core.AprLifecycleListener init
+資訊: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+四月 01, 2017 10:58:43 下午 org.apache.catalina.core.AprLifecycleListener initializeSSL
+資訊: OpenSSL successfully initialized with version OpenSSL 1.0.2j  26 Sep 2016
+四月 01, 2017 10:58:43 下午 org.apache.coyote.http11.Http11AprProtocol init
+資訊: Initializing Coyote HTTP/1.1 on http-80
+四月 01, 2017 10:58:43 下午 org.apache.coyote.ajp.AjpAprProtocol init
+資訊: Initializing Coyote AJP/1.3 on ajp-8009
+四月 01, 2017 10:58:43 下午 org.apache.catalina.startup.Catalina load
+資訊: Initialization processed in 3317 ms
+四月 01, 2017 10:58:44 下午 org.apache.catalina.core.StandardService start
+資訊: Starting service Catalina
+四月 01, 2017 10:58:44 下午 org.apache.catalina.core.StandardEngine start
+資訊: Starting Servlet Engine: Apache Tomcat/6.0.48
+四月 01, 2017 10:58:52 下午 org.apache.tiles.servlets.TilesServlet init
+資訊: Initializing TilesServlet
+四月 01, 2017 10:58:52 下午 org.apache.tiles.servlets.TilesServlet readFactoryConfig
+資訊: CONFIG FILES DEFINED IN WEB.XML
+四月 01, 2017 10:58:52 下午 org.apache.tiles.servlets.TilesServlet initDefinitionsFactory
+資訊: initializing definitions factory...
+四月 01, 2017 10:58:53 下午 org.apache.catalina.startup.HostConfig deployDescriptor
+資訊: Deploying configuration descriptor host-manager.xml
+四月 01, 2017 10:58:53 下午 org.apache.catalina.startup.HostConfig deployDescriptor
+資訊: Deploying configuration descriptor manager.xml
+四月 01, 2017 10:58:53 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory docs
+四月 01, 2017 10:58:53 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory examples
+四月 01, 2017 10:58:54 下午 org.apache.catalina.startup.HostConfig deployDirectory
+資訊: Deploying web application directory ROOT
+四月 01, 2017 10:58:54 下午 org.apache.coyote.http11.Http11AprProtocol start
+資訊: Starting Coyote HTTP/1.1 on http-80
+四月 01, 2017 10:58:54 下午 org.apache.coyote.ajp.AjpAprProtocol start
+資訊: Starting Coyote AJP/1.3 on ajp-8009
+四月 01, 2017 10:58:54 下午 org.apache.catalina.startup.Catalina start
+資訊: Server startup in 10292 ms

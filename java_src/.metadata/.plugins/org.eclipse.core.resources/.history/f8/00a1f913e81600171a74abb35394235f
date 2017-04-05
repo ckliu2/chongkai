@@ -1,0 +1,278 @@
+package northwest.common.web.action;
+
+import northwest.common.value.*;
+import northwest.common.service.BillManager;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.json.*;
+
+import java.util.*;
+import com.common.web.action.CommonActionSupport;
+import com.base.util.Tools;
+import com.base.value.*;
+
+
+
+public class LogisticsAction extends CommonActionSupport
+{
+
+    private static final long serialVersionUID = 1L;
+    private final Log log;
+    private Logistics logistics,logistics1;
+    private String serviceDate;
+    private Long[] selectedLogisticsIds;
+	String keyword;
+
+    public LogisticsAction()
+    {
+        log = LogFactory.getLog(northwest.common.web.action.LogisticsAction.class);
+    }
+
+    public Function getFunction()
+    {
+        return getGenericManager().getFunctionByKey("LOGISTICS");
+    }
+
+    public Logistics getLogistics()
+    {
+        return logistics;
+    }
+
+    public void setLogistics(Logistics val)
+    {
+        logistics = val;
+    }
+
+    public void setGenericManager(BillManager m)
+    {
+        super.setGenericManager(m);
+    }
+
+    public BillManager getGenericManager()
+    {
+        return (BillManager) super.getGenericManager();
+    }
+
+    public String delete()
+    {
+        getGenericManager().removeLogistics(logistics.getId());
+        return DELETE;
+    }
+
+    public String edit()
+    {
+        if (logistics == null) {
+            logistics = new Logistics();
+        } else if (logistics.getId() != null) {
+            logistics = getGenericManager().getLogisticsById(logistics.getId());
+        } else { // TODO
+        }
+        beanToForm();
+
+        return SUCCESS;
+    }
+
+    public String copy()
+    {
+        if (selectedLogisticsIds != null && selectedLogisticsIds.length > 0) {
+            Logistics obj = getGenericManager().getLogisticsById(selectedLogisticsIds[0]);
+            obj.setId(null);
+            logistics = obj;
+        }
+        beanToForm();
+
+        return SUCCESS;
+    }
+
+    public String execute()
+    {
+        log.info("entering 'execute' method");
+        if (getDelete() != null) {
+            return delete();
+        } else {
+            formToBean();
+            if (inputValidation(logistics) == false) 
+                return INPUT;
+        }
+        return SUCCESS;
+    }
+
+    public boolean inputValidation(Logistics val)
+    {
+        return true;
+    }
+
+    public String save()
+    {
+        log.info("entering 'save' method");
+        java.sql.Timestamp ts = Tools.getCurrentTimestamp();
+        if (logistics.getId() == null) {
+            logistics.setCreatedDate(ts);           
+            logistics.setMember(getSessionUser().getMember());
+        }
+        logistics.setLastModifiedDate(ts);     
+        getGenericManager().saveLogistics(logistics);
+        return SUCCESS;
+    }
+
+    public String list()
+    {
+        return SUCCESS;
+    }
+
+    protected void beanToForm()
+    {
+        log.info("enter beanToForm()");
+        serviceDate = Tools.dateToString(logistics.getServiceDate());
+        log.info("exit beanToForm()");
+    }
+
+    protected void formToBean()
+    {
+        log.info("enter formToBean()");
+        logistics.setServiceDate(Tools.convertToDate(serviceDate)); 
+        logistics.setBill(getGenericManager().getBillById(logistics.getBillId())); 
+        logistics.setMember(getGenericManager().getMemberById(logistics.getMemberId())); 
+        logistics.setTime(getAppPropertyById(logistics.getTimeId())); 
+        log.info("exit formToBean()");
+    }
+    public void setServiceDate(String val)
+    {
+        serviceDate = val;
+    }
+
+    public String getServiceDate()
+    {
+        return serviceDate;
+    }
+
+    public List<Bill> getBillList()
+    {
+        return getGenericManager().getBillList(); // TODO
+    }
+
+   
+
+    public List<AppProperty> getTimeList()
+    {
+        return super.getAppPropertyList("logistics.time");
+    }
+
+    public List<Logistics> getLogisticsList()
+    {
+        return getGenericManager().getLogisticsList(keyword);
+    }
+
+    public void setSelectedLogisticsIds(Long[] val)
+    {
+        selectedLogisticsIds = val;
+    }
+
+    public Long[] getSelectedLogisticsIds()
+    {
+        return selectedLogisticsIds;
+    }
+    
+    public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+	
+	
+	
+	public Logistics getLogisticsById() {
+		if(logistics.getId()!=null){
+			logistics= getGenericManager().getLogisticsById(logistics.getId());
+		}else{
+			logistics=new Logistics();
+		}
+		return logistics;
+	}
+	
+	public String logisticsListJSON() {
+		System.out.println("logisticsListJSON *****");
+		JSONObject mainObj = new JSONObject();
+		try {
+			List<Logistics> ls = getGenericManager().getLogisticsList(keyword);
+			JSONArray ja = new JSONArray();
+			for (int i = 0; i < ls.size(); i++) {
+				logistics = ls.get(i);
+				JSONObject jo = new JSONObject();
+				jo.put("id", logistics.getId());
+				jo.put("code", logistics.getCode());
+				jo.put("billno", logistics.getBillId());
+				jo.put("customer", logistics.getBill().getCustomer().getName());
+				jo.put("saleman", logistics.getBill().getCustomer().getSaleman().getName());
+				jo.put("sender", logistics.getSender());
+				jo.put("senderPhone", logistics.getSenderPhone());
+				jo.put("senderAddress", logistics.getSenderAddress());				
+				jo.put("senderMemo", logistics.getSenderMemo());
+				jo.put("recipient", logistics.getRecipient());
+				jo.put("recipientPhone", logistics.getRecipientPhone());
+				jo.put("recipientAddress", logistics.getRecipientAddress());
+				jo.put("serviceDate", Tools.dateToString(logistics.getServiceDate()));				
+				jo.put("time", logistics.getTime().getValueTw());
+				jo.put("member", logistics.getMember().getName());
+				ja.put(jo);
+			}
+			mainObj.put("total", ls.size());
+			mainObj.put("rows", ja);
+
+		} catch (Exception e) {
+			System.out.println("logisticsListJSON **** " + e.toString());
+		}
+		return mainObj.toString();
+	}
+	
+	
+	public String deleteLogisticsJSON() {
+		System.out.println("deleteLogisticsJSON *****");
+		try {
+			
+		}catch (Exception e) {
+			System.out.println("deleteLogisticsJSON **** " + e.toString());
+			return INPUT;
+		}
+		
+	}
+	
+	public String saveLogisticsJSON() {
+		System.out.println("saveLogisticsJSON *****");
+		try {
+			if (logistics.getId() == null) {
+				logistics1 = new Logistics();
+	        } else if (logistics.getId() != null) {
+	        	logistics1 = getGenericManager().getLogisticsById(logistics.getId());
+	        }
+			logistics1.setCode(logistics.getCode());
+			logistics1.setMember(getSessionUser().getMember());
+			logistics1.setBill(getGenericManager().getBillById(logistics.getBillId()));
+			logistics1.setSender(logistics.getSender());
+			logistics1.setSenderPhone(logistics.getSenderPhone());
+			logistics1.setSenderAddress(logistics.getSenderAddress());
+			
+			logistics1.setRecipient(logistics.getRecipient());
+			logistics1.setRecipientPhone(logistics.getRecipientPhone());
+			logistics1.setRecipientAddress(logistics.getRecipientAddress());
+			
+			
+			logistics1.setServiceDate(Tools.convertToDate(serviceDate)); 
+			logistics1.setTime(getAppPropertyById(logistics.getTimeId())); 
+			
+			logistics1.setCreatedDate(Tools.getCurrentTimestamp());
+			logistics1.setLastModifiedDate(Tools.getCurrentTimestamp());
+			
+			getGenericManager().saveLogistics(logistics1);
+			return SUCCESS;
+		} catch (Exception e) {
+			System.out.println("saveLogisticsJSON **** " + e.toString());
+			return INPUT;
+		}
+		
+	}
+	
+	
+}

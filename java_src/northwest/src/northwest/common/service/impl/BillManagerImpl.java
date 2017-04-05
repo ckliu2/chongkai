@@ -26,6 +26,10 @@ public class BillManagerImpl extends CommonManagerImpl implements BillManager {
 	}
 
 	// Bill
+	public List<Bill> getBillByNo(String keyword) {
+		return getGenericDAO().findBillByNo(keyword);
+	}
+
 	public Bill getBillById(String id) {
 		return getGenericDAO().findBillById(id);
 	}
@@ -51,8 +55,7 @@ public class BillManagerImpl extends CommonManagerImpl implements BillManager {
 		return getGenericDAO().getBillGroupAuthority();
 	}
 
-	public List<Bill> getBillListByCondition(Customer customer, String billNo, int state, String startDate,
-			String endDate, int pageSize, int pageIndex) {
+	public List<Bill> getBillListByCondition(Customer customer, String billNo, int state, String startDate, String endDate, int pageSize, int pageIndex) {
 		return getGenericDAO().getBillListByCondition(customer, billNo, state, startDate, endDate, pageSize, pageIndex);
 	}
 
@@ -73,10 +76,8 @@ public class BillManagerImpl extends CommonManagerImpl implements BillManager {
 	 * group,state); }
 	 */
 
-	public List<Bill> getProcessStateByCondition(int condition, Customer customer, String billNo, int pageSize,
-			int pageIndex, Group group, boolean isCheck) {
-		return getGenericDAO().getProcessStateByCondition(condition, customer, billNo, pageSize, pageIndex, group,
-				isCheck);
+	public List<Bill> getProcessStateByCondition(int condition, Customer customer, String billNo, int pageSize, int pageIndex, Group group, boolean isCheck) {
+		return getGenericDAO().getProcessStateByCondition(condition, customer, billNo, pageSize, pageIndex, group, isCheck);
 	}
 
 	// BillFiles
@@ -105,8 +106,7 @@ public class BillManagerImpl extends CommonManagerImpl implements BillManager {
 		return getGenericDAO().findAllBillDetail();
 	}
 
-	public List<BillDetail> getBillScheduleListByCondition(Long step, Product product, boolean result, int pageSize,
-			int pageIndex) {
+	public List<BillDetail> getBillScheduleListByCondition(Long step, Product product, boolean result, int pageSize, int pageIndex) {
 		return getGenericDAO().getBillScheduleListByCondition(step, product, result, pageSize, pageIndex);
 	}
 
@@ -114,8 +114,7 @@ public class BillManagerImpl extends CommonManagerImpl implements BillManager {
 		return getGenericDAO().getBillScheduleListByCondition(step, product, result);
 	}
 
-	public List<Meter> getMeterListByCondition(Long step, Product product, boolean result, int pageSize,
-			int pageIndex) {
+	public List<Meter> getMeterListByCondition(Long step, Product product, boolean result, int pageSize, int pageIndex) {
 		return getGenericDAO().getMeterListByCondition(step, product, result, pageSize, pageIndex);
 	}
 
@@ -504,13 +503,11 @@ public class BillManagerImpl extends CommonManagerImpl implements BillManager {
 		return getGenericDAO().getProfitListSum(projectNo, start, end, customer, salesmen);
 	}
 
-	public List<Profit> getProfitList(String projectNo, String start, String end, Customer customer, Member salesmen,
-			int pageSize, int pageIndex) {
+	public List<Profit> getProfitList(String projectNo, String start, String end, Customer customer, Member salesmen, int pageSize, int pageIndex) {
 		return getGenericDAO().getProfitList(projectNo, start, end, customer, salesmen, pageSize, pageIndex);
 	}
 
-	public int getProfitListByConditionCount(String projectNo, String start, String end, Customer customer,
-			Member salesmen) {
+	public int getProfitListByConditionCount(String projectNo, String start, String end, Customer customer, Member salesmen) {
 		return getGenericDAO().getProfitListByConditionCount(projectNo, start, end, customer, salesmen);
 	}
 
@@ -623,6 +620,41 @@ public class BillManagerImpl extends CommonManagerImpl implements BillManager {
 
 	public List<BillQA> getBillQAList(String startDate, String endDate, String billno, Customer customer) {
 		return getGenericDAO().findAllBillQA(startDate, endDate, billno, customer);
+	}
+
+	// Logistics
+	public void saveLogistics(Logistics val) {
+		getGenericDAO().saveLogistics(val);
+	}
+
+	public void removeLogistics(Long id) {
+		getGenericDAO().removeLogistics(id);
+	}
+
+	public Logistics getLogisticsById(Long id) {
+		return getGenericDAO().findLogisticsById(id);
+	}
+
+	public List<Logistics> getLogisticsList(String keyword, Date startDate, Date endDate) {
+		return getGenericDAO().findAllLogistics(keyword, startDate, endDate);
+	}
+
+	// SenderDB
+	public List<SenderDB> getSenderDBList(String keyword) {
+		return getGenericDAO().findAllSenderDB(keyword);
+	}
+
+	// LogisticsCode
+	public void saveLogisticsCode(LogisticsCode val) {
+		getGenericDAO().saveLogisticsCode(val);
+	}
+
+	public void removeLogisticsCode(Logistics val) {
+		getGenericDAO().removeLogisticsCode(val);
+	}
+
+	public LogisticsCode getLastOneLogisticsCode() {
+		return getGenericDAO().getLastOneLogisticsCode();
 	}
 
 }

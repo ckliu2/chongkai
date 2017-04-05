@@ -21,6 +21,7 @@
         <property name="salesCost" type="integer"  />         
         <property name="purchase" type="integer"  />
         <property name="profit" type="integer"  />
+         <property name="fee" type="integer"  />
         <property name="discount" type="integer"  />  
         <property name="recdiscount" type="integer"  />   
         <property name="profitPerc" type="big_decimal"  /> 

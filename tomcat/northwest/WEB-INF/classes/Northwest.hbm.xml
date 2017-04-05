@@ -476,6 +476,66 @@
     	</list>
         
     </class> 
+    
+    
+     <!-- 
+    ************************ 
+    * 收件列印
+    ************************
+    -->    	
+  	<class name="northwest.common.value.LogisticsCode" table="Northwest_LogisticsCode">  	 
+        <id name="id" column="id" unsaved-value="null">
+            <generator class="identity"/>
+        </id>  
+       <property name="code" type="string" not-null="true"/> 
+       <many-to-one name="logistics" class="northwest.common.value.Logistics" cascade="none" not-null="true"/>
+    </class>
+    
+    <!-- 
+    ************************ 
+    * 收件列印
+    ************************
+    -->    	
+  	<class name="northwest.common.value.Logistics" table="Northwest_Logistics">  	 
+        <id name="id" column="id" unsaved-value="null">
+            <generator class="identity"/>
+        </id>  
+        <property name="code" type="string" not-null="true"/> 
+        <many-to-one name="bill" class="northwest.common.value.Bill"  column="bill" not-null="true"/>             
+        <many-to-one name="member" class="com.common.value.Member" cascade="none" not-null="true"/>
+        
+        <property name="sender" type="string" not-null="true"/> 
+        <property name="senderPhone" type="string" not-null="true"/> 
+        <property name="senderAddress" type="string" not-null="true"/> 
+        <property name="senderMemo" type="string" /> 
+        
+        <property name="recipient" type="string" not-null="true"/> 
+        <property name="recipientPhone" type="string" not-null="true"/> 
+        <property name="recipientAddress" type="string" not-null="true"/> 
+       
+        <property name="serviceDate" type="date" not-null="true"/> 
+        <many-to-one name="time"  class="com.base.value.AppProperty" cascade="none" not-null="true"/>
+           
+        <property name="lastModifiedDate"   type="timestamp"    not-null="true" />       
+        <property name="createdDate"        type="timestamp"    insert="true" update="false" not-null="true" /> 
+        
+    </class> 
+    
+    
+    <!-- 
+    ************************ 
+    * 寄件人DB
+    ************************
+    -->    	
+  	<class name="northwest.common.value.SenderDB" table="Northwest_SenderDB">  	 
+        <id name="id" column="id" unsaved-value="null">
+            <generator class="identity"/>
+        </id>  
+        <property name="sender" type="string" not-null="true"/> 
+        <property name="senderPhone" type="string" not-null="true"/> 
+        <property name="senderAddress" type="string" not-null="true"/> 
+        <property name="senderMemo" type="string" /> 
+    </class> 
 
   	
   	 

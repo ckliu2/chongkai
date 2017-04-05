@@ -29,6 +29,10 @@
         <property name="genericManager" ref="freightManager"/>
     </bean>
 
+    <bean id="senderDBAction" class="northwest.common.web.action.SenderDBAction" singleton="false">
+        <property name="genericManager" ref="senderDBManager"/>
+    </bean>
+
     <bean id="billQAAction" class="northwest.common.web.action.BillQAAction" singleton="false">
         <property name="genericManager" ref="billQAManager"/>
     </bean>
@@ -63,6 +67,14 @@
 
     <bean id="customerDetailAction" class="northwest.common.web.action.CustomerDetailAction" singleton="false">
         <property name="genericManager" ref="customerDetailManager"/>
+    </bean>
+
+    <bean id="logisticsCodeAction" class="northwest.common.web.action.LogisticsCodeAction" singleton="false">
+        <property name="genericManager" ref="logisticsCodeManager"/>
+    </bean>
+
+    <bean id="logisticsAction" class="northwest.common.web.action.LogisticsAction" singleton="false">
+        <property name="genericManager" ref="logisticsManager"/>
     </bean>
 
     <bean id="customerAction" class="northwest.common.web.action.CustomerAction" singleton="false">

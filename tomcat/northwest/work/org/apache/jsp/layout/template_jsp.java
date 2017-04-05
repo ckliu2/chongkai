@@ -194,7 +194,7 @@ if (false) {
       out.write("    <!--tips-->    \r\n");
       out.write("    <script src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-      out.write("/scripts/jquery-1.3.2.min.js\"></script>\r\n");
+      out.write("/scripts/jquery-1.7.2.js\"></script>\r\n");
       out.write("    <script src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${ctx}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
       out.write("/scripts/justthetip.js\"></script>\r\n");

@@ -6,7 +6,7 @@ import com.base.util.Tools;
 import com.base.value.Function;
 import com.base.value.Group;
 
-import com.base.value.NameValue;
+import com.base.value.*;
 import com.base.value.SessionUser;
 import com.base.web.action.BaseActionSupport;
 import com.common.service.CommonManager;
@@ -515,5 +515,9 @@ public abstract class CommonActionSupport extends BaseActionSupport
         al.add(nv); 
         return al;  
     }
+    
+    public List<AppProperty> getLogisticsTimeList() {
+		return super.getAppPropertyList("logistics.time");
+	}
 
 }
